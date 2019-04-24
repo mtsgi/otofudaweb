@@ -1,7 +1,35 @@
+body{
+    margin: 0;
+    background: #202020;
+    color: #f0f0f0;
+    text-shadow: 0 1px 4px cyan;
+}
 header{
     position: fixed;
-    background: #f0f0f0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    font-size: 30px;
+}
+header span{
+    vertical-align: middle;
+    font-size: 20px;
+    margin: 0 10px;
 }
 section{
-    padding: 30px 5px;
+    padding-top: 50px;
+}
+#scroll{
+    position: fixed;
+    background: transparent;
+    border-bottom: 2px solid #f0f0f0;
+    border-right: 2px solid #f0f0f0;
+    width: 60px;
+    height: 60px;
+    right: 30px;
+    bottom: 15px;
+    transform: scaleY(.7) rotate(45deg);
+    cursor: pointer;
 }
