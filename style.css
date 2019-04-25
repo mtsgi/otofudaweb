@@ -4,6 +4,9 @@ body{
     color: #f0f0f0;
     text-shadow: 0 1px 4px cyan;
     font-family: 'Sawarabi Mincho', sans-serif;
+    background: url(bg.png);
+    background-attachment: fixed;
+    background-size: cover;
 }
 header{
     position: fixed;
@@ -12,6 +15,13 @@ header{
     width: 100%;
     padding: 15px;
     text-align: center;
+}
+header img{
+    height: 50px;
+}
+header span img{
+    height: 30px;
+    vertical-align: super;
 }
 #to-top{
     cursor: pointer;
@@ -23,7 +33,8 @@ header{
     margin: 0 10px;
 }
 section{
-    padding-top: 50px;
+    text-align: center;
+    padding-top: 55px;
 }
 #scroll{
     position: fixed;
@@ -38,8 +49,8 @@ section{
     cursor: pointer;
 }
 #title-text{
-    float: right;
-    padding: 10px 30px;
+    width: 200px;
+    padding: 40px calc(50% - 100px);
     text-align: left;
     line-height: 40px;
     letter-spacing: 10px;
