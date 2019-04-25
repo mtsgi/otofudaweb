@@ -6,7 +6,7 @@ $(function() {
         scrollSpeed: 1100,
         updateHash: false
     });
-    $("header").on("click", () => {
+    $("#to-top").on("click", () => {
         $.scrollify.move("#title");
     });
     $("#scroll").on("click", () => {

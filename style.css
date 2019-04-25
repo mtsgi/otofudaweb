@@ -3,6 +3,7 @@ body{
     background: #202020;
     color: #f0f0f0;
     text-shadow: 0 1px 4px cyan;
+    font-family: 'Sawarabi Mincho', sans-serif;
 }
 header{
     position: fixed;
@@ -11,9 +12,12 @@ header{
     width: 100%;
     padding: 15px;
     text-align: center;
+}
+#to-top{
+    cursor: pointer;
     font-size: 30px;
 }
-header span{
+#to-top span{
     vertical-align: middle;
     font-size: 20px;
     margin: 0 10px;
@@ -32,4 +36,37 @@ section{
     bottom: 15px;
     transform: scaleY(.7) rotate(45deg);
     cursor: pointer;
+}
+#title-text{
+    float: right;
+    padding: 10px 30px;
+    text-align: left;
+    line-height: 40px;
+    letter-spacing: 10px;
+    writing-mode: vertical-rl;
+}
+#links-box{
+    text-align: center;
+}
+.link{
+    width: 100px;
+    height: 150px;
+    border: 4px solid #e0e0e0;
+    border-radius: 6px;
+    color: #f0f0f0;
+    text-decoration: none;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 20px;
+    font-size: 40px;
+    margin: 30px;
+    box-shadow: inset 0 0 0 6px #707070;
+    transform: rotate(5deg);
+    transition: .2s all ease;
+}
+.link:hover{
+    transform: scale(1.1) rotate(0deg);
+}
+.link:active{
+    transform: scale(0.9) rotate(0deg);
 }

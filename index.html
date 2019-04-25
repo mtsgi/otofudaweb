@@ -8,13 +8,34 @@
     <script src="jquery.scrollify.js"></script>
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&amp;subset=japanese" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css" integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/fontawesome.css" integrity="sha384-vd1e11sR28tEK9YANUtpIOdjGW14pS87bUBuOIoBILVWLFnS+MCX9T6MMf0VdPGq" crossorigin="anonymous">
     <title>音札 -おとふだ-</title>
 </head>
 <body>
-    <header>音札<span>-おとふだ-</span></header>
-    <section data-section-name="title">1</section>
-    <section data-section-name="body">2</section>
-    <section data-section-name="config">3</section>
+    <header>
+        <a id="to-top">音札<span>-おとふだ-</span></a>
+    </header>
+
+    <section data-section-name="title">
+        <div id="title-text">これはテキストです<br>ここには文が入ります<br>これはタイトルテキストです</div>
+    </section>
+
+    <section data-section-name="body">
+        <div style="padding: 20px">
+            ここには通常の説明が入ります<br>
+            画像が入ったりします<br>
+            これはボディーの説明用テキストです
+        </div>
+    </section>
+    <section data-section-name="links">
+        <div id="links-box">
+            <a href="https://twitter.com/otofuda" class="link fab fa-twitter"></a>
+            <a href="https://otofudaproject.tumblr.com/" class="link fab fa-tumblr"></a>
+            <a href="" class="link fab fa-youtube"></a>
+        </div>
+    </section>
     <script src="main.js"></script>
     <div id="scroll"></div>
 </body>
