@@ -82,3 +82,9 @@ section{
 .link:active{
     transform: scale(0.9) rotate(0deg);
 }
+.imgbutton{
+    cursor: pointer;
+    width: 400px;
+    margin: 4% 0;
+    max-width: 80%;
+}
