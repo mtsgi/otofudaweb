@@ -3,7 +3,8 @@ $(function() {
         section : "section",
         scrollbars: false,
         touchScroll:true,
-        scrollSpeed: 1100,
+        scrollSpeed: 1200,
+        overflowScroll: true,
         updateHash: false
     });
     $("#to-top").on("click", () => {

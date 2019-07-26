@@ -7,14 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="jquery.min.js"></script>
     <script src="jquery.scrollify.js"></script>
-    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
+    <link rel="stylesheet" href="./skeleton.css" />
     <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&amp;subset=japanese" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css"
         integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/fontawesome.css"
         integrity="sha384-vd1e11sR28tEK9YANUtpIOdjGW14pS87bUBuOIoBILVWLFnS+MCX9T6MMf0VdPGq" crossorigin="anonymous">
     <title>音札 -おとふだ-</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/css/uikit.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -127,37 +131,53 @@
             </g>
         </g>
     </svg>
-    <header>
-        <a id="to-top">
-            <img src="title.png" alt="音札" id="header-title">
-            <span><img src="title-sub.png" alt="おとふだ" id="header-title-sub"></span>
-        </a>
-        <a id="header-tweet" href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&text=%E9%9F%B3%E6%9C%AD%20-%E3%81%8A%E3%81%A8%E3%81%B5%E3%81%A0-&tw_p=tweetbutton&url=https://j.mp/otofuda" target="_blank">
-            <i class="fab fa-twitter"></i>
-        </a>
-    </header>
+    <nav>
+        <div class="row">
+            <div class="columns">
+                <a href="/"><img src="./title.png" alt="音札"></a>
+                <a class="item" href="./music">遊び方</a>
+                <a class="item" href="./music">収録楽曲</a>
+                <a class="item" href="./music">キャラクター</a>
+            </div>
+        </div>
+    </nav>
 
     <section data-section-name="title">
-        <div id="title-text">
-            <img src="./copy.png" alt="">
+        <div id="title-copy">
+            <img id="title-img" src="./images/copy.png" alt="">
+            <br>
+            <a class="scroll" onclick="$.scrollify.next()"></a>
         </div>
     </section>
 
-    <section data-section-name="body">
-        <h2>コンテンツ</h2>
-        <img src="./button1.png" class="imgbutton" alt="1">
-        <img src="./button2.png" class="imgbutton" alt="2">
-        <img src="./button3.png" class="imgbutton" alt="3">
-    </section>
-    <section data-section-name="links">
-        <h2>最新情報はこちら</h2>
-        <div id="links-box">
-            <a href="https://twitter.com/otofuda" class="link fab fa-twitter"></a>
-            <a href="https://otofudaproject.tumblr.com/" class="link fab fa-tumblr"></a>
+    <section data-section-name="overview">
+        <div id="overview-text">
+            <div id="overview-text0">2019年7月20日、第1回</div>
+            <div id="overview-text1">先行ロケテスト</div>
+            <div id="overview-text2">を開催しました。</div>
+            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="animation: push; max-height: 400">
+                <ul class="uk-slideshow-items">
+                    <li>
+                        <img src="./images/location01.jpg" alt="" uk-cover>
+                    </li>
+                    <li>
+                        <img src="images/location02.jpg" alt="" uk-cover>
+                    </li>
+                    <li>
+                        <img src="images/location03.jpg" alt="" uk-cover>
+                    </li>
+                </ul>
+                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
+                    uk-slideshow-item="previous"></a>
+                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
+                    uk-slideshow-item="next"></a>
+                <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
+            </div>
         </div>
     </section>
+
+
     <script src="main.js"></script>
-    <div id="scroll"></div>
 </body>
 
 </html>
