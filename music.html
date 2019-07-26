@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="jquery.min.js"></script>
-    <script src="jquery.scrollify.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
     <link rel="stylesheet" href="./skeleton.css" />
     <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&amp;subset=japanese" rel="stylesheet">
@@ -136,56 +135,50 @@
             <div class="columns">
                 <a href="/"><img src="./title.png" alt="音札"></a>
                 <a class="item" href="./music">遊び方</a>
-                <a class="item" href="./music">収録楽曲</a>
+                <a class="item active" href="./music">収録楽曲</a>
                 <a class="item" href="./music">キャラクター</a>
             </div>
         </div>
     </nav>
 
-    <section data-section-name="title">
-        <div id="title-copy">
-            <img id="title-img" src="./images/copy.png" alt="">
-            <br>
-            <a class="scroll" onclick="$.scrollify.next()"></a>
-        </div>
-    </section>
-
-    <section data-section-name="overview">
-        <div id="overview-text">
-            <div class="common-medium">2019年7月20日、第1回</div>
-            <div class="common-large">先行ロケテスト</div>
-            <div class="common-medium">を開催しました。</div>
-            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1"
-                uk-slideshow="animation: push; max-height: 400">
-                <ul class="uk-slideshow-items">
-                    <li>
-                        <img src="./images/location01.jpg" alt="" uk-cover>
-                    </li>
-                    <li>
-                        <img src="images/location02.jpg" alt="" uk-cover>
-                    </li>
-                    <li>
-                        <img src="images/location03.jpg" alt="" uk-cover>
-                    </li>
-                </ul>
-                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
-                    uk-slideshow-item="previous"></a>
-                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
-                    uk-slideshow-item="next"></a>
-                <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
+    <section id="music">
+        <h1 class="uk-heading-line uk-text-center"><span>収録楽曲</span></h1>
+        
+        <div class="music">
+            <div class="music-info">
+                <img src="./jacket/otofuda.png" alt="">
+                <div class="music-detail">
+                    オトフダビヨリ
+                    <div class="music-composer">idady</div>
+                    <div class="music-other">BPM:180.0</div>
+                    <div class="music-other">譜面制作:マテすぎ</div>
+                </div>
+            </div>
+            <div class="music-level">
+                <a class="easy">1</a>
+                <a class="normal">5</a>
+                <a class="hard">9</a>
             </div>
         </div>
-    </section>
-
-    <section data-section-name="links">
-        <div class="common-large">最新情報はこちら</div>
-        <div class="links-box">
-            <a href="https://twitter.com/otofuda" class="links-link fab fa-twitter" uk-tooltip="Twitter"></a>
-            <a href="https://otofudaproject.tumblr.com/" class="links-link fab fa-tumblr" uk-tooltip="Tumblr"></a>
+        
+        <div class="music">
+            <div class="music-info">
+                <img src="./jacket/puzzle.png" alt="">
+                <div class="music-detail">
+                    Puzzle
+                    <div class="music-composer">idady</div>
+                    <div class="music-other">BPM:120.0</div>
+                    <div class="music-other">譜面制作:OTOFUDA Sound Team "謎の勢力M"</div>
+                </div>
+            </div>
+            <div class="music-level">
+                <a class="easy">4</a>
+                <a class="normal">8</a>
+                <a class="hard">10</a>
+            </div>
         </div>
-    </section>
 
-    <script src="main.js"></script>
+    </section>
 </body>
 
 </html>

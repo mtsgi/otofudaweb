@@ -1,8 +1,8 @@
 html {
   margin: 0;
-  background: #202020;
+  background: #303030;
   color: #f0f0f0;
-  text-shadow: 0 1px 4px cyan;
+  text-shadow: 0 1px 4px rgba(0, 255, 255, 0.8);
   font-family: 'Sawarabi Mincho', sans-serif;
   background-attachment: fixed;
   background-size: cover;
@@ -15,6 +15,7 @@ nav {
   width: 100%;
   background: rgba(30, 30, 30, .8);
   box-shadow: 0 0 40px -10px cyan;
+  z-index: 999;
 }
 
 nav .row img {
@@ -40,6 +41,14 @@ nav .row .item:hover {
   box-shadow: 0px 0px 0 1px white, 0px 0px 0 1px white;
 }
 
+nav .row .item.active{
+  border-bottom: 2px solid #f0f0f0;
+}
+
+nav .row .item.active:hover{
+  box-shadow: none;
+}
+
 nav .row button {
   padding: 0;
   margin: 10px;
@@ -49,7 +58,9 @@ nav .row button {
 }
 
 section {
-  padding-top: 88px;
+  color: white;
+  text-align: center;
+  padding-top: 98px;
   font-family: 'Sawarabi Mincho', sans-serif;
 }
 
@@ -57,7 +68,6 @@ section {
 
 section #title-copy {
   padding: 20px;
-  text-align: center;
 }
 
 section #title-img {
@@ -99,30 +109,141 @@ section #title-img {
   transform: rotate(45deg);
 }
 
-/* overview */
-
-section #overview-text {
-  text-align: center;
-  color: #f0f0f0;
-}
-
-section #overview-text0 {
-  margin-top: 10px;
+.common-medium {
+  line-height: 1.75;
   font-size: 15px;
 }
 
-section #overview-text1 {
+.common-large{
   line-height: 1.75;
   font-size: 25px;
 }
 
-section #overview-text2 {
-  font-size: 15px;
-}
+/* overview */
 
 section #overview-text .uk-slideshow {
   margin-top: 30px;
 }
+
+/* links */
+
+.links-box {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.links-link {
+  width: 100px;
+  height: 150px;
+  border: 4px solid #e0e0e0;
+  border-radius: 6px;
+  color: #f0f0f0;
+  background: #202020;
+  text-decoration: none;
+  text-align: center;
+  box-sizing: border-box;
+  padding-top: 20px;
+  font-size: 40px;
+  margin: 30px;
+  box-shadow: inset 0 0 0 6px #707070;
+  transform: rotate(3deg);
+  transition: .2s all ease;
+}
+
+.links-link:hover {
+  color: inherit;
+  text-decoration: none;
+  transform: scale(1.1) rotate(0deg);
+}
+
+.links-link:active {
+  transform: scale(0.9) rotate(0deg);
+}
+
+/* MUSIC */
+
+#music{
+  margin: 0 15px;
+}
+
+#music .uk-heading-line{
+  color: #f0f0f0;
+}
+
+.music{
+  padding: 6px;
+  margin: 40px auto;
+  border-radius: 4px;
+  border: 3px solid #f0f0f0;
+  background: rgba(0,0,0,.4);
+  max-width: 600px;
+  box-shadow: 0 0 12px -5px cyan, inset 0 0 12px -5px cyan;
+}
+
+.music .music-info{
+  display: flex;
+}
+
+.music .music-info img{
+  margin: 6px;
+  width: 120px;
+  height: 120px;
+}
+
+.music .music-detail{
+  display: block;
+  flex-grow: 1;
+  margin: 6px;
+  font-size: 22px;
+  text-align: left;
+}
+
+.music .music-composer{
+  font-size: 16px;
+}
+
+.music .music-other{
+  font-size: 16px;
+  text-align: right;
+  opacity: .8;
+}
+
+.music-level{
+  margin: 10px 0;
+  border-top: 1px solid #f0f0f0;
+  text-align: left;
+  padding: 8px;
+}
+
+.music .music-level a{
+  cursor: default;
+  color: #f0f0f0;
+  text-shadow: 0 1px 2px black;
+  border: 3px solid #000000;
+  display: inline-block;
+  width: 50px;
+  padding: 2px;
+  font-size: 18px;
+  text-align: center;
+  box-shadow: 0 5px 10px -4px cyan;
+}
+
+.music .music-level a:hover{
+  text-decoration: none;
+}
+
+.music .music-level .easy{
+  background: #25ca25;
+}
+
+.music .music-level .normal{
+  background: #ffb223;
+}
+
+.music .music-level .hard{
+  background: rgb(255, 9, 144);
+}
+
 
 /* bg */
 
