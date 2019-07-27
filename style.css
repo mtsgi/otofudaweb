@@ -16,6 +16,7 @@ nav {
   background: rgba(30, 30, 30, .8);
   box-shadow: 0 0 40px -10px cyan;
   z-index: 999;
+  animation: 3s clight infinite ease;
 }
 
 nav .row img {
@@ -321,5 +322,14 @@ section #overview-text .uk-slideshow {
   }
   50% {
     top: 30px;
+  }
+}
+
+@keyframes clight {
+  0%, 100% {
+    box-shadow: 0 0 30px -10px cyan;
+  }
+  50% {
+    box-shadow: 0 0 40px -10px cyan;
   }
 }
