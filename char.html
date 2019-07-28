@@ -5,10 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="「花札 × 対戦 × 音楽」これまでにない新感覚対戦型音楽カードゲーム" />
-    <meta name="robots" content="noarchive">
     <script src="jquery.min.js"></script>
-    <script src="jquery.scrollify.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
     <link rel="stylesheet" href="./skeleton.css" />
     <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&amp;subset=japanese" rel="stylesheet">
@@ -16,27 +13,11 @@
         integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/fontawesome.css"
         integrity="sha384-vd1e11sR28tEK9YANUtpIOdjGW14pS87bUBuOIoBILVWLFnS+MCX9T6MMf0VdPGq" crossorigin="anonymous">
-    <title>音札 -おとふだ-</title>
+    <title>キャラクター | 音札 -おとふだ-</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/css/uikit.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/js/uikit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/js/uikit-icons.min.js"></script>
     <link rel="stylesheet" href="style.css">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144641349-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {dataLayer.push( arguments );}
-        gtag( 'js', new Date() );
-
-        gtag( 'config', 'UA-144641349-1' );
-    </script>
-    <script type="application/ld+json">
-        { 
-          "@context": "http://schema.org/", 
-          "@type": "WebSite",
-          "name": "音札 -おとふだ-",
-          "url": "https://www.ne.senshu-u.ac.jp/~proj2019-13/"
-        } 
-    </script>
 </head>
 
 <body>
@@ -155,66 +136,20 @@
                 <a href="./"><img src="./title.png" alt="音札"></a>
                 <a class="item" href="./play">遊び方</a>
                 <a class="item" href="./music">収録楽曲</a>
-                <a class="item" href="./char">キャラ</a>
+                <a class="item active" href="./char">キャラ</a>
             </div>
         </div>
     </nav>
 
-    <section data-section-name="title">
-        <div id="title-copy">
-            <img id="title-img" src="./images/copy.png" alt="">
-            <br>
-            <a class="scroll" onclick="$.scrollify.next()"></a>
-        </div>
-    </section>
+    <section id="char">
+        
+        <div class="common-large">キャラクター</div>
+        
+        <img src="./images/charinfo.png" alt="華音" class="uk-margin-top" uk-img>
+        
+        <p class="common-medium">華音(かのん)は17歳の女の子です。</p>
 
-    <section data-section-name="overview">
-        <div id="overview-text">
-            <div class="common-medium">2019年7月20日、第1回</div>
-            <div class="common-large">先行ロケテスト</div>
-            <div class="common-medium">を開催しました。<a href="https://otofudaproject.tumblr.com/">詳細</a></div>
-            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1"
-                uk-slideshow="animation: push; max-height: 400">
-                <ul class="uk-slideshow-items">
-                    <li>
-                        <img src="./images/location01.jpg" alt="" uk-cover>
-                    </li>
-                    <li>
-                        <img src="images/location02.jpg" alt="" uk-cover>
-                    </li>
-                    <li>
-                        <img src="images/location03.jpg" alt="" uk-cover>
-                    </li>
-                    <li>
-                        <img src="images/location04.png" alt="" uk-cover>
-                    </li>
-                </ul>
-                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
-                    uk-slideshow-item="previous"></a>
-                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
-                    uk-slideshow-item="next"></a>
-                <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
-            </div>
-        </div>
     </section>
-
-    <section data-section-name="pages">
-        <div class="common-large">もっと音札について知る</div>
-        <p class="common-medium">音札のホームページのコンテンツです。</p>
-        <a href="./play" class="uk-button uk-button-secondary uk-button-large uk-display-block uk-margin" uk-tooltip="遊び方説明です">HOW TO PLAY</a>
-        <a href="./music" class="uk-button uk-button-secondary uk-button-large uk-display-block uk-margin" uk-tooltip="収録楽曲の一覧です">MUSIC LIST</a>
-        <a href="./char" class="uk-button uk-button-secondary uk-button-large uk-display-block uk-margin" uk-tooltip="キャラクターの紹介です">CHARACTER</a>
-    </section>
-
-    <section data-section-name="links">
-        <div class="common-large">最新情報はこちら</div>
-        <div class="links-box">
-            <a href="https://twitter.com/otofuda" class="links-link fab fa-twitter" uk-tooltip="Twitter"></a>
-            <a href="https://otofudaproject.tumblr.com/" class="links-link fab fa-tumblr" uk-tooltip="Tumblr"></a>
-        </div>
-    </section>
-
-    <script src="main.js"></script>
 </body>
 
 </html>

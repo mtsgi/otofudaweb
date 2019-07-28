@@ -2,7 +2,7 @@ html {
   margin: 0;
   background: #303030;
   color: #f0f0f0;
-  text-shadow: 0 1px 4px rgba(0, 255, 255, 0.8);
+  text-shadow: 0 1px 4px rgba(0, 255, 255, 1.0), 0 1px 8px rgba(0, 255, 255, 0.5);
   font-family: 'Sawarabi Mincho', sans-serif;
   background-attachment: fixed;
   background-size: cover;
@@ -44,6 +44,7 @@ nav .row .item:hover {
 
 nav .row .item.active{
   border-bottom: 2px solid #f0f0f0;
+  text-shadow: 0 1px 4px rgba(0, 255, 255, 1.0), 0 1px 8px rgba(0, 255, 255, 1), 0 1px 6px rgba(0, 255, 255, 1);
 }
 
 nav .row .item.active:hover{
@@ -201,6 +202,11 @@ section #overview-text .uk-slideshow {
 
 .music .music-composer{
   font-size: 16px;
+}
+
+.music .music-composer::before{
+  opacity: .6;
+  content: "Artist : ";
 }
 
 .music .music-other{

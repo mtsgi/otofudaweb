@@ -16,7 +16,7 @@
         integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/fontawesome.css"
         integrity="sha384-vd1e11sR28tEK9YANUtpIOdjGW14pS87bUBuOIoBILVWLFnS+MCX9T6MMf0VdPGq" crossorigin="anonymous">
-    <title>音札 -おとふだ-</title>
+    <title>遊び方 | 音札 -おとふだ-</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/css/uikit.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/js/uikit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/js/uikit-icons.min.js"></script>
@@ -153,7 +153,7 @@
         <div class="row">
             <div class="columns">
                 <a href="./"><img src="./title.png" alt="音札"></a>
-                <a class="item" href="./play">遊び方</a>
+                <a class="item active" href="./play">遊び方</a>
                 <a class="item" href="./music">収録楽曲</a>
                 <a class="item" href="./char">キャラ</a>
             </div>
@@ -162,55 +162,52 @@
 
     <section data-section-name="title">
         <div id="title-copy">
-            <img id="title-img" src="./images/copy.png" alt="">
-            <br>
+            <p class="common-large">遊び方</p>
+            <p class="common-medium">「音札」は音楽ゲームに花札をモチーフにしたカードゲームによる対戦システムを持っています。</p>
+            <p class="common-medium">今までの「音ゲー」にはなかった戦略性のある演奏バトルを楽しむことができます。</p>
+            <p class="common-medium">下にスクロールして、ゲームの流れと基本的な遊び方を見ることができます。</p>
             <a class="scroll" onclick="$.scrollify.next()"></a>
         </div>
     </section>
 
-    <section data-section-name="overview">
-        <div id="overview-text">
-            <div class="common-medium">2019年7月20日、第1回</div>
-            <div class="common-large">先行ロケテスト</div>
-            <div class="common-medium">を開催しました。<a href="https://otofudaproject.tumblr.com/">詳細</a></div>
+    <section data-section-name="play1">
+        <div id="title-copy">
+            <p class="common-large">筐体について</p>
+            <p class="common-medium">音札の筐体には、操作デバイスが1P側と2P側についています。</p>
             <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1"
                 uk-slideshow="animation: push; max-height: 400">
                 <ul class="uk-slideshow-items">
                     <li>
-                        <img src="./images/location01.jpg" alt="" uk-cover>
+                        <img src="./images/cabinet01.png" alt="" uk-cover>
                     </li>
                     <li>
-                        <img src="images/location02.jpg" alt="" uk-cover>
-                    </li>
-                    <li>
-                        <img src="images/location03.jpg" alt="" uk-cover>
-                    </li>
-                    <li>
-                        <img src="images/location04.png" alt="" uk-cover>
+                        <img src="images/cabinet02.jpg" alt="" uk-cover>
                     </li>
                 </ul>
                 <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
                     uk-slideshow-item="previous"></a>
                 <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
                     uk-slideshow-item="next"></a>
-                <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
             </div>
+            <a class="scroll" onclick="$.scrollify.next()"></a>
         </div>
     </section>
 
-    <section data-section-name="pages">
-        <div class="common-large">もっと音札について知る</div>
-        <p class="common-medium">音札のホームページのコンテンツです。</p>
-        <a href="./play" class="uk-button uk-button-secondary uk-button-large uk-display-block uk-margin" uk-tooltip="遊び方説明です">HOW TO PLAY</a>
-        <a href="./music" class="uk-button uk-button-secondary uk-button-large uk-display-block uk-margin" uk-tooltip="収録楽曲の一覧です">MUSIC LIST</a>
-        <a href="./char" class="uk-button uk-button-secondary uk-button-large uk-display-block uk-margin" uk-tooltip="キャラクターの紹介です">CHARACTER</a>
+    <section data-section-name="play2">
+        <div id="title-copy">
+            <p class="common-large">操作デバイスについて</p>
+            <p class="common-medium">操作デバイスには、それぞれ5つの鍵盤と空中を操作するような感覚を実現する多次元入力デバイスがついています。</p>
+            <img src="./images/kenban.png" alt="" uk-img>
+            <br>
+            <a class="scroll" onclick="$.scrollify.next()"></a>
+        </div>
     </section>
 
-    <section data-section-name="links">
-        <div class="common-large">最新情報はこちら</div>
-        <div class="links-box">
-            <a href="https://twitter.com/otofuda" class="links-link fab fa-twitter" uk-tooltip="Twitter"></a>
-            <a href="https://otofudaproject.tumblr.com/" class="links-link fab fa-tumblr" uk-tooltip="Tumblr"></a>
+    <section data-section-name="play3">
+        <div id="title-copy">
+            <p class="common-large">ノーツについて</p>
+            <p class="common-medium">音札には4種類の「ノーツ」があり、それぞれ判定ラインに重なった瞬間に対応するアクションを行います。</p>
+            <img src="./images/notes.png" alt="" uk-img>
         </div>
     </section>
 
