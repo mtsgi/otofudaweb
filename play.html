@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="「花札 × 対戦 × 音楽」これまでにない新感覚対戦型音楽カードゲーム" />
+    <meta name="description" content="新感覚対戦型音楽カードゲーム「音札」の遊び方説明です。" />
     <meta name="robots" content="noarchive">
     <script src="jquery.min.js"></script>
-    <script src="jquery.scrollify.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
     <link rel="stylesheet" href="./skeleton.css" />
     <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&amp;subset=japanese" rel="stylesheet">
@@ -33,10 +32,17 @@
         { 
           "@context": "http://schema.org/", 
           "@type": "WebSite",
-          "name": "音札 -おとふだ-",
-          "url": "https://www.ne.senshu-u.ac.jp/~proj2019-13/"
+          "name": "遊び方 | 音札 -おとふだ-",
+          "url": "https://www.ne.senshu-u.ac.jp/~proj2019-13/play"
         } 
     </script>
+    <script src="jquery.scrollify.js"></script>
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@otofuda" />
+    <meta property="og:url" content="https://www.ne.senshu-u.ac.jp/~proj2019-13/play" />
+    <meta property="og:title" content="遊び方 | 音札 -おとふだ-" />
+    <meta property="og:description" content="新感覚対戦型音楽カードゲーム「音札」の遊び方説明です。" />
+    <meta property="og:image" content="./images/thumb.png" />
 </head>
 
 <body>
@@ -153,7 +159,7 @@
         <div class="row">
             <div class="columns">
                 <a href="./"><img src="./title.png" alt="音札"></a>
-                <a class="item active" href="./play">遊び方</a>
+                <a class="item active" onclick="$.scrollify.move('#title')">遊び方</a>
                 <a class="item" href="./music">収録楽曲</a>
                 <a class="item" href="./char">キャラ</a>
             </div>
@@ -164,8 +170,8 @@
         <div id="title-copy">
             <p class="common-large">遊び方</p>
             <p class="common-medium">「音札」は音楽ゲームに花札をモチーフにしたカードゲームによる対戦システムを持っています。</p>
-            <p class="common-medium">今までの「音ゲー」にはなかった戦略性のある演奏バトルを楽しむことができます。</p>
-            <p class="common-medium">下にスクロールして、ゲームの流れと基本的な遊び方を見ることができます。</p>
+            <a onclick="$.scrollify.move('#play1')" class="uk-button uk-button-secondary uk-button-large uk-display-block uk-margin">ゲームシステムについて</a>
+            <a onclick="$.scrollify.move('#play3')" class="uk-button uk-button-secondary uk-button-large uk-display-block uk-margin">ゲームの進み方</a>
             <a class="scroll" onclick="$.scrollify.next()"></a>
         </div>
     </section>
@@ -206,8 +212,33 @@
     <section data-section-name="play3">
         <div id="title-copy">
             <p class="common-large">ノーツについて</p>
-            <p class="common-medium">音札には4種類の「ノーツ」があり、それぞれ判定ラインに重なった瞬間に対応するアクションを行います。</p>
-            <img src="./images/notes.png" alt="" uk-img>
+            <p class="common-medium">音札には4種類の「ノーツ」(音符)があり、それぞれ判定ラインに重なった瞬間に対応するアクションを行います。</p>
+            <table class="uk-table uk-table-divider uk-table-justify common-medium">
+                <thead>
+                    <tr>
+                        <th>名前</th>
+                        <th>動作</th
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>TAPノーツ</td>
+                        <td>レーンに対応する鍵盤を押します</td>
+                    </tr>
+                    <tr>
+                        <td>ロングノーツ</td>
+                        <td>レーンに対応する鍵盤を始点から終点まで押し続けます。終点には離す判定があります</td>
+                    </tr>
+                    <tr>
+                        <td>フリックノーツ</td>
+                        <td>空中で手を指定された方向(左または右)に振ります</td>
+                    </tr>
+                    <tr>
+                        <td>音札ノーツ</td>
+                        <td>空中で手を強く握ることで選択している手札を場に出すことができます</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </section>
 

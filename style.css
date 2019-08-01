@@ -256,8 +256,9 @@ section #overview-text .uk-slideshow {
 
 #home-anim {
   position: fixed;
-  min-height: 100%;
-  min-width: 100%;
+  bottom: 0px;
+  left: 0;
+  min-height: 100vh;
   z-index: -2;
 }
 
