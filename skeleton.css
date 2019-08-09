@@ -403,8 +403,8 @@ there.
 
 
 /* Larger than mobile */
-@media (min-width: 400px) {
-  #home-anim { transform: rotate(90deg) scale(3) }
+@media (min-width: 0px) {
+  #home-anim { transform: rotate(90deg) scale(3.5) }
 }
 
 /* Larger than phablet (also point when grid becomes active) */
