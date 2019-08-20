@@ -5,7 +5,11 @@ $(function() {
         touchScroll:true,
         scrollSpeed: 1200,
         overflowScroll: true,
-        updateHash: false
+        updateHash: false,
+        before: (index) => {
+            if( index == 0 ) $(".bgimg").addClass("show");
+            else $(".bgimg").removeClass("show");
+        }
     });
     $("#to-top").on("click", () => {
         $.scrollify.move("#title");

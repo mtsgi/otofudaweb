@@ -252,6 +252,22 @@ section #overview-text .uk-slideshow {
 }
 
 
+#bgimg-1 {
+  position: fixed;
+  left: 100%;
+  bottom: 0;
+  z-index: -1;
+  opacity: .5;
+  filter: blur(2px);
+  min-height: max-content;
+  max-width: unset;
+  transition: 1s all ease;
+}
+
+#bgimg-1.show {
+  left: -20%;
+}
+
 /* bg */
 
 #home-anim {
