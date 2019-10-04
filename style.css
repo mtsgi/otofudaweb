@@ -6,6 +6,10 @@ html {
   font-family: 'Sawarabi Mincho', sans-serif;
   background-attachment: fixed;
   background-size: cover;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scrollbar-color: light;
+  scrollbar-width: thin;
 }
 
 nav {
