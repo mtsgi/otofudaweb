@@ -199,9 +199,174 @@
     </nav>
 
     <section data-section-name="title">
-        <div id="title-copy">
+        <div class="play-page">
             <p class="common-large">遊び方</p>
-            <p class="common-medium">comming soon...</p>
+            <p class="charcomment">
+                <img src="./images/charcomment.png" alt="">
+                ゲームの流れと対戦の遊び方を説明するね。
+            </p>
+            <p>
+                <ol class="common-medium">
+                    <li><a onclick="$.scrollify.move('#sousa')">操作説明</a></li>
+                    <li><a onclick="$.scrollify.move('#gamen')">画面説明</a></li>
+                    <li><a onclick="$.scrollify.move('#play')">楽曲プレー</a></li>
+                    <li><a onclick="$.scrollify.move('#notes')">ノーツの種類</a></li>
+                    <li><a onclick="$.scrollify.move('#card')">カードバトル</a></li>
+                    <li><a onclick="$.scrollify.move('#deck')">デッキとバトル終了</a></li>
+                    <li><a onclick="$.scrollify.move('#matome')">おさらい</a></li>
+                </ol>
+            </p>
+            <a class="scroll" onclick="$.scrollify.next()"></a>
+        </div>
+    </section>
+
+    <section data-section-name="sousa">
+        <div class="play-page">
+            <p class="common-large">1.操作説明</p>
+            <p class="common-medium">
+                手元には、5つの<strong>鍵盤</strong>と、中央奥に<strong>多次元入力デバイス</strong>があります。
+            </p>
+            <p class="common-medium">
+                <img src="./images/kenban.png" alt="">
+            </p>
+            <p class="common-medium">
+                このゲームでは、鍵盤での譜面演奏と多次元入力デバイスを使ったカードバトルが同時に進行します。
+            </p>
+            <p class="charcomment">
+                <img src="./images/charcomment.png" alt="">
+                多次元入力デバイスは、「空中で手を振る」動作を認識するよ。
+            </p>
+            <a class="scroll" onclick="$.scrollify.next()"></a>
+        </div>
+    </section>
+
+    <section data-section-name="gamen">
+        <div class="play-page">
+            <p class="common-large">2.画面説明</p>
+            <p class="common-medium">
+                <img src="./images/screen.png" alt="">
+            </p>
+            <p class="common-medium">
+                それぞれのプレイヤーに<strong>レーン</strong>と<strong>所持手札</strong>のエリアがあります。<br>
+                手札のうち1枚が<strong>選択状態</strong>になっていて、楽曲の途中で、いつでも多次元入力デバイスを使って「選択」している手札を変更することができます。
+            </p>
+            <p class="charcomment">
+                <img src="./images/charcomment.png" alt="">
+                最初は<strong>3枚の手札</strong>と<strong>100%のライフ</strong>を持って楽曲がスタートするよ。
+            </p>
+            <a class="scroll" onclick="$.scrollify.next()"></a>
+        </div>
+    </section>
+
+    <section data-section-name="play">
+        <div class="play-page">
+            <p class="common-large">3.楽曲プレー</p>
+            <p class="common-medium">
+                曲が始まると、5つのレーンに楽曲に合わせて<strong>ノーツ</strong>が流れてきます。ノーツが手元の判定ラインに重なるタイミングで対応する鍵盤を押せると<strong>スコア</strong>が上昇します。
+            </p>
+            <p class="charcomment">
+                <img src="./images/charcomment.png" alt="">
+                次のページでノーツの種類について説明するよ。
+            </p>
+            <a class="scroll" onclick="$.scrollify.next()"></a>
+        </div>
+    </section>
+
+    <section data-section-name="notes">
+        <div class="play-page">
+            <p class="common-large">4.ノーツの種類</p>
+            <table class="uk-table">
+                <tbody>
+                    <tr>
+                        <td><img src="./images/notes_tap.png" alt=""></td>
+                        <td>TAPノーツ</td>
+                        <td>来たレーンに対応する鍵盤を押します。</td>
+                    </tr>
+                    <tr>
+                        <td><img src="./images/notes_flick.png" alt=""></td>
+                        <td>フリックノーツ</td>
+                        <td>空中で指定方向に手を振ります。</td>
+                    </tr>
+                    <tr>
+                        <td><img src="./images/notes_long.png" alt=""></td>
+                        <td>ロングノーツ</td>
+                        <td>対応する鍵盤を長押しします。</td>
+                    </tr>
+                    <tr>
+                        <td><img src="./images/notes_otofuda.png" alt=""></td>
+                        <td>音札ノーツ</td>
+                        <td>空中で手を握ると手札を出します。</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="charcomment">
+                <img src="./images/charcomment.png" alt="">
+                「音札ノーツ」はゲームの進行にとても大切！
+            </p>
+            <a class="scroll" onclick="$.scrollify.next()"></a>
+        </div>
+    </section>
+
+    <section data-section-name="card">
+        <div class="play-page">
+            <p class="common-large">5.カードバトル</p>
+            <p class="common-medium">
+                <strong>音札ノーツ</strong>を正しいタイミングで捌けると、選択状態の手札を場に出すことができます。<br>
+                手札を場に出すと、その札固有の効果が発動、その後山札から札が1枚ドローされます。
+            </p>
+            <p class="common-medium">
+                <img src="./images/play_cards.png" alt="">
+            </p>
+            <p class="common-medium">
+                音札ノーツから次の音札ノーツが来るまでを1つの<strong>ターン</strong>と呼びます。
+            </p>
+            <p class="charcomment">
+                <img src="./images/charcomment.png" alt="">
+                ライフが0になっても演奏は終了しないけど、得点するスコアが減少するよ。
+            </p>
+            <a class="scroll" onclick="$.scrollify.next()"></a>
+        </div>
+    </section>
+
+    <section data-section-name="deck">
+        <div class="play-page">
+            <p class="common-large">6.デッキとバトル終了</p>
+            <p class="common-medium">
+                手持ちのデッキは、12の<strong>「月」</strong>(1月〜12月)の中から5つの月を選択して編成します。<br>
+                1つの月は4枚の「音札」から構成されており、山札の枚数は20枚になります。
+            </p>
+            <p class="charcomment">
+                <img src="./images/charcomment.png" alt="">
+                「月」ごとにカードの特徴や属性の傾向がだいたい決まってるよ。
+            </p>
+            <p class="common-medium">
+                最後のターンが終了すると、場に出さずに最後に手札に残った札(最大5枚)で<strong>役判定</strong>が行われます。<br>
+                役によって一定のスコアが加算され、この時点でのスコアで勝敗が決定します。
+            </p>
+            <p class="charcomment">
+                <img src="./images/charcomment.png" alt="">
+                最後に五光や四光を揃えていると一発逆転もできちゃう！？
+            </p>
+            <a class="scroll" onclick="$.scrollify.next()"></a>
+        </div>
+    </section>
+
+    <section data-section-name="matome">
+        <div class="play-page">
+            <p class="common-large">7.おさらい</p>
+            <p class="charcomment">
+                <img src="./images/charcomment.png" alt="">
+                1曲演奏バトルを行う時のゲームの進行をおさらいするよ。
+            </p>
+            <ul class="common-medium">
+                <li>手札3枚・ライフ100％を持ってスタート！</li>
+                <li>演奏しながら手札を選ぶ</li>
+                <li>ターンごと(音札ノーツごと)に手札を場に出す</li>
+                <li>効果発動、山札から1枚ドロー</li>
+                <li>最終ターンで役の判定・役ボーナス加算！</li>
+                <li>勝敗が決定！</li>
+            </ul>
+            <a class="common-medium" onclick="$.scrollify.move('#title')">上へ戻る</a>
         </div>
     </section>
 
