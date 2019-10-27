@@ -89,8 +89,7 @@ section #title-img {
 
 section .title-cut {
   margin: 10px;
-  width: 300px;
-  max-width: calc( 100% - 20px );
+  max-height: calc( 100vh - 400px );
   box-shadow: 0 2px 10px 0 black;
 }
 
