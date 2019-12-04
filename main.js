@@ -1,9 +1,9 @@
 $(function() {
     $.scrollify({
         section : "section",
-        scrollbars: false,
-        touchScroll:true,
-        scrollSpeed: 1200,
+        scrollbars: true,
+        touchScroll: true,
+        scrollSpeed: 800,
         overflowScroll: true,
         updateHash: false,
         before: (index) => {
