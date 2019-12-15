@@ -13,7 +13,6 @@
     <meta name="description" content="「花札 × 対戦 × 音楽」。音札プロジェクトは、音ゲーの“対戦”の常識を覆す、これまでにない新感覚対戦型音楽カードゲームを制作している学生プロジェクトです。" />
     <meta name="thumbnail" content="./images/thumb.png" />
     <meta name="robots" content="noarchive">
-    <script src="jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
     <link rel="stylesheet" href="./skeleton.css" />
     <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&amp;subset=japanese" rel="stylesheet">
@@ -69,7 +68,6 @@
          ]
         }
     </script>
-    <script src="jquery.scrollify.js"></script>
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@otofuda" />
     <meta property="og:url" content="https://www.ne.senshu-u.ac.jp/~proj2019-13/" />
@@ -188,71 +186,101 @@
             </g>
         </g>
     </svg>
-    <nav>
-        <div class="row">
-            <div class="columns">
-                <a href="./"><img src="./title.png" alt="これまでにない新感覚対戦型音楽カードゲーム"></a>
-                <a class="item" href="./play">遊び方</a>
-                <a class="item" href="./music">収録楽曲</a>
-                <a class="item" href="./char">キャラ</a>
-                <span class="u-pull-right">
-                    <a href="https://twitter.com/otofuda" class="fab fa-twitter nav-right" target="_blank"></a>
-                </span>
+
+    <nav class="uk-navbar-container" uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-light; top: 160" uk-navbar="mode: click">
+        <div class="uk-navbar-left">
+            <a class="uk-navbar-toggle" uk-navbar-toggle-icon href=""></a>
+            <div class="uk-navbar-dropdown" uk-drop="boundary: !nav; boundary-align: true; pos: bottom-justify;">
+                <ul class="uk-nav uk-navbar-dropdown-nav">
+                    <li class="uk-active"><a href="#">Active</a></li>
+                    <li><a href="#">Item</a></li>
+                    <li class="uk-nav-header">Header</li>
+                    <li><a href="#">Item</a></li>
+                    <li><a href="#">Item</a></li>
+                    <li class="uk-nav-divider"></li>
+                    <li><a href="#">Item</a></li>
+                </ul>
             </div>
+        </div>
+
+        <div class="uk-navbar-center">
+            <a class="uk-navbar-item uk-logo logo-white" href="#"><img src="./logo.png" alt="音札"></a>
+            <a class="uk-navbar-item uk-logo logo-black" href="#"><img src="./logo_black.png" alt="音札"></a>
+        </div>
+
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+                <a href="https://twitter.com/otofuda" class="uk-icon-button uk-margin-small-right" uk-icon="twitter" target="_blank"></a>
+            </ul>
         </div>
     </nav>
 
-    <img src="images/body.png" alt="筐体" class="bgimg show" id="bgimg-1">
-
-    <section data-section-name="title">
-        <div id="title-copy">
-            <img id="title-img" src="./images/copy.png" alt="">
-            <br>
-            <a class="scroll" onclick="$.scrollify.next()"></a>
+    <div class="sticky-container">
+        <div class="uk-cover-container uk-height-medium">
+                <iframe src="https://www.youtube-nocookie.com/embed/9uZqrpwNYxk?mute=1&amp;autoplay=1&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;loop=1&amp;modestbranding=1&amp;wmode=transparent" width="1920" height="1080" frameborder="0" allowfullscreen uk-cover></iframe>
         </div>
-    </section>
-
-    <section data-section-name="whats" class="title-whats">
-        <div class="common-medium">今までの「音ゲー」の対戦の常識を覆す！</div>
-        <div class="common-large">”本格対戦音ゲー”</div>
-        <img src="./images/cut.png" alt="" class="title-cut">
-        <div class="common-medium">リズムに乗って演奏する爽快な<strong>音楽ゲーム</strong>に、花札をモチーフにした<strong>「音札」</strong>によるカードバトルを組み合わせ、相手のじゃまをしたり、ライフを回復したりしながら白熱の演奏バトルを繰り広げることができます！</div>
-        <a class="scroll" onclick="$.scrollify.next()"></a>
-    </section>
-
-    <section data-section-name="overview">
-        <div id="overview-text">
-            <div class="common-medium">2019年12月8日</div>
-            <div class="common-large">第2回ロケテスト</div>
-            <div class="common-medium">＆カード登録会を開催しました。<a href="https://otofudaproject.tumblr.com/post/189466316944/%E7%AC%AC2%E5%9B%9E%E3%83%AD%E3%82%B1%E3%83%86%E3%82%B9%E3%83%88%E9%96%8B%E5%82%AC%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F">詳細</a></div>
-            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1"
-                uk-slideshow="animation: push; max-height: 400">
-                <ul class="uk-slideshow-items">
-                    <li>
-                        <img src="./images/location11.jpg" alt="" uk-cover>
-                    </li>
-                    <li>
-                        <img src="images/location12.jpg" alt="" uk-cover>
-                    </li>
-                    <li>
-                        <img src="images/location13.jpg" alt="" uk-cover>
-                    </li>
-                    <li>
-                        <img src="images/location14.jpg" alt="" uk-cover>
-                    </li>
-                </ul>
-                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
-                    uk-slideshow-item="previous"></a>
-                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
-                    uk-slideshow-item="next"></a>
-                <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
+    
+        <section>
+            <div id="title-copy">
+                <img id="title-img" src="./images/copy.png" alt="">
+                <br>
+                <a class="scroll" onclick="$.scrollify.next()"></a>
             </div>
+        </section>
 
+        <section style="height: calc(790px - 100vh);overflow: visible;">
+            <img src="./logo_ruby.png" alt="">
+            <div class="common-medium uk-padding uk-margin-top">
+                「音札」は、リズムに乗って演奏する爽快な<strong>音楽ゲーム</strong>に、花札をモチーフにした<strong>「音札」</strong>によるカードバトルを組み合わせたゲームです。
+            </div>
+            <a class="scroll" onclick="$.scrollify.next()"></a>
+        </section>
+    </div>
 
-            <div class="common-medium uk-margin-xlarge-top">2019年7月20日、第1回</div>
-            <div class="common-large">先行ロケテスト</div>
-            <div class="common-medium">を開催しました。<a href="https://otofudaproject.tumblr.com/">詳細</a></div>
-            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1"
+    <section>
+            <h2 class="uk-heading-line uk-text-center"><span>コンテンツ</span></h2>
+            <p class="common-medium">音札のホームページのコンテンツです。</p>
+            <a href="./play" class="uk-button uk-button-secondary uk-button-large uk-display-block uk-margin" uk-tooltip="遊び方説明です">HOW TO PLAY</a>
+            <a href="./music" class="uk-button uk-button-secondary uk-button-large uk-display-block uk-margin" uk-tooltip="収録楽曲の一覧です">MUSIC LIST</a>
+            <a href="./char" class="uk-button uk-button-secondary uk-button-large uk-display-block uk-margin" uk-tooltip="キャラクターの紹介です">CHARACTER</a>
+        </section>
+
+    <section>
+        <h2 class="uk-heading-line uk-text-center"><span>第2回ロケテスト</span></h2>
+        <div class="uk-text-center uk-text-meta">2019年11月8日</div>
+        <div class="common-medium uk-padding uk-margin-top">
+            第2回ロケテストを開催しました。<a href="https://otofudaproject.tumblr.com/post/189466316944/%E7%AC%AC2%E5%9B%9E%E3%83%AD%E3%82%B1%E3%83%86%E3%82%B9%E3%83%88%E9%96%8B%E5%82%AC%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F">詳細</a>
+        </div>
+        <div class="uk-position-relative uk-visible-toggle uk-light uk-margin-top" tabindex="-1"
+            uk-slideshow="animation: push; max-height: 400">
+            <ul class="uk-slideshow-items">
+                <li>
+                    <img src="./images/location11.jpg" alt="" uk-cover>
+                </li>
+                <li>
+                    <img src="images/location12.jpg" alt="" uk-cover>
+                </li>
+                <li>
+                    <img src="images/location13.jpg" alt="" uk-cover>
+                </li>
+                <li>
+                    <img src="images/location14.jpg" alt="" uk-cover>
+                </li>
+            </ul>
+            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
+                uk-slideshow-item="previous"></a>
+            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
+                uk-slideshow-item="next"></a>
+            <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
+        </section>
+
+        <section>
+            <h2 class="uk-heading-line uk-text-center"><span>先行ロケテスト</span></h2>
+            <div class="uk-text-center uk-text-meta">2019年7月20日</div>
+            <div class="common-medium uk-padding uk-margin-top">
+                第1回先行ロケテストを開催しました。<a href="https://otofudaproject.tumblr.com/post/189466316944/%E7%AC%AC2%E5%9B%9E%E3%83%AD%E3%82%B1%E3%83%86%E3%82%B9%E3%83%88%E9%96%8B%E5%82%AC%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F">詳細</a>
+            </div>
+            <div class="uk-position-relative uk-visible-toggle uk-light uk-margin-top" tabindex="-1"
                 uk-slideshow="animation: push; max-height: 400">
                 <ul class="uk-slideshow-items">
                     <li>
@@ -275,20 +303,18 @@
                 <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
             </div>
         </div>
-        
-        <div class="common-large uk-margin-xlarge-top">もっと音札について知る</div>
-        <p class="common-medium">音札のホームページのコンテンツです。</p>
-        <a href="./play" class="uk-button uk-button-secondary uk-button-large uk-display-block uk-margin" uk-tooltip="遊び方説明です">HOW TO PLAY</a>
-        <a href="./music" class="uk-button uk-button-secondary uk-button-large uk-display-block uk-margin" uk-tooltip="収録楽曲の一覧です">MUSIC LIST</a>
-        <a href="./char" class="uk-button uk-button-secondary uk-button-large uk-display-block uk-margin" uk-tooltip="キャラクターの紹介です">CHARACTER</a>
-        
-        <div class="common-large uk-margin-xlarge-top">私たちについて</div>
+    </section>
+
+    <section data-section-name="whats" class="about-us">
+        <div class="common-large">私たちについて</div>
         <p class="common-medium">
             私たちは自作の音楽ゲームを制作している学生のプロジェクトです。<br>
             <a href="http://www.ne.senshu-u.ac.jp/project2019/" target="_blank" rel="noopener noreferrer">ネットワーク情報学部 PROJECT 2019</a>
         </p>
+    </section>
 
-        <div class="common-large uk-margin-xlarge-top">最新情報はこちら</div>
+    <section data-section-name="whats" class="news">
+        <div class="common-large">最新情報はこちら</div>
         <div class="links-box">
             <a href="https://twitter.com/otofuda" class="links-link fab fa-twitter" uk-tooltip="Twitter"></a>
             <a href="https://otofudaproject.tumblr.com/" class="links-link fab fa-tumblr" uk-tooltip="Tumblr"></a>
