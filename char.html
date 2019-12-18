@@ -3,19 +3,24 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="./ico/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="./ico/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192×192" href="./ico/android-chrome-192x192.png">
+    <link rel="manifest" href="./ico/manifest.json">
+    <meta name="theme-color" content="#303030">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="新感覚対戦型音楽カードゲーム「音札」のキャラクター紹介です。" />
+    <meta name="thumbnail" content="./images/thumb.png" />
     <meta name="robots" content="noarchive">
-    <script src="jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
     <link rel="stylesheet" href="./skeleton.css" />
-    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&amp;subset=japanese" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic|Sawarabi+Mincho&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css"
         integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/fontawesome.css"
         integrity="sha384-vd1e11sR28tEK9YANUtpIOdjGW14pS87bUBuOIoBILVWLFnS+MCX9T6MMf0VdPGq" crossorigin="anonymous">
-    <title>キャラクター | 音札 -おとふだ-</title>
+    <title>キャラクター | 音札 おとふだ</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/css/uikit.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/js/uikit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/js/uikit-icons.min.js"></script>
@@ -32,7 +37,7 @@
         { 
           "@context": "http://schema.org/", 
           "@type": "WebSite",
-          "name": "キャラクター" | 音札 -おとふだ-",
+          "name": "キャラクター" | 音札 おとふだ",
           "url": "https://www.ne.senshu-u.ac.jp/~proj2019-13/char"
         } 
     </script>
@@ -48,7 +53,7 @@
            "item":
            {
             "@id": "https://www.ne.senshu-u.ac.jp/~proj2019-13",
-            "name": "音札プロジェクト"
+            "name": "音札 おとふだ"
             }
           },
           {
@@ -181,28 +186,73 @@
             </g>
         </g>
     </svg>
-    <nav>
-        <div class="row">
-            <div class="columns">
-                <a href="./"><img src="./title.png" alt="音札"></a>
-                <a class="item" href="./play">遊び方</a>
-                <a class="item" href="./music">収録楽曲</a>
-                <a class="item active" href="./char">キャラ</a>
-                <span class="u-pull-right">
-                    <a href="https://twitter.com/otofuda" class="fab fa-twitter nav-right" target="_blank"></a>
-                </span>
-            </div>
+
+    <div class="uk-card uk-card-secondary uk-card-body uk-box-shadow-large" id="sidenav" hidden>
+        <h3>コンテンツ</h3>
+        <ul class="uk-list uk-link-text">
+            <li>
+                <a href="./play">
+                    <div>
+                        HOW TO PLAY
+                        <div class="uk-text-small">音札の遊び方説明です</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="./music">
+                    <div>
+                        MUSIC
+                        <div class="uk-text-small">収録楽曲の一覧です</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="./char">
+                    <div>
+                        CHARACTER
+                        <div class="uk-text-small">キャラクター紹介です</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="https://otofuda.booth.pm" target="_blank">
+                    <div>
+                        BOOTH<span uk-icon="icon: push" class="uk-text-meta"></span>
+                        <div class="uk-text-small">オリジナルグッズを販売中</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="https://j.mp/otfdnet" target="_blank">
+                    <div>
+                        NET<span uk-icon="icon: push" class="uk-text-meta"></span>
+                        <div class="uk-text-small">オンラインサービス「おとふだNET」</div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <nav class="uk-navbar-container" uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-light; top: 160" uk-navbar="mode: click">
+        <div class="uk-navbar-left">
+            <a class="uk-navbar-toggle" uk-navbar-toggle-icon uk-toggle="target: #sidenav; animation: uk-animation-fade"></a>
+        </div>
+
+        <div class="uk-navbar-center">
+            <a class="uk-navbar-item uk-logo logo-white" href="./"><img src="./logo.png" alt="音札"></a>
+            <a class="uk-navbar-item uk-logo logo-black" href="./"><img src="./logo_black.png" alt="音札"></a>
+        </div>
+
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+                <a href="https://twitter.com/otofuda" class="uk-icon-button uk-margin-small-right" uk-icon="twitter" target="_blank"></a>
+            </ul>
         </div>
     </nav>
 
-    <section id="char">
-        
-        <div class="common-large">キャラクター</div>
-        
-        <img src="./images/charinfo.png" alt="華音" class="uk-margin-top" uk-img>
-        
-        <p class="common-medium">華音(かのん)は17歳の女の子です。</p>
-
+    <section>
+        <h2 class="uk-heading-line uk-text-center"><span>キャラクター紹介</span></h2>
+        <img src="./images/charinfo.png" alt="華音" class="uk-margin-top" uk-img uk-scrollspy="cls: uk-animation-slide-left; repeat: true">
     </section>
 </body>
 

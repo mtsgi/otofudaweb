@@ -13,6 +13,7 @@ html {
 }
 
 nav {
+  z-index: 2;
   border-bottom: 1px solid #f0f0f0;
   font-family: 'Sawarabi Mincho', sans-serif;
   box-shadow: 0 0 40px -10px cyan;
@@ -46,6 +47,16 @@ nav {
   display: inline-block;
 }
 
+#sidenav {
+  font-family: 'Sawarabi Gothic', sans-serif;
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 2;
+  height: 100vh;
+  width: 250px;
+  padding-top: 105px;
+}
+
 section {
   color: white;
   text-align: center;
@@ -75,6 +86,16 @@ a {
   text-shadow: none;
 }
 
+.c-container .uk-background-cover {
+  box-shadow: inset 0 0 0 100vw rgba(0,0,0,.5);
+}
+
+.c-container .uk-margin-auto-vertical {
+  font-family: 'Sawarabi Gothic', sans-serif;
+  text-shadow: 0 1px 4px black;
+  padding: 0 10px;
+}
+
 /* title */
 
 section #title-copy {
@@ -90,6 +111,10 @@ section .uk-heading-line{
   color: #ffffff;
   font-family: 'Sawarabi Mincho', sans-serif;
   margin-top: 20px;
+}
+
+.uk-button-secondary img{
+  max-height: 90px;
 }
 
 .scroll {
@@ -136,6 +161,25 @@ section .uk-heading-line{
   font-size: 25px;
 }
 
+.common-gothic {
+  font-family: 'Sawarabi Gothic', sans-serif;
+}
+
+.common-imglink {
+  display: block;
+  padding: 10px 0;
+  background: rgba(0, 0, 0, .6);
+  box-shadow: 0 2px 7px 0 rgba(0, 0, 0, .5);
+  font-size: 14px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.common-imglink img {
+  display: inline-block;
+  max-height: 70px;
+}
+
 /* overview */
 
 section #overview-text .uk-slideshow {
@@ -179,7 +223,7 @@ section #overview-text .uk-slideshow {
 
 /* MUSIC */
 
-#music{
+#music {
   margin: 0 15px;
 }
 
@@ -188,11 +232,20 @@ section #overview-text .uk-slideshow {
 }
 
 .music{
-  padding: 8px;
+  padding: 7px;
   margin: 18px auto;
-  background: rgba(0,0,0,.6);
+  border-radius: 7px;
+  background: rgba(255, 255, 255, .75);
+  color: #303030;
+  text-shadow: none;
   max-width: 600px;
-  box-shadow: 0 2px 10px 0 rgba(0,0,0,.7);
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,.9);
+  cursor: pointer;
+  transition: .2s all ease;
+}
+
+.music:hover{
+  background: rgba(255, 255, 255, .9);
 }
 
 .music .music-info{
@@ -200,15 +253,18 @@ section #overview-text .uk-slideshow {
 }
 
 .music .music-info img{
-  margin: 6px;
   width: 120px;
   height: 120px;
+  max-width: 30vw;
+  max-height: 30vw;
+  border: 3px solid #ffffff;
+  border-radius: 3px;
 }
 
 .music .music-detail{
   display: block;
   flex-grow: 1;
-  margin: 6px;
+  margin: 0 6px;
   font-size: 22px;
   text-align: left;
 }
@@ -218,35 +274,32 @@ section #overview-text .uk-slideshow {
 }
 
 .music .music-composer::before{
-  opacity: .6;
+  opacity: .5;
   content: "Artist : ";
 }
 
-.music .music-other{
-  font-size: 16px;
-  text-align: right;
-  opacity: .8;
-}
-
 .music-level{
-  margin: 10px 0;
+  display: flex;
+  margin-top: 10px;
   border-top: 1px solid rgba(255,255,255,.3);
   text-align: left;
-  padding: 8px;
+  padding-top: 8px;
 }
 
 .music .music-level a{
+  font-family: 'Sawarabi Gothic', sans-serif;
+  font-weight: 900;
   cursor: default;
   color: #f0f0f0;
   text-shadow: 0 1px 2px black;
-  border: 3px solid #000000;
-  border-radius: 6px;
+  border: 2px solid rgba(255, 255, 255, .75);
+  border-radius: 4px;
   display: inline-block;
-  width: 50px;
-  padding: 2px;
+  padding: 2px 15px;
+  margin: 0 4px;
   font-size: 18px;
   text-align: center;
-  box-shadow: 0 2px 10px -2px cyan, inset 0 -1em 1px 0 rgba(0,0,0,.2);
+  box-shadow: 0 1px 5px -1px rgba(0, 0, 0, .5), inset 0 -1em 2px 0 rgba(0,0,0,.15);
 }
 
 .music .music-level a:hover{
@@ -262,7 +315,13 @@ section #overview-text .uk-slideshow {
 }
 
 .music .music-level .hard{
-  background: rgb(255, 9, 144);
+  background: #ff0984;
+}
+
+#music-detail {
+  text-shadow: none;
+  color: #303030;
+  font-size: 16px;
 }
 
 /* PLAY */

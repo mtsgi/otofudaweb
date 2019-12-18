@@ -15,12 +15,12 @@
     <meta name="robots" content="noarchive">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
     <link rel="stylesheet" href="./skeleton.css" />
-    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&amp;subset=japanese" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic|Sawarabi+Mincho&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css"
         integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/fontawesome.css"
         integrity="sha384-vd1e11sR28tEK9YANUtpIOdjGW14pS87bUBuOIoBILVWLFnS+MCX9T6MMf0VdPGq" crossorigin="anonymous">
-    <title>音札 -おとふだ-</title>
+    <title>音札 おとふだ</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/css/uikit.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/js/uikit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/js/uikit-icons.min.js"></script>
@@ -37,7 +37,7 @@
         { 
           "@context": "http://schema.org/", 
           "@type": "WebSite",
-          "name": "音札 -おとふだ-",
+          "name": "音札 おとふだ",
           "url": "https://www.ne.senshu-u.ac.jp/~proj2019-13/"
         } 
     </script>
@@ -53,7 +53,7 @@
            "item":
            {
             "@id": "https://www.ne.senshu-u.ac.jp/~proj2019-13",
-            "name": "音札プロジェクト"
+            "name": "音札 おとふだ"
             }
           },
           {
@@ -187,20 +187,55 @@
         </g>
     </svg>
 
+    <div class="uk-card uk-card-secondary uk-card-body uk-box-shadow-large" id="sidenav" hidden>
+        <h3>コンテンツ</h3>
+        <ul class="uk-list uk-link-text">
+            <li>
+                <a href="./play">
+                    <div>
+                        HOW TO PLAY
+                        <div class="uk-text-small">音札の遊び方説明です</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="./music">
+                    <div>
+                        MUSIC
+                        <div class="uk-text-small">収録楽曲の一覧です</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="./char">
+                    <div>
+                        CHARACTER
+                        <div class="uk-text-small">キャラクター紹介です</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="https://otofuda.booth.pm" target="_blank">
+                    <div>
+                        BOOTH<span uk-icon="icon: push" class="uk-text-meta"></span>
+                        <div class="uk-text-small">オリジナルグッズを販売中</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="https://j.mp/otfdnet" target="_blank">
+                    <div>
+                        NET<span uk-icon="icon: push" class="uk-text-meta"></span>
+                        <div class="uk-text-small">オンラインサービス「おとふだNET」</div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
     <nav class="uk-navbar-container" uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-light; top: 160" uk-navbar="mode: click">
         <div class="uk-navbar-left">
-            <a class="uk-navbar-toggle" uk-navbar-toggle-icon href=""></a>
-            <div class="uk-navbar-dropdown" uk-drop="boundary: !nav; boundary-align: true; pos: bottom-justify;">
-                <ul class="uk-nav uk-navbar-dropdown-nav">
-                    <li class="uk-active"><a href="#">Active</a></li>
-                    <li><a href="#">Item</a></li>
-                    <li class="uk-nav-header">Header</li>
-                    <li><a href="#">Item</a></li>
-                    <li><a href="#">Item</a></li>
-                    <li class="uk-nav-divider"></li>
-                    <li><a href="#">Item</a></li>
-                </ul>
-            </div>
+            <a class="uk-navbar-toggle" uk-navbar-toggle-icon uk-toggle="target: #sidenav; animation: uk-animation-fade"></a>
         </div>
 
         <div class="uk-navbar-center">
@@ -237,15 +272,83 @@
         </section>
     </div>
 
-    <section>
-            <h2 class="uk-heading-line uk-text-center"><span>コンテンツ</span></h2>
-            <p class="common-medium">音札のホームページのコンテンツです。</p>
-            <a href="./play" class="uk-button uk-button-secondary uk-button-large uk-display-block uk-margin" uk-tooltip="遊び方説明です">HOW TO PLAY</a>
-            <a href="./music" class="uk-button uk-button-secondary uk-button-large uk-display-block uk-margin" uk-tooltip="収録楽曲の一覧です">MUSIC LIST</a>
-            <a href="./char" class="uk-button uk-button-secondary uk-button-large uk-display-block uk-margin" uk-tooltip="キャラクターの紹介です">CHARACTER</a>
-        </section>
+    <section uk-parallax="opacity: 0,1; y: 100,0; viewport: 0.5">
+        <h2 class="uk-heading-line uk-text-center"><span>コンテンツ</span></h2>
+        <p class="common-medium">音札のホームページのコンテンツです。</p>
+        <a href="./play" class="uk-button uk-button-secondary uk-button-large uk-display-block uk-margin">
+            <img src="./images/bn_howto.png" alt="">
+        </a>
+        <a href="./music" class="uk-button uk-button-secondary uk-button-large uk-display-block uk-margin">
+            <img src="./images/bn_music.png" alt="">
+        </a>
+        <a href="./char" class="uk-button uk-button-secondary uk-button-large uk-display-block uk-margin">
+            <img src="./images/bn_char.png" alt="">
+        </a>
+    </section>
 
-    <section>
+
+    <section class="c-container">
+        <div class="uk-height-large uk-background-cover uk-light uk-flex" uk-parallax="opacity: 0,1; y: 0,0; viewport: 0.5" style="background-image: url('./images/c01.png');">
+            <div class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
+                <h2 class="uk-text-center uk-margin-auto uk-margin-auto-vertical" uk-parallax="x: -100,0; viewport: 0.5">LeapMotionを使ったハンドトラッキング</h2>
+                <p class="common-medium" uk-parallax="x: -100,0; viewport: 0.5">「音札」では、LeapMotionという三次元入力デバイスを筐体に2機埋め込み、手札選択ジェスチャーとフリックノーツの判定のため、高精度のハンドトラッキングを実現しています。</p>
+                <a href="https://j.mp/otfdnet" class="common-imglink" target="_blank">
+                    <div>
+                        技術解説<span uk-icon="icon: push" class="uk-text-meta"></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="uk-height-large uk-background-cover uk-light uk-flex" uk-parallax="opacity: 0,1; y: 0,0; viewport: 0.5" style="background-image: url('./images/c02.png');">
+            <div class="uk-text-center uk-margin-auto uk-margin-auto-vertical">
+                <h2 class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical" uk-parallax="x: -100,0; viewport: 0.5">自立する筐体</h2>
+                <p class="common-medium" uk-parallax="x: -100,0; viewport: 0.5">「音札」の筐体は自立するための折りたたみ可能な脚を備え、ポータビリティも両立しています。また、NFCリーダーとゲームのプレーに連動して光るLEDがついています。</p>
+            </div>
+        </div>
+        <div class="uk-height-large uk-background-cover uk-light uk-flex" uk-parallax="opacity: 0,1; y: 0,0; viewport: 0.5" style="background-image: url('./images/c03.png');">
+            <div class="uk-text-center uk-margin-auto uk-margin-auto-vertical">
+                <h2 class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical" uk-parallax="x: -100,0; viewport: 0.5">ICカードによる個人認証</h2>
+                <p class="common-medium" uk-parallax="x: -100,0; viewport: 0.5">お手持ちのアミューズメント用ICカードまたは交通系ICカードを筐体にかざすだけでプレイヤー認証とプレーデータ保存が可能です。</p>
+                <p class="common-medium" uk-parallax="x: -100,0; viewport: 0.5">初回のICカードをかざすと、アクセスコード・QRコードが表示され、スマホやPCから「おとふだNET」にログインできるようになります。</p>
+                <a href="https://j.mp/otfdnet" class="common-imglink" target="_blank">
+                    <div>
+                        <img src="./NET_logo_white.png" alt="おとふだNET"><br>
+                        おとふだNETはこちら<span uk-icon="icon: push" class="uk-text-meta"></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section uk-parallax="opacity: 0,1; y: 100,0; viewport: 0.5">
+        <h2 class="uk-heading-line uk-text-center"><span>対応カード</span></h2>
+        <p class="common-medium">「音札」はICカードでのプレイに対応しています。</p>
+        <div class="uk-column-1-2@s uk-column-divider common-gothic">
+            <div class="uk-padding common-medium">
+                <h3 class="uk-heading-line">対応</h3>
+                <ul class="uk-list">
+                    <li>バナパスポートカード</li>
+                    <li>Aimeカード</li>
+                    <li>NESiCAカード</li>
+                    <li>アミューズメントIC対応カード</li>
+                    <li>Suicaなどの交通系ICカード</li>
+                </ul>
+            </div>
+
+            <div class="uk-padding common-medium">
+                <h3 class="uk-heading-line">非対応</h3>
+                <ul class="uk-list">
+                    <li>e-amusement pass(3代目以前)</li>
+                    <li>NFC対応スマートフォン</li>
+                    <li>運転免許証</li>
+                    <li>その他NFC TypeBカード</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section uk-parallax="opacity: 0,1; y: 100,0; viewport: 0.5">
         <h2 class="uk-heading-line uk-text-center"><span>第2回ロケテスト</span></h2>
         <div class="uk-text-center uk-text-meta">2019年11月8日</div>
         <div class="common-medium uk-padding uk-margin-top">
@@ -255,7 +358,7 @@
             uk-slideshow="animation: push; max-height: 400">
             <ul class="uk-slideshow-items">
                 <li>
-                    <img src="./images/location11.jpg" alt="" uk-cover>
+                    <img src="images/location11.jpg" alt="" uk-cover>
                 </li>
                 <li>
                     <img src="images/location12.jpg" alt="" uk-cover>
@@ -274,7 +377,7 @@
             <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
         </section>
 
-        <section>
+        <section uk-parallax="opacity: 0,1; y: 100,0; viewport: 0.5">
             <h2 class="uk-heading-line uk-text-center"><span>先行ロケテスト</span></h2>
             <div class="uk-text-center uk-text-meta">2019年7月20日</div>
             <div class="common-medium uk-padding uk-margin-top">
@@ -305,7 +408,7 @@
         </div>
     </section>
 
-    <section data-section-name="whats" class="about-us">
+    <section uk-parallax="opacity: 0,1; y: 100,0; viewport: 0.5">
         <div class="common-large">私たちについて</div>
         <p class="common-medium">
             私たちは自作の音楽ゲームを制作している学生のプロジェクトです。<br>
@@ -313,12 +416,13 @@
         </p>
     </section>
 
-    <section data-section-name="whats" class="news">
+    <section>
         <div class="common-large">最新情報はこちら</div>
         <div class="links-box">
             <a href="https://twitter.com/otofuda" class="links-link fab fa-twitter" uk-tooltip="Twitter"></a>
             <a href="https://otofudaproject.tumblr.com/" class="links-link fab fa-tumblr" uk-tooltip="Tumblr"></a>
             <a href="https://www.youtube.com/channel/UC9G3cMsWdkGC6QJz1EbczBg" class="links-link fab fa-youtube" uk-tooltip="YouTube"></a>
+            <a href="https://www.instagram.com/otfdpr/?hl=ja" class="links-link fab fa-instagram" uk-tooltip="Instagram"></a>
         </div>
     </section>
 

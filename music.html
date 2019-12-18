@@ -11,8 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="新感覚対戦型音楽カードゲーム「音札」の収録楽曲の一覧です。" />
+    <meta name="thumbnail" content="./images/thumb.png" />
     <meta name="robots" content="noarchive">
-    <script src="jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
     <link rel="stylesheet" href="./skeleton.css" />
     <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&amp;subset=japanese" rel="stylesheet">
@@ -20,7 +20,7 @@
         integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/fontawesome.css"
         integrity="sha384-vd1e11sR28tEK9YANUtpIOdjGW14pS87bUBuOIoBILVWLFnS+MCX9T6MMf0VdPGq" crossorigin="anonymous">
-    <title>収録楽曲 | 音札 -おとふだ-</title>
+    <title>収録楽曲 | 音札 おとふだ</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/css/uikit.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/js/uikit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/js/uikit-icons.min.js"></script>
@@ -37,7 +37,7 @@
         { 
           "@context": "http://schema.org/", 
           "@type": "WebSite",
-          "name": "収録楽曲 | 音札 -おとふだ-",
+          "name": "収録楽曲 | 音札 おとふだ",
           "url": "https://www.ne.senshu-u.ac.jp/~proj2019-13/music"
         } 
     </script>
@@ -53,7 +53,7 @@
            "item":
            {
             "@id": "https://www.ne.senshu-u.ac.jp/~proj2019-13",
-            "name": "音札プロジェクト"
+            "name": "音札 おとふだ"
             }
           },
           {
@@ -74,6 +74,7 @@
     <meta property="og:title" content="収録楽曲 | 音札 -おとふだ-" />
     <meta property="og:description" content="新感覚対戦型音楽カードゲーム「音札」の収録楽曲の一覧です。" />
     <meta property="og:image" content="https://www.ne.senshu-u.ac.jp/~proj2019-13/images/thumb.png" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
 </head>
 
 <body>
@@ -186,56 +187,138 @@
             </g>
         </g>
     </svg>
-    <nav>
-        <div class="row">
-            <div class="columns">
-                <a href="./"><img src="./title.png" alt="音札"></a>
-                <a class="item" href="./play">遊び方</a>
-                <a class="item active" href="./music">収録楽曲</a>
-                <a class="item" href="./char">キャラ</a>
-            </div>
+
+    <div class="uk-card uk-card-secondary uk-card-body uk-box-shadow-large" id="sidenav" hidden>
+        <h3>コンテンツ</h3>
+        <ul class="uk-list uk-link-text">
+            <li>
+                <a href="./play">
+                    <div>
+                        HOW TO PLAY
+                        <div class="uk-text-small">音札の遊び方説明です</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="./music">
+                    <div>
+                        MUSIC
+                        <div class="uk-text-small">収録楽曲の一覧です</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="./char">
+                    <div>
+                        CHARACTER
+                        <div class="uk-text-small">キャラクター紹介です</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="https://otofuda.booth.pm" target="_blank">
+                    <div>
+                        BOOTH<span uk-icon="icon: push" class="uk-text-meta"></span>
+                        <div class="uk-text-small">オリジナルグッズを販売中</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="https://j.mp/otfdnet" target="_blank">
+                    <div>
+                        NET<span uk-icon="icon: push" class="uk-text-meta"></span>
+                        <div class="uk-text-small">オンラインサービス「おとふだNET」</div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <nav class="uk-navbar-container" uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-light; top: 160" uk-navbar="mode: click">
+        <div class="uk-navbar-left">
+            <a class="uk-navbar-toggle" uk-navbar-toggle-icon uk-toggle="target: #sidenav; animation: uk-animation-fade"></a>
+        </div>
+
+        <div class="uk-navbar-center">
+            <a class="uk-navbar-item uk-logo logo-white" href="./"><img src="./logo.png" alt="音札"></a>
+            <a class="uk-navbar-item uk-logo logo-black" href="./"><img src="./logo_black.png" alt="音札"></a>
+        </div>
+
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+                <a href="https://twitter.com/otofuda" class="uk-icon-button uk-margin-small-right" uk-icon="twitter" target="_blank"></a>
+            </ul>
         </div>
     </nav>
 
     <section id="music">
-        
-        <div class="common-large">収録楽曲</div>
-        
-        <div class="music">
+        <h2 class="uk-heading-line uk-text-center"><span>収録楽曲</span></h2>
+        <div class="music" v-for="m in music" v-bind:key="m.id" uk-toggle="target: #music-detail" @click="selectedMusic = m">
             <div class="music-info">
-                <img src="./jacket/otofuda.png" alt="">
+                <img :src="m.jacket" :alt="m.name">
                 <div class="music-detail">
-                    オトフダビヨリ
-                    <div class="music-composer">idady</div>
-                    <div class="music-other">BPM:180.0</div>
-                    <div class="music-other">譜面制作:マテすぎ</div>
+                    <div class="music-title">{{ m.name }}</div>
+                    <div class="music-composer">{{ m.artist }}</div>
+                    <div class="music-level">
+                        <a class="easy">{{ m.level[0] }}</a>
+                        <a class="normal">{{ m.level[1] }}</a>
+                        <a class="hard">{{ m.level[2] }}</a>
+                    </div>
                 </div>
-            </div>
-            <div class="music-level">
-                <a class="easy">1</a>
-                <a class="normal">5</a>
-                <a class="hard">9</a>
-            </div>
-        </div>
-        
-        <div class="music">
-            <div class="music-info">
-                <img src="./jacket/puzzle.png" alt="">
-                <div class="music-detail">
-                    Puzzle
-                    <div class="music-composer">idady</div>
-                    <div class="music-other">BPM:120.0</div>
-                    <div class="music-other">譜面制作:OTOFUDA Sound Team "謎の勢力M"</div>
-                </div>
-            </div>
-            <div class="music-level">
-                <a class="easy">4</a>
-                <a class="normal">8</a>
-                <a class="hard">10</a>
             </div>
         </div>
 
+        <div id="music-detail" uk-modal>
+            <div class="uk-modal-dialog uk-modal-body uk-margin-large-top uk-text-center">
+                <button class="uk-modal-close-outside" type="button" uk-close></button>
+                <p>楽曲情報</p>
+                <h5>{{ selectedMusic.name }}</h5>
+                <img :src="selectedMusic.jacket" :alt="selectedMusic.name">
+                <div class="uk-text-small">Artist</div>
+                <div class="uk-text-large">{{ selectedMusic.artist }}</div>
+            </div>
+        </div>
     </section>
+
+    <script>
+        var app = new Vue({
+            el: '#music',
+            data: {
+                music: [
+                    {
+                        id: 1, 
+                        jacket: './jacket/otofuda.png',
+                        name: 'オトフダビヨリ',
+                        artist: 'idady',
+                        bpm: '180.0',
+                        notesdesign: 'マテすぎ',
+                        level: [1, 5, 8]
+                    },
+                    {
+                        id: 2,
+                        jacket: './jacket/puzzle.png',
+                        name: 'Puzzle',
+                        artist: 'idady',
+                        bpm: '120.0',
+                        notesdesign: 'OTOFUDA Sound Team "謎の勢力M"',
+                        level: [4, 8, 10]
+                    },
+                    {
+                        id: 3,
+                        jacket: './jacket/.png',
+                        name: 'Sublimation',
+                        artist: 'idady',
+                        bpm: '0.0',
+                        notesdesign: 'マテすぎ vs OTOFUDA Sound Team "謎の勢力M"',
+                        level: [NaN, NaN, NaN]
+                    }
+                ],
+                selectedMusic: new Object()
+            },
+            methods: {
+            }
+        })
+    </script>
 </body>
 
 </html>
