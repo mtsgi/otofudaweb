@@ -269,6 +269,18 @@ section #overview-text .uk-slideshow {
   text-align: left;
 }
 
+.music-detail-jacket {
+  display: inline-block;
+  max-width: 200px;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .2);
+  margin-bottom: 15px;
+}
+
+.music-detail-name {
+  margin-top: 20px;
+  font-weight: 700;
+}
+
 .music .music-composer{
   font-size: 16px;
 }
@@ -278,7 +290,7 @@ section #overview-text .uk-slideshow {
   content: "Artist : ";
 }
 
-.music-level{
+.music .music-level{
   display: flex;
   margin-top: 10px;
   border-top: 1px solid rgba(255,255,255,.3);
@@ -306,16 +318,36 @@ section #overview-text .uk-slideshow {
   text-decoration: none;
 }
 
-.music .music-level .easy{
+.music .music-level .easy,
+#music-detail .music-level .easy {
   background: #25ca25;
 }
 
-.music .music-level .normal{
+.music .music-level .normal,
+#music-detail .music-level .normal {
   background: #ffb223;
 }
 
-.music .music-level .hard{
+.music .music-level .hard,
+#music-detail .music-level .hard{
   background: #ff0984;
+}
+
+#music-detail .music-level {
+  text-align: center;
+  font-size: 20px;
+  margin: 0 auto;
+  max-width: 300px;
+  margin-bottom: 20px;
+}
+
+#music-detail .music-level i {
+  display: inline-block;
+  padding: 2px 16px;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+  margin: 0 10px;
+  border-radius: 5px;
 }
 
 #music-detail {
