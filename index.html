@@ -3,10 +3,21 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="./ico/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="./ico/apple-touch-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192×192" href="./ico/android-chrome-192x192.png">
-    <link rel="manifest" href="./ico/manifest.json">
+    <link rel="apple-touch-icon" sizes="57x57" href="ico/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="ico/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="ico/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="ico/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="ico/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="ico/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="ico/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="ico/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="ico/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="ico/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="ico/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="ico/favicon-16x16.png">
+    <link rel="manifest" href="ico/manifest.json">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#303030">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -215,14 +226,6 @@
                 </a>
             </li>
             <li>
-                <a href="https://otofuda.booth.pm" target="_blank">
-                    <div>
-                        BOOTH<span uk-icon="icon: push" class="uk-text-meta"></span>
-                        <div class="uk-text-small">オリジナルグッズを販売中</div>
-                    </div>
-                </a>
-            </li>
-            <li>
                 <a href="https://j.mp/otfdnet" target="_blank">
                     <div>
                         NET<span uk-icon="icon: push" class="uk-text-meta"></span>
@@ -252,14 +255,14 @@
 
     <div class="sticky-container">
         <div class="uk-cover-container uk-height-medium">
-                <iframe src="https://www.youtube-nocookie.com/embed/9uZqrpwNYxk?mute=1&amp;autoplay=1&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;loop=1&amp;modestbranding=1&amp;wmode=transparent" width="1920" height="1080" frameborder="0" allowfullscreen uk-cover></iframe>
+                <iframe src="https://www.youtube-nocookie.com/embed/WouN3DO9HyE?mute=1&amp;autoplay=1&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;loop=1&amp;modestbranding=1&amp;wmode=transparent" width="1920" height="1080" frameborder="0" allowfullscreen uk-cover></iframe>
         </div>
     
         <section>
             <div id="title-copy">
                 <img id="title-img" src="./images/copy.png" alt="">
                 <br>
-                <a class="scroll" onclick="$.scrollify.next()"></a>
+                <a class="scroll"></a>
             </div>
         </section>
 
@@ -268,7 +271,7 @@
             <div class="common-medium uk-padding uk-margin-top">
                 「音札」は、リズムに乗って演奏する爽快な<strong>音楽ゲーム</strong>に、花札をモチーフにした<strong>「音札」</strong>によるカードバトルを組み合わせたゲームです。
             </div>
-            <a class="scroll" onclick="$.scrollify.next()"></a>
+            <a class="scroll"></a>
         </section>
     </div>
 
@@ -288,29 +291,24 @@
 
 
     <section class="c-container">
-        <div class="uk-height-large uk-background-cover uk-light uk-flex" uk-parallax="opacity: 0,1; y: 0,0; viewport: 0.5" style="background-image: url('./images/c01.png');">
+        <div class="uk-height-large uk-background-cover uk-light uk-flex" uk-parallax="x: -100,0; opacity: 0,1; y: 0,0; viewport: 0.35" style="background-image: url('./images/c01.png');">
             <div class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
-                <h2 class="uk-text-center uk-margin-auto uk-margin-auto-vertical" uk-parallax="x: -100,0; viewport: 0.5">LeapMotionを使ったハンドトラッキング</h2>
-                <p class="common-medium" uk-parallax="x: -100,0; viewport: 0.5">「音札」では、LeapMotionという三次元入力デバイスを筐体に2機埋め込み、手札選択ジェスチャーとフリックノーツの判定のため、高精度のハンドトラッキングを実現しています。</p>
-                <a href="https://j.mp/otfdnet" class="common-imglink" target="_blank">
-                    <div>
-                        技術解説<span uk-icon="icon: push" class="uk-text-meta"></span>
-                    </div>
-                </a>
+                <h2 class="uk-text-center uk-margin-auto uk-margin-auto-vertical" _uk-parallax="x: -100,0; viewport: 0.5">LeapMotionを使ったハンドトラッキング</h2>
+                <p class="common-medium" _uk-parallax="x: -100,0; viewport: 0.5">「音札」では、LeapMotionという三次元入力デバイスを筐体に2機埋め込み、手札選択ジェスチャーとフリックノーツの判定のため、高精度のハンドトラッキングを実現しています。</p>
             </div>
         </div>
-        <div class="uk-height-large uk-background-cover uk-light uk-flex" uk-parallax="opacity: 0,1; y: 0,0; viewport: 0.5" style="background-image: url('./images/c02.png');">
+        <div class="uk-height-large uk-background-cover uk-light uk-flex" uk-parallax="x: -100,0; opacity: 0,1; y: 0,0; viewport: 0.35" style="background-image: url('./images/c02.png');">
             <div class="uk-text-center uk-margin-auto uk-margin-auto-vertical">
-                <h2 class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical" uk-parallax="x: -100,0; viewport: 0.5">自立する筐体</h2>
-                <p class="common-medium" uk-parallax="x: -100,0; viewport: 0.5">「音札」の筐体は自立するための折りたたみ可能な脚を備え、ポータビリティも両立しています。また、NFCリーダーとゲームのプレーに連動して光るLEDがついています。</p>
-                <p class="common-medium" uk-parallax="x: -100,0; viewport: 0.5">音楽ゲームの筐体としては珍しい、木材を使用した温かみのあるデザインです。</p>
+                <h2 class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical" _uk-parallax="x: -100,0; viewport: 0.5">自立する筐体</h2>
+                <p class="common-medium" _uk-parallax="x: -100,0; viewport: 0.5">「音札」の筐体は自立するための折りたたみ可能な脚を備え、ポータビリティも両立しています。また、NFCリーダーとゲームのプレーに連動して光るLEDがついています。</p>
+                <p class="common-medium" _uk-parallax="x: -100,0; viewport: 0.5">音楽ゲームの筐体としては珍しい、木材を使用した温かみのあるデザインです。</p>
             </div>
         </div>
-        <div class="uk-height-large uk-background-cover uk-light uk-flex" uk-parallax="opacity: 0,1; y: 0,0; viewport: 0.5" style="background-image: url('./images/c03.png');">
+        <div class="uk-height-large uk-background-cover uk-light uk-flex" uk-parallax="x: -100,0; opacity: 0,1; y: 0,0; viewport: 0.35" style="background-image: url('./images/c03.png');">
             <div class="uk-text-center uk-margin-auto uk-margin-auto-vertical">
-                <h2 class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical" uk-parallax="x: -100,0; viewport: 0.5">ICカードによる個人認証</h2>
-                <p class="common-medium" uk-parallax="x: -100,0; viewport: 0.5">お手持ちのアミューズメント用ICカードまたは交通系ICカードを筐体にかざすだけでプレイヤー認証とプレーデータ保存が可能です。</p>
-                <p class="common-medium" uk-parallax="x: -100,0; viewport: 0.5">初回のICカードをかざすと、アクセスコード・QRコードが表示され、スマホやPCから「おとふだNET」にログインできるようになります。</p>
+                <h2 class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical" _uk-parallax="x: -100,0; viewport: 0.5">ICカードによる個人認証</h2>
+                <p class="common-medium" _uk-parallax="x: -100,0; viewport: 0.5">お手持ちのアミューズメント用ICカードまたは交通系ICカードを筐体にかざすだけでプレイヤー認証とプレーデータ保存が可能です。</p>
+                <p class="common-medium" _uk-parallax="x: -100,0; viewport: 0.5">初回のICカードをかざすと、アクセスコード・QRコードが表示され、スマホやPCから「おとふだNET」にログインできるようになります。</p>
                 <a href="https://j.mp/otfdnet" class="common-imglink" target="_blank">
                     <div>
                         <img src="./NET_logo_white.png" alt="おとふだNET"><br>
