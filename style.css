@@ -300,7 +300,7 @@ section #overview-text .uk-slideshow {
 
 .music .music-level a{
   font-family: 'Sawarabi Gothic', sans-serif;
-  font-weight: 900;
+  font-weight: 700;
   cursor: default;
   color: #f0f0f0;
   text-shadow: 0 1px 2px black;
@@ -401,6 +401,11 @@ section #overview-text .uk-slideshow {
 }
 
 /* CHAR */
+
+.char {
+  max-width: 1000px;
+  margin: 0 auto;
+}
 
 .char h2 {
   font-size: 45px;
