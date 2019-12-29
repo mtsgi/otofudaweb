@@ -400,6 +400,19 @@ section #overview-text .uk-slideshow {
   margin: -5px;
 }
 
+/* CHAR */
+
+.char h2 {
+  font-size: 45px;
+  padding-bottom: 15px;
+}
+
+.char h3 {
+  font-size: 32px;
+  margin-left: -30px;
+  color: rgba(255, 255, 255, .5);
+}
+
 /* bg */
 
 #home-anim {
