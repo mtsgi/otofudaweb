@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="Home">
     <div class="sticky-container otofuda-cover-container">
       <div class="uk-cover-container otofuda-cover-container--box">
         <iframe
@@ -16,7 +16,7 @@
     </div>
 
     <section>
-      <div class="common-medium uk-padding uk-margin-top">
+      <div class="common-medium uk-padding">
         「音札」は、リズムに乗って演奏する爽快な<strong>音楽ゲーム</strong>に、花札をモチーフにした<strong>「音札」</strong>によるカードバトルを組み合わせたゲームです。
       </div>
       <a class="scroll"></a>

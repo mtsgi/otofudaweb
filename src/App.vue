@@ -127,12 +127,25 @@
         uk-toggle="target: #offcanvas-push"
       ></a>
       <router-link to="/">
-        <img alt="音札 おとふだ" src="@/assets/logo_black.png" />
+        <img alt="音札 おとふだ" src="@/assets/logo.png" />
       </router-link>
+      <div class="otofuda-nav-mobile--links">
+        <a
+          href="https://twitter.com/otofuda"
+          class="uk-icon-button uk-margin-small-right"
+          uk-icon="twitter"
+        ></a>
+        <a
+          href=""
+          class="uk-icon-button  uk-margin-small-right"
+          uk-icon="youtube"
+        ></a>
+        <a href="" class="uk-icon-button" uk-icon="instagram"></a>
+      </div>
     </div>
 
     <!-- PC用ナビゲーションバー -->
-    <div class="otofuda-nav uk-visible@s">
+    <div class="otofuda-navbar uk-visible@s">
       <router-link to="/">
         <img alt="音札 おとふだ" src="@/assets/logo_ruby.png" />
       </router-link>
@@ -145,8 +158,10 @@
           }"
         >
           <router-link :to="link.path">
-            <div class="otofuda-nav--label">{{ link.label }}</div>
-            <div class="otofuda-nav--description">{{ link.description }}</div>
+            <div class="otofuda-navbar--label">{{ link.label }}</div>
+            <div class="otofuda-navbar--description">
+              {{ link.description }}
+            </div>
           </router-link>
         </li>
       </ul>
@@ -154,7 +169,7 @@
 
     <!-- スマホ用ナビゲーションバー -->
     <div id="offcanvas-push" uk-offcanvas="mode: push; overlay: true">
-      <div class="uk-offcanvas-bar">
+      <div class="uk-offcanvas-bar otofuda-navbar-mobile">
         <ul uk-nav>
           <li
             v-for="link in routes"
@@ -163,7 +178,12 @@
               'uk-acive': $route.path == link.path
             }"
           >
-            <router-link :to="link.path">{{ link.label }}</router-link>
+            <router-link :to="link.path">
+              <div class="otofuda-navbar-mobile--label">{{ link.label }}</div>
+              <div class="otofuda-navbar-mobile--description">
+                {{ link.description }}
+              </div>
+            </router-link>
           </li>
         </ul>
       </div>
@@ -200,7 +220,7 @@ export default {
         {
           label: "HOW TO PLAY",
           path: "/play",
-          description: "ゲームプレー説明"
+          description: "遊び方説明"
         }
       ]
     };
@@ -214,8 +234,11 @@ export default {
   font-family: "Sawarabi Mincho", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  .otofuda-nav {
+  color: #f0f0f0;
+  .otofuda-navbar {
     position: fixed;
+    top: 0;
+    left: 0;
     margin: 20px;
     width: 260px;
     box-sizing: border-box;
@@ -223,17 +246,36 @@ export default {
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(3px);
     border-radius: 8px;
+    border-bottom: 2px solid transparent;
     li {
       list-style: none;
       padding-top: 8px;
+      &.uk-acive {
+        border-bottom: 2px solid #ffffff;
+      }
       a {
         color: #ffffff;
         text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
         cursor: pointer;
         font-size: 24px;
-        .otofuda-nav--description {
+        .otofuda-navbar--description {
           font-size: 16px;
         }
+      }
+    }
+  }
+  .otofuda-navbar-mobile {
+    box-shadow: 0 0 32px 0 rgba(72, 200, 240, 0.5);
+    li {
+      margin-bottom: 8px;
+      &.uk-acive {
+        border-right: 2px solid #ffffff;
+      }
+      .otofuda-navbar-mobile--label {
+        font-size: 20px;
+      }
+      .otofuda-navbar-mobile--description {
+        font-size: 12px;
       }
     }
   }
@@ -242,11 +284,34 @@ export default {
     img {
       height: 80px;
     }
+    .otofuda-nav-mobile--links {
+      margin-right: 12px;
+      flex-grow: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      .uk-icon-button {
+        background: rgba(0, 0, 0, 0.5);
+        color: #f0f0f0;
+      }
+    }
+  }
+  main {
+    margin: 0 12px;
   }
   @media screen and (min-width: 640px) {
     main {
       margin-left: 300px;
     }
+  }
+
+  /deep/ h1 {
+    font-family: inherit;
+    margin-top: 24px;
+    color: #f0f0f0;
+    font-size: 32px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f0f0f0;
   }
 
   /* bg */
@@ -256,7 +321,8 @@ export default {
     bottom: 0px;
     left: 0;
     min-height: 100vh;
-    z-index: -2;
+    z-index: -1;
+    background: #303030;
     transform: scale(2);
     #home {
       position: fixed;
