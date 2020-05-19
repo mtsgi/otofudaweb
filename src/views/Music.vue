@@ -1,20 +1,32 @@
 <template>
   <div class="Music">
-    <div class="uk-inline uk-float-right">
-      <button class="uk-button uk-button-secondary" type="button">
-        並び替え
-      </button>
-      <div uk-dropdown="pos: top-right">
-        <ul class="uk-nav uk-dropdown-nav">
-          <li><a @click="sort('updated_at')">新着順</a></li>
-          <li><a @click="sort('bpm')">BPM順</a></li>
-          <li><a @click="sort('easy')">難易度順①</a></li>
-          <li><a @click="sort('normal')">難易度順②</a></li>
-          <li><a @click="sort('hard')">難易度順③</a></li>
-        </ul>
-      </div>
-    </div>
     <h1>収録楽曲リスト</h1>
+    <div class="uk-margin uk-text-right">
+      <div uk-form-custom="target: button span">
+        <select v-model="order">
+          <option value="default">並び替え</option>
+          <option value="name">曲名順</option>
+          <option value="artist">アーティスト名順</option>
+          <option value="illustrator">イラストレーター名順</option>
+          <option value="bpm">BPM順</option>
+          <option value="updated_at">新着順(↑)</option>
+          <option value="easy">難易度順(緑)</option>
+          <option value="normal">難易度順(橙)</option>
+          <option value="hard">難易度順(赤)</option>
+        </select>
+        <button class="uk-button uk-button-secondary" type="button">
+          <span></span>
+        </button>
+      </div>
+      <button
+        class="uk-button uk-button-secondary"
+        type="button"
+        @click="switchReverse()"
+      >
+        <span uk-icon="arrow-up" v-if="reverse"></span>
+        <span uk-icon="arrow-down" v-else></span>
+      </button>
+    </div>
     <form class="uk-search uk-search-large otofuda-search-form">
       <legend>楽曲名／アーティスト名／譜面制作者名で検索できます</legend>
       <span uk-search-icon></span>
@@ -50,6 +62,9 @@
           <span>{{ song.hard }}</span>
         </div>
         <div class="otofuda-song--chart--info">
+          ILLUSTRATOR: {{ song.illustrator }}
+        </div>
+        <div class="otofuda-song--chart--info">
           NOTES DESIGNER: {{ song.author }}
         </div>
         <div class="otofuda-song--chart--comment" v-if="song.comment">
@@ -80,6 +95,7 @@ export default {
           comment: "音札のテーマ曲です",
           jacket_url:
             "https://www.ne.senshu-u.ac.jp/~proj2019-13/jacket/otofuda.png",
+          illustrator: "高槻",
           updated_at: new Date("2019-11-05")
         },
         {
@@ -93,9 +109,10 @@ export default {
           normal: 8,
           hard: 10,
           author: 'OTOFUDA Sound Team "謎の勢力M"',
-          comment: "音札 初代ボス曲",
+          comment: "「音札」 初代ボス曲",
           jacket_url:
             "https://www.ne.senshu-u.ac.jp/~proj2019-13/jacket/puzzle.png",
+          illustrator: "OTOFUDA Designers",
           updated_at: new Date("2019-11-05")
         },
         {
@@ -111,6 +128,7 @@ export default {
           author: "？？？",
           comment: "t+pazolite「without Permission」より",
           jacket_url: "http://c-h-s.me/chs0038/images/chs-0038_jacket.jpg",
+          illustrator: "Shinichiro Miyazaki",
           updated_at: new Date("2020-05-05")
         },
         {
@@ -126,6 +144,7 @@ export default {
           author: "？？？",
           comment: "t+pazolite「without Permission」より",
           jacket_url: "http://c-h-s.me/chs0038/images/chs-0038_jacket.jpg",
+          illustrator: "Shinichiro Miyazaki",
           updated_at: new Date("2020-05-05")
         },
         {
@@ -141,16 +160,43 @@ export default {
           author: "？？？",
           comment: "t+pazolite「without Permission」より",
           jacket_url: "http://c-h-s.me/chs0038/images/chs-0038_jacket.jpg",
+          illustrator: "Shinichiro Miyazaki",
           updated_at: new Date("2020-05-05")
         }
       ],
-      order: "",
+      sortedSongs: [],
+      order: "default",
+      reverse: false,
       search: ""
     };
   },
+  mounted() {
+    this.sortedSongs = this.songs;
+  },
+  methods: {
+    switchReverse() {
+      this.reverse = !this.reverse;
+      this.sortedSongs.reverse();
+    }
+  },
+  watch: {
+    order(val) {
+      if (val === "default") {
+        this.sortedSongs = this.songs;
+      } else
+        this.sortedSongs.sort((a, b) => {
+          const A = a[val],
+            B = b[val];
+          if (A < B) return -1;
+          else if (B < A) return 1;
+          else return 0;
+        });
+      if (this.reverse) this.sortedSongs.reverse();
+    }
+  },
   computed: {
     filteredSongs() {
-      return this.songs.filter(
+      return this.sortedSongs.filter(
         song =>
           song.name.toLowerCase().includes(this.search.toLowerCase()) ||
           song.artist.toLowerCase().includes(this.search.toLowerCase()) ||
@@ -205,8 +251,7 @@ export default {
     width: 100%;
     height: 100%;
     z-index: -1;
-    animation: rainbow 120s linear infinite;
-    filter: blur(8px);
+    filter: blur(6px);
   }
   .otofuda-song--info {
     display: flex;
@@ -234,7 +279,7 @@ export default {
     }
   }
   .otofuda-song--chart {
-    background: #d0d0d0;
+    background: #e0e0e0;
     font-size: 14px;
     padding-bottom: 8px;
     .otofuda-song--chart--info {
@@ -251,6 +296,7 @@ export default {
     .otofuda-song--chart--difficulty {
       display: flex;
       justify-content: flex-end;
+      margin-bottom: -6px;
       span {
         padding: 4px;
         width: 32px;
@@ -259,10 +305,10 @@ export default {
         border-radius: 4px;
         box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
         color: #ffffff;
-        font-size: 16px;
+        font-size: 20px;
         font-weight: 700;
         position: relative;
-        top: -8px;
+        top: -10px;
         &:first-child {
           background: #25ca25;
         }

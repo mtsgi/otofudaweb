@@ -15,6 +15,18 @@ const routes = [
     name: "Music",
     component: () =>
       import(/* webpackChunkName: "music" */ "../views/Music.vue")
+  },
+  {
+    path: "/story",
+    name: "Story",
+    component: () =>
+      import(/* webpackChunkName: "story" */ "../views/Story.vue")
+  },
+  {
+    path: "/character",
+    name: "Character",
+    component: () =>
+      import(/* webpackChunkName: "character" */ "../views/Character.vue")
   }
 ];
 

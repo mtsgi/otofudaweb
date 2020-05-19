@@ -136,7 +136,7 @@
           uk-icon="twitter"
         ></a>
         <a
-          href=""
+          href="https://www.youtube.com/channel/UC9G3cMsWdkGC6QJz1EbczBg"
           class="uk-icon-button  uk-margin-small-right"
           uk-icon="youtube"
         ></a>
@@ -164,12 +164,35 @@
             </div>
           </router-link>
         </li>
+        <a
+          class="otofuda-navbar--link"
+          href="https://otofuda.booth.pm/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >オリジナルグッズ販売<span
+            class="uk-float-right"
+            uk-icon="link"
+          ></span
+        ></a>
+        <a
+          class="otofuda-navbar--link"
+          href="https://www.youtube.com/channel/UC9G3cMsWdkGC6QJz1EbczBg"
+          target="_blank"
+          rel="noopener noreferrer"
+          >YouTubeチャンネル<span
+            class="uk-float-right"
+            uk-icon="youtube"
+          ></span
+        ></a>
       </ul>
     </div>
 
     <!-- スマホ用ナビゲーションバー -->
     <div id="offcanvas-push" uk-offcanvas="mode: push; overlay: true">
       <div class="uk-offcanvas-bar otofuda-navbar-mobile">
+        <router-link to="/">
+          <img alt="音札 おとふだ" src="@/assets/logo_ruby.png" />
+        </router-link>
         <ul uk-nav>
           <li
             v-for="link in routes"
@@ -203,9 +226,9 @@ export default {
     return {
       routes: [
         {
-          label: "HOME",
-          path: "/",
-          description: "トップページ"
+          label: "ABOUT",
+          path: "/about",
+          description: "ゲーム紹介"
         },
         {
           label: "MUSIC",
@@ -218,9 +241,9 @@ export default {
           description: "オリジナルストーリー"
         },
         {
-          label: "HOW TO PLAY",
-          path: "/play",
-          description: "遊び方説明"
+          label: "CHARACTER",
+          path: "/character",
+          description: "キャラクター"
         }
       ]
     };
@@ -246,10 +269,10 @@ export default {
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(3px);
     border-radius: 8px;
-    border-bottom: 2px solid transparent;
     li {
       list-style: none;
       padding-top: 8px;
+      border-bottom: 2px solid transparent;
       &.uk-acive {
         border-bottom: 2px solid #ffffff;
       }
@@ -261,6 +284,21 @@ export default {
         .otofuda-navbar--description {
           font-size: 16px;
         }
+      }
+    }
+    .otofuda-navbar--link {
+      color: #303030;
+      background: rgba(255, 255, 255, 0.5);
+      display: block;
+      padding: 4px;
+      margin-top: 8px;
+      border-radius: 4px;
+      text-decoration: none;
+      &:hover {
+        background: rgba(255, 255, 255, 0.75);
+      }
+      .uk-icon {
+        margin-top: 2px;
       }
     }
   }
@@ -281,6 +319,12 @@ export default {
   }
   .otofuda-nav-mobile {
     display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background: linear-gradient(#303030 0%,#30303000 100%);
+    z-index: 2;
     img {
       height: 80px;
     }
@@ -298,10 +342,12 @@ export default {
   }
   main {
     margin: 0 12px;
+    margin-top: 90px;
   }
   @media screen and (min-width: 640px) {
     main {
       margin-left: 300px;
+      margin-top: 0;
     }
   }
 
