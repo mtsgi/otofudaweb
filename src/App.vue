@@ -208,6 +208,19 @@
               </div>
             </router-link>
           </li>
+          <li>
+            <a
+              class="otofuda-navbar--link"
+              href="https://otofuda.booth.pm/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="otofuda-navbar-mobile--label">BOOTH</div>
+              <div class="otofuda-navbar-mobile--description">
+                オリジナルグッズを販売中です
+              </div>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -323,7 +336,7 @@ export default {
     top: 0;
     left: 0;
     width: 100vw;
-    background: linear-gradient(#303030 0%,#30303000 100%);
+    background: linear-gradient(#303030 0%, #30303000 100%);
     z-index: 2;
     img {
       height: 80px;

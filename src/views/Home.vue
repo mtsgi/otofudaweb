@@ -16,11 +16,25 @@
     </div>
 
     <section class="otofuda-home">
-      <img src="/home/home_visual.png" alt="" />
+      <img src="@/assets/home/home_visual.png" alt="" />
     </section>
 
     <div class="uk-padding">
       「音札」は、リズムに乗って演奏する爽快な<strong>音楽ゲーム</strong>に、花札をモチーフにした<strong>「音札」</strong>によるカードバトルを組み合わせたゲームです。
+    </div>
+
+    <div class="otofuda-links uk-grid-small uk-child-width-1-2@m" uk-grid>
+      <router-link to="/character">
+        <img src="@/assets/home/link_character.png" alt="キャラクター紹介" />
+      </router-link>
+      <router-link to="/music">
+        <img src="@/assets/home/link_music.png" alt="収録楽曲リスト" />
+        <img
+          src="@/assets/home/otofuda.png"
+          alt="収録曲"
+          class="otofuda-links--jacket"
+        />
+      </router-link>
     </div>
 
     <h1>トピックス</h1>
@@ -47,8 +61,8 @@
         uk-slideshow-item="next"
       ></a>
 
-      <div class="uk-position-bottom-center uk-position-small">
-        <ul class="uk-thumbnav">
+      <div class="uk-margin-top">
+        <ul class="uk-thumbnav uk-flex-center">
           <li v-for="(t, i) in topics" :key="i" :uk-slideshow-item="i">
             <a href="#"
               ><img :src="`${t}?format=jpg&name=thumb`" width="40" alt=""
@@ -56,6 +70,26 @@
           </li>
         </ul>
       </div>
+    </div>
+
+    <h1>Share</h1>
+    <div class="uk-margin otofuda-share">
+      <ShareNetwork
+        v-for="network in networks"
+        :network="network.network"
+        :key="network.key"
+        :style="{
+          backgroundColor: network.color,
+          boxShadow: `0 2px 8px 0 ${network.color}a0`
+        }"
+        :url="sharing.url"
+        :title="sharing.title"
+        :description="sharing.description"
+        :hashtags="sharing.hashtags"
+        :twitterUser="sharing.twitterUser"
+      >
+        <span>{{ network.name }}</span>
+      </ShareNetwork>
     </div>
 
     <h1>Twitter</h1>
@@ -66,7 +100,7 @@
       :options="{
         theme: 'dark',
         chrome: 'noheader nofooter transparent',
-        tweetLimit: '3',
+        tweetLimit: '10',
         height: 200,
         dnt: true
       }"
@@ -76,17 +110,61 @@
 
 <script>
 import { Timeline } from "vue-tweet-embed";
+import { ShareNetwork } from "vue-social-sharing";
 
 export default {
   components: {
-    Timeline
+    Timeline,
+    ShareNetwork
   },
   name: "Home",
   data() {
     return {
       topics: [
         "https://pbs.twimg.com/media/EXF2XEHUwAA6A7A",
-        "https://pbs.twimg.com/media/EXPEyrNUEAA1s7K"
+        "https://pbs.twimg.com/media/EXPEyrNUEAA1s7K",
+        "https://pbs.twimg.com/media/EYrkUlYUMAAHVlg"
+      ],
+      sharing: {
+        url: "https://j.mp/otofuda",
+        title:
+          "音札 (おとふだ)「花札 × 対戦 × 音楽」これまでにない新感覚対戦型音楽カードゲーム",
+        description:
+          "「音札」は、リズムに乗って演奏する爽快な<strong>音楽ゲーム</strong>に、花札をモチーフにした<strong>「音札」</strong>によるカードバトルを組み合わせたゲームです。",
+        hashtags: "音札",
+        twitterUser: "otofuda"
+      },
+      networks: [
+        {
+          network: "twitter",
+          name: "Twitter",
+          icon: "fab fah fa-lg fa-twitter",
+          color: "#1da1f2"
+        },
+        {
+          network: "line",
+          name: "Line",
+          icon: "fab fah fa-lg fa-line",
+          color: "#00c300"
+        },
+        {
+          network: "pocket",
+          name: "Pocket",
+          icon: "fab fah fa-lg fa-get-pocket",
+          color: "#ef4056"
+        },
+        {
+          network: "reddit",
+          name: "Reddit",
+          icon: "fab fah fa-lg fa-reddit-alien",
+          color: "#ff4500"
+        },
+        {
+          network: "tumblr",
+          name: "Tumblr",
+          icon: "fab fah fa-lg fa-tumblr",
+          color: "#35465c"
+        }
       ]
     };
   }
@@ -101,6 +179,7 @@ export default {
   left: 0;
   top: 0;
   z-index: -1;
+  background: rgba(0, 0, 0, 0.8);
   .otofuda-cover-container--box {
     height: 100vh;
   }
@@ -109,16 +188,62 @@ export default {
     z-index: 1;
     position: absolute;
     width: 100vw;
-    background-image: url(/home/container_bg.png);
+    background-image: url(http://www.ne.senshu-u.ac.jp/~proj2019-13/dist/home/container_bg.png);
     opacity: 0.5;
   }
 }
 .otofuda-home {
   height: 100vh;
   display: flex;
+  justify-content: center;
   img {
     max-height: calc(100% - 100px);
     object-fit: contain;
+  }
+}
+.otofuda-share {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  a {
+    color: #f0f0f0;
+    padding: 4px 8px;
+    margin: 4px 8px;
+    border-radius: 4px;
+    &:hover {
+      text-decoration: none;
+      opacity: 0.8;
+    }
+  }
+}
+.otofuda-links {
+  align-items: flex-end;
+  margin-top: -20px;
+  a {
+    padding: 0;
+    position: relative;
+  }
+  a:hover {
+    opacity: 0.8;
+  }
+  .otofuda-links--jacket {
+    position: absolute;
+    height: 50%;
+    left: calc(10% + 0px);
+    transform: rotate(-4deg);
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+    animation: otofuda-jacket 2s linear infinite;
+  }
+}
+@keyframes otofuda-jacket {
+  0% {
+    margin-top: 0px;
+  }
+  50% {
+    margin-top: 10px;
+  }
+  100% {
+    margin-top: 0px;
   }
 }
 </style>

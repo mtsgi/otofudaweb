@@ -20,4 +20,6 @@ yarn-error.log*
 *.sln
 *.sw?
 
-public/home/home_visual.png
+src/assets/home/home_visual.png
+public/images/character
+public/jacket
