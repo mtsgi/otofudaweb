@@ -11,7 +11,12 @@
           allowfullscreen
           uk-cover
         ></iframe>
-        <div class="otofuda-cover-container--bg"></div>
+        <div
+          class="otofuda-cover-container--bg"
+          :style="{
+            backgroundImage: 'url(./images/home/container_bg.png)'
+          }"
+        ></div>
       </div>
     </div>
 
@@ -188,7 +193,6 @@ export default {
     z-index: 1;
     position: absolute;
     width: 100vw;
-    background-image: url(http://www.ne.senshu-u.ac.jp/~proj2019-13/dist/home/container_bg.png);
     opacity: 0.5;
   }
 }

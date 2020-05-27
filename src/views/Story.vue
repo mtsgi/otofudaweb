@@ -7,7 +7,10 @@
 
     <div class="uk-switcher uk-margin">
       <section>
-        StoryTeller
+        <unity
+          src="./story_teller/Build/Build.json"
+          unityLoader="story_teller/Build/UnityLoader.js"
+        ></unity>
       </section>
       <section>
         <div>
@@ -45,22 +48,25 @@
 </template>
 
 <script>
-// import {  } from "";
+import Unity from "vue-unity-webgl";
 
 export default {
   name: "Story",
+  components: { Unity },
   data() {
     return {
       comics: [
         {
           title: "第0話 華音編",
-          url:
-            "https://pbs.twimg.com/media/EYwt55oU4AA8GTI?format=jpg&name=orig"
+          url: "./images/comic/000a.png"
         },
         {
           title: "第0話 門音編",
-          url:
-            "https://pbs.twimg.com/media/EY13fmwU0AANDDH?format=jpg&name=large"
+          url: "./images/comic/000b.png"
+        },
+        {
+          title: "第0話 空音編",
+          url: "./images/comic/000c.png"
         }
       ]
     };
@@ -69,6 +75,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/deep/ #unity-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.5);
+}
+/deep/ .webgl-content {
+  position: relative;
+  width: 100%;
+  &::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%;
+  }
+}
+/deep/ .footer .fullscreen {
+  display: none;
+}
 .otofuda-story-tab {
   margin-top: 8px;
   li > a {

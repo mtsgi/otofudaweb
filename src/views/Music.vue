@@ -27,8 +27,10 @@
         <span uk-icon="arrow-down" v-else></span>
       </button>
     </div>
-    <form class="uk-search uk-search-large otofuda-search-form">
-      <legend>楽曲名／アーティスト名／譜面制作者名で検索できます</legend>
+    <form class="uk-search otofuda-search-form">
+      <legend>
+        楽曲名／アーティスト名／イラストレーター名／譜面制作者名で検索できます
+      </legend>
       <span uk-search-icon></span>
       <input
         class="uk-search-input"
@@ -93,8 +95,7 @@ export default {
           hard: 8,
           author: "マテ茶",
           comment: "音札のテーマ曲です",
-          jacket_url:
-            "./jacket/otofuda.png",
+          jacket_url: "./jacket/otofuda.png",
           illustrator: "高槻",
           updated_at: new Date("2019-11-05")
         },
@@ -110,8 +111,7 @@ export default {
           hard: 10,
           author: 'OTOFUDA Sound Team "謎の勢力M"',
           comment: "「音札」 初代ボス",
-          jacket_url:
-            "./jacket/puzzle.png",
+          jacket_url: "./jacket/puzzle.png",
           illustrator: "OTOFUDA Designers",
           updated_at: new Date("2019-11-05")
         },
@@ -127,8 +127,7 @@ export default {
           hard: 10,
           author: 'マテ茶 vs. OTOFUDA Sound Team "謎の勢力M"',
           comment: "突如登場した最難関楽曲",
-          jacket_url:
-            "./jacket/sublimation.png",
+          jacket_url: "./jacket/sublimation.png",
           illustrator: "高槻",
           updated_at: new Date("2019-12-01")
         },
@@ -217,7 +216,8 @@ export default {
         song =>
           song.name.toLowerCase().includes(this.search.toLowerCase()) ||
           song.artist.toLowerCase().includes(this.search.toLowerCase()) ||
-          song.author.toLowerCase().includes(this.search.toLowerCase())
+          song.author.toLowerCase().includes(this.search.toLowerCase()) ||
+          song.illustrator.toLowerCase().includes(this.search.toLowerCase())
       );
     }
   }
