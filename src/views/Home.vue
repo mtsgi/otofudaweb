@@ -77,7 +77,7 @@
       </div>
     </div>
 
-    <h1>Share</h1>
+    <p class="uk-text-center">このページを共有する</p>
     <div class="uk-margin otofuda-share">
       <ShareNetwork
         v-for="network in networks"

@@ -11,6 +11,9 @@
           src="./story_teller/Build/Build.json"
           unityLoader="story_teller/Build/UnityLoader.js"
         ></unity>
+        <p class="uk-text-center">
+          操作説明 ... クリックでストーリー選択・会話進行
+        </p>
       </section>
       <section>
         <div>

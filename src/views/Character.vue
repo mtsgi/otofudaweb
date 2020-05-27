@@ -1,7 +1,7 @@
 <template>
   <div class="Character">
     <h1>キャラクター紹介</h1>
-    <p class="uk-text-large">Comming soon...</p>
+    <p class="uk-text-large">Coming soon...</p>
   </div>
 </template>
 

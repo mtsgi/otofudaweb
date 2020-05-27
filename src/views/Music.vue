@@ -27,10 +27,10 @@
         <span uk-icon="arrow-down" v-else></span>
       </button>
     </div>
-    <form class="uk-search otofuda-search-form">
-      <legend>
-        楽曲名／アーティスト名／イラストレーター名／譜面制作者名で検索できます
-      </legend>
+    <legend>
+      楽曲名／アーティスト名／イラストレーター名／譜面制作者名で検索できます
+    </legend>
+    <form class="uk-search uk-search-large otofuda-search-form">
       <span uk-search-icon></span>
       <input
         class="uk-search-input"
@@ -228,7 +228,7 @@ export default {
 .otofuda-search-form {
   span {
     position: absolute;
-    top: 20px;
+    top: 5px;
   }
   input {
     color: #f0f0f0;
