@@ -140,7 +140,11 @@
           class="uk-icon-button  uk-margin-small-right"
           uk-icon="youtube"
         ></a>
-        <a href="" class="uk-icon-button" uk-icon="instagram"></a>
+        <a
+          href="https://www.instagram.com/otfdpr/"
+          class="uk-icon-button"
+          uk-icon="instagram"
+        ></a>
       </div>
     </div>
 
@@ -229,6 +233,10 @@
     <main>
       <router-view />
     </main>
+
+    <footer>
+      © 2020 音札プロジェクト
+    </footer>
   </div>
 </template>
 
@@ -364,6 +372,11 @@ export default {
       margin-left: 300px;
       margin-top: 0;
     }
+  }
+
+  footer {
+    padding: 12px;
+    text-align: right;
   }
 
   /deep/ h1 {
