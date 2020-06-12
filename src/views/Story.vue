@@ -32,13 +32,16 @@
           uk-grid
           uk-lightbox="animation: slide"
         >
+          <div v-if="comics.length == 0">
+            読み込み中
+          </div>
           <div v-for="c in comics" :key="c.title">
             <a
               class="uk-inline otofuda-biyori"
-              :href="c.url"
+              :href="c.image.url"
               :data-caption="c.title"
             >
-              <img :src="c.url" alt="c.title" />
+              <img :src="c.image.url" alt="c.title" />
               <div class="otofuda-biyori--title">
                 {{ c.title }}
               </div>
@@ -52,26 +55,23 @@
 
 <script>
 import Unity from "vue-unity-webgl";
+import axios from "axios";
 
 export default {
   name: "Story",
   components: { Unity },
+  mounted() {
+    axios
+      .get(this.apiUrl, { headers: { "X-API-KEY": this.apiKey } })
+      .then(response => {
+        this.comics = response.data.contents;
+      });
+  },
   data() {
     return {
-      comics: [
-        {
-          title: "第0話 華音編",
-          url: "./images/comic/000a.png"
-        },
-        {
-          title: "第0話 門音編",
-          url: "./images/comic/000b.png"
-        },
-        {
-          title: "第0話 空音編",
-          url: "./images/comic/000c.png"
-        }
-      ]
+      apiKey: "91c69bf8-3df5-445f-81e7-30b54ab4a7d4",
+      apiUrl: "https://otofuda.microcms.io/api/v1/comics",
+      comics: []
     };
   }
 };
