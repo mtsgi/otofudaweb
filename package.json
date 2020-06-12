@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "core-js": "^3.6.4",
     "css-loader": "^3.5.3",
     "node-sass": "^4.14.1",
@@ -15,6 +16,7 @@
     "style-loader": "^1.2.1",
     "uikit": "^3.4.6",
     "vue": "^2.6.11",
+    "vue-axios": "^2.1.5",
     "vue-router": "^3.1.6",
     "vue-social-sharing": "^3.0.0-beta.10",
     "vue-tweet-embed": "^2.4.0",
