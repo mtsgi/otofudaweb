@@ -1,0 +1,50 @@
+name: Deploy
+
+# Controls when the action will run. Triggers the workflow on push
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/checkout@v2
+        
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: Build Project
+        run: |
+          npm install -g yarn
+          yarn install
+          yarn build --mode=production
+
+      - name: List output files
+        run: ls -R dist
+
+      - name: Deploy
+        uses: SamKirkland/FTP-Deploy-Action@3.1.1
+        with:
+          ftp-server: ${{ secrets.SFTP_SERVER }}
+          ftp-username: ${{ secrets.SFTP_USERNAME }}
+          ftp-password: ${{ secrets.SFTP_PASSWORD }}
+          local-dir: ./dist
+          git-ftp-args: --insecure --remote-root 'public_html'
+          # if your certificate is setup correctly this can be removed (see known-hosts argument)
+
+      - uses: actions/checkout@v2
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2.0.2
+        env:
+          SLACK_CHANNEL: dev-github-log
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_MESSAGE: ':rocket: デプロイ通知'
