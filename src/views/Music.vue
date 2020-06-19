@@ -59,9 +59,10 @@
       <!-- 譜面データ -->
       <div class="otofuda-song--chart">
         <div class="otofuda-song--chart--difficulty">
-          <span>{{ song.easy }}</span>
-          <span>{{ song.normal }}</span>
-          <span>{{ song.hard }}</span>
+          <span v-if="song.easy">{{ song.easy }}</span>
+          <span v-if="song.normal">{{ song.normal }}</span>
+          <span v-if="song.hard">{{ song.hard }}</span>
+          <span v-if="song.coming">Coming soon...</span>
         </div>
         <div class="otofuda-song--chart--info">
           ILLUSTRATOR: {{ song.illustrator }}
@@ -91,7 +92,7 @@ export default {
           dispbpm: "180",
           color: [255, 255, 205],
           easy: 1,
-          normal: 5,
+          normal: 4,
           hard: 8,
           author: "マテ茶",
           comment: "音札のテーマ曲です",
@@ -138,9 +139,7 @@ export default {
           bpm: 1962.0,
           dispbpm: "1962",
           color: [140, 140, 235],
-          easy: "-",
-          normal: "-",
-          hard: "-",
+          coming: true,
           author: "",
           comment: "t+pazolite「without Permission」より",
           jacket_url: "./jacket/bpmrt.png",
@@ -154,9 +153,7 @@ export default {
           bpm: 195.0,
           dispbpm: "195",
           color: [190, 80, 105],
-          easy: "-",
-          normal: "-",
-          hard: "-",
+          coming: true,
           author: "",
           comment: "t+pazolite「without Permission」より",
           jacket_url: "./jacket/dogbite.png",
@@ -170,9 +167,7 @@ export default {
           bpm: 180.0,
           dispbpm: "180",
           color: [180, 240, 5],
-          easy: "-",
-          normal: "-",
-          hard: "-",
+          coming: true,
           author: "",
           comment: "t+pazolite「without Permission」より",
           jacket_url: "./jacket/chartreuse.png",
@@ -334,6 +329,12 @@ export default {
         }
         &:nth-child(3) {
           background: #ff0984;
+        }
+        &:only-child {
+          background: #909090;
+          width: 132px;
+          font-size: 16px;
+          line-height: 2;
         }
       }
     }
