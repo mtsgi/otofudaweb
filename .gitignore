@@ -20,6 +20,5 @@ yarn-error.log*
 *.sln
 *.sw?
 
-src/assets/home/home_visual.png
 public/jacket
 public/story_teller
