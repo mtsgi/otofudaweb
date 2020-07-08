@@ -31,20 +31,28 @@ jobs:
       - name: List output files
         run: ls -R dist
 
-      - name: Deploy
-        uses: SamKirkland/FTP-Deploy-Action@3.1.1
+      - name: Push
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          ftp-server: ${{ secrets.SFTP_SERVER }}
-          ftp-username: ${{ secrets.SFTP_USERNAME }}
-          ftp-password: ${{ secrets.SFTP_PASSWORD }}
-          local-dir: ./dist
-          git-ftp-args: --insecure --remote-root 'public_html'
-          # if your certificate is setup correctly this can be removed (see known-hosts argument)
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: build
+          publish_dir: ./dist
+
+      - name: Deploy
+        uses: appleboy/ssh-action@master
+        if: success()
+        with:
+          host: ${{ secrets.SFTP_SERVER }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          port: ${{ secrets.SFTP_PORT }}
+          script: cd ./public_html && git pull origin build
 
       - uses: actions/checkout@v2
       - name: Slack Notification
+        if: success()
         uses: rtCamp/action-slack-notify@v2.0.2
         env:
           SLACK_CHANNEL: dev-github-log
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_MESSAGE: ':rocket: デプロイ通知'
+          SLACK_MESSAGE: ':rocket: Deployed'
