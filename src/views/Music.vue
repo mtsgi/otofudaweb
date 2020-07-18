@@ -10,9 +10,12 @@
           <option value="illustrator">イラストレーター名順</option>
           <option value="bpm">BPM順</option>
           <option value="updated_at">新着順(↑)</option>
-          <option value="easy">難易度順(緑)</option>
-          <option value="normal">難易度順(橙)</option>
-          <option value="hard">難易度順(赤)</option>
+          <option value="easy.level">難易度順(緑)</option>
+          <option value="normal.level">難易度順(橙)</option>
+          <option value="hard.level">難易度順(赤)</option>
+          <option value="easy.notes">ノーツ数順(緑)</option>
+          <option value="normal.notes">ノーツ数順(橙)</option>
+          <option value="hard.notes">ノーツ数順(赤)</option>
         </select>
         <button class="uk-button uk-button-secondary" type="button">
           <span></span>
@@ -59,16 +62,33 @@
       <!-- 譜面データ -->
       <div class="otofuda-song--chart">
         <div class="otofuda-song--chart--difficulty">
-          <span v-if="song.easy">{{ song.easy }}</span>
-          <span v-if="song.normal">{{ song.normal }}</span>
-          <span v-if="song.hard">{{ song.hard }}</span>
-          <span v-if="song.coming">Coming soon...</span>
+          <div v-if="!song.coming">
+            <span>{{ song.easy.level }}</span>
+            <div>
+              <p>{{ song.easy.notes }} <span>Notes</span></p>
+              <p><span>NOTES DESIGNER:</span> {{ song.easy.author }}</p>
+            </div>
+          </div>
+          <div v-if="!song.coming">
+            <span>{{ song.normal.level }}</span>
+            <div>
+              <p>{{ song.normal.notes }} <span>Notes</span></p>
+              <p><span>NOTES DESIGNER:</span> {{ song.normal.author }}</p>
+            </div>
+          </div>
+          <div v-if="!song.coming">
+            <span>{{ song.hard.level }}</span>
+            <div>
+              <p>{{ song.hard.notes }} <span>Notes</span></p>
+              <p><span>NOTES DESIGNER:</span> {{ song.hard.author }}</p>
+            </div>
+          </div>
+          <div v-if="song.coming">
+            <span>Coming soon...</span>
+          </div>
         </div>
         <div class="otofuda-song--chart--info">
           ILLUSTRATOR: {{ song.illustrator }}
-        </div>
-        <div class="otofuda-song--chart--info">
-          NOTES DESIGNER: {{ song.author }}
         </div>
         <div class="otofuda-song--chart--comment" v-if="song.comment">
           {{ song.comment }}
@@ -91,10 +111,21 @@ export default {
           bpm: 180.0,
           dispbpm: "180",
           color: [255, 255, 205],
-          easy: 1,
-          normal: 4,
-          hard: 8,
-          author: "マテ茶",
+          easy: {
+            level: 1,
+            notes: 87,
+            author: "マテ茶"
+          },
+          normal: {
+            level: 4,
+            notes: 238,
+            author: "マテ茶"
+          },
+          hard: {
+            level: 8,
+            notes: 380,
+            author: "マテ茶"
+          },
           comment: "音札のテーマ曲です",
           jacket_url: "./jacket/otofuda.png",
           illustrator: "高槻",
@@ -107,10 +138,21 @@ export default {
           bpm: 120.0,
           dispbpm: "120",
           color: [155, 255, 205],
-          easy: 4,
-          normal: 8,
-          hard: 10,
-          author: 'OTOFUDA Sound Team "謎の勢力M"',
+          easy: {
+            level: 4,
+            notes: 139,
+            author: 'OTOFUDA Sound Team "謎の勢力M"'
+          },
+          normal: {
+            level: 8,
+            notes: 312,
+            author: 'OTOFUDA Sound Team "謎の勢力M"'
+          },
+          hard: {
+            level: 10,
+            notes: 500,
+            author: 'OTOFUDA Sound Team "謎の勢力M"'
+          },
           comment: "「音札」 初代ボス",
           jacket_url: "./jacket/puzzle.png",
           illustrator: "OTOFUDA Designers",
@@ -123,10 +165,21 @@ export default {
           bpm: 165.0,
           dispbpm: "165",
           color: [255, 255, 205],
-          easy: 5,
-          normal: 8,
-          hard: 10,
-          author: 'マテ茶 vs. OTOFUDA Sound Team "謎の勢力M"',
+          easy: {
+            level: 5,
+            notes: 450,
+            author: "マテ茶"
+          },
+          normal: {
+            level: 8,
+            notes: 625,
+            author: 'OTOFUDA Sound Team "謎の勢力M"'
+          },
+          hard: {
+            level: 10,
+            notes: 1070,
+            author: 'マテ茶 vs.OTOFUDA Sound Team "謎の勢力M"'
+          },
           comment: "突如登場した最難関楽曲",
           jacket_url: "./jacket/sublimation.png",
           illustrator: "高槻",
@@ -139,6 +192,21 @@ export default {
           bpm: 1962.0,
           dispbpm: "1962",
           color: [140, 140, 235],
+          easy: {
+            level: 0,
+            notes: 0,
+            author: ""
+          },
+          normal: {
+            level: 0,
+            notes: 0,
+            author: ""
+          },
+          hard: {
+            level: 0,
+            notes: 0,
+            author: ""
+          },
           coming: true,
           author: "",
           comment: "t+pazolite「without Permission」より",
@@ -153,6 +221,21 @@ export default {
           bpm: 195.0,
           dispbpm: "195",
           color: [190, 80, 105],
+          easy: {
+            level: 0,
+            notes: 0,
+            author: ""
+          },
+          normal: {
+            level: 0,
+            notes: 0,
+            author: ""
+          },
+          hard: {
+            level: 0,
+            notes: 0,
+            author: ""
+          },
           coming: true,
           author: "",
           comment: "t+pazolite「without Permission」より",
@@ -167,6 +250,21 @@ export default {
           bpm: 180.0,
           dispbpm: "180",
           color: [180, 240, 5],
+          easy: {
+            level: 0,
+            notes: 0,
+            author: ""
+          },
+          normal: {
+            level: 0,
+            notes: 0,
+            author: ""
+          },
+          hard: {
+            level: 0,
+            notes: 0,
+            author: ""
+          },
           coming: true,
           author: "",
           comment: "t+pazolite「without Permission」より",
@@ -196,8 +294,36 @@ export default {
         this.sortedSongs = this.songs;
       } else
         this.sortedSongs.sort((a, b) => {
-          const A = a[val],
+          let A = a[val],
             B = b[val];
+          switch (val) {
+            case "easy.level":
+              A = a.easy.level || 0;
+              B = b.easy.level || 0;
+              break;
+            case "normal.level":
+              A = a.normal.level || 0;
+              B = b.normal.level || 0;
+              break;
+            case "hard.level":
+              A = a.hard.level || 0;
+              B = b.hard.level || 0;
+              break;
+            case "easy.notes":
+              A = a.easy.notes || 0;
+              B = b.easy.notes || 0;
+              break;
+            case "normal.notes":
+              A = a.normal.notes || 0;
+              B = b.normal.notes || 0;
+              break;
+            case "hard.notes":
+              A = a.hard.notes || 0;
+              B = b.hard.notes || 0;
+              break;
+            default:
+              break;
+          }
           if (A < B) return -1;
           else if (B < A) return 1;
           else return 0;
@@ -211,7 +337,11 @@ export default {
         song =>
           song.name.toLowerCase().includes(this.search.toLowerCase()) ||
           song.artist.toLowerCase().includes(this.search.toLowerCase()) ||
-          song.author.toLowerCase().includes(this.search.toLowerCase()) ||
+          song.easy.author.toLowerCase().includes(this.search.toLowerCase()) ||
+          song.normal.author
+            .toLowerCase()
+            .includes(this.search.toLowerCase()) ||
+          song.hard.author.toLowerCase().includes(this.search.toLowerCase()) ||
           song.illustrator.toLowerCase().includes(this.search.toLowerCase())
       );
     }
@@ -265,7 +395,7 @@ export default {
     z-index: -1;
     filter: blur(6px);
   }
-  .otofuda-song--info {
+  &--info {
     display: flex;
     height: 116px;
     & > div {
@@ -290,51 +420,62 @@ export default {
       border-top: 1px solid #c0c0c0;
     }
   }
-  .otofuda-song--chart {
+  &--chart {
     background: #e0e0e0;
     font-size: 14px;
     padding-bottom: 8px;
-    .otofuda-song--chart--info {
+    &--info {
       padding: 0px 8px 4px;
       color: #505050;
     }
-    .otofuda-song--chart--comment {
+    &--comment {
       padding: 4px;
       color: #505050;
       background: rgba(255, 255, 255, 0.5);
       border-radius: 4px;
       margin: 4px 8px;
     }
-    .otofuda-song--chart--difficulty {
-      display: flex;
-      justify-content: flex-end;
-      margin-bottom: -6px;
-      span {
-        padding: 4px;
-        width: 32px;
-        text-align: center;
-        margin-right: 12px;
-        border-radius: 4px;
-        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
-        color: #ffffff;
-        font-size: 20px;
-        font-weight: 700;
-        position: relative;
-        top: -10px;
-        &:first-child {
+    &--difficulty {
+      padding-top: 20px;
+      margin-bottom: 8px;
+      > div {
+        padding: 4px 12px;
+        display: flex;
+        align-items: flex-start;
+        > span {
+          display: inline-block;
+          padding: 4px;
+          width: 32px;
+          text-align: center;
+          margin-right: 12px;
+          border-radius: 4px;
+          box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+          color: #ffffff;
+          font-size: 20px;
+          font-weight: 700;
+          flex-shrink: 0;
+        }
+        &:first-child > span {
           background: #25ca25;
         }
-        &:nth-child(2) {
+        &:nth-child(2) > span {
           background: #ffb223;
         }
-        &:nth-child(3) {
+        &:nth-child(3) > span {
           background: #ff0984;
         }
-        &:only-child {
+        &:only-child > span {
           background: #909090;
           width: 132px;
           font-size: 16px;
           line-height: 2;
+        }
+        > div p {
+          color: #505050;
+          margin: 0;
+          > span {
+            color: #a0a0a0;
+          }
         }
       }
     }
