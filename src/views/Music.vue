@@ -65,23 +65,44 @@
           <div v-if="!song.coming">
             <span>{{ song.easy.level }}</span>
             <div>
-              <p>{{ song.easy.notes }} <span>Notes</span></p>
+              <p>{{ song.easy.notes }} Notes</p>
               <p><span>NOTES DESIGNER:</span> {{ song.easy.author }}</p>
             </div>
+            <a
+              v-if="song.easy.video"
+              :href="song.easy.video"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><span uk-icon="youtube"></span> 譜面紹介動画</a
+            >
           </div>
           <div v-if="!song.coming">
             <span>{{ song.normal.level }}</span>
             <div>
-              <p>{{ song.normal.notes }} <span>Notes</span></p>
+              <p>{{ song.normal.notes }} Notes</p>
               <p><span>NOTES DESIGNER:</span> {{ song.normal.author }}</p>
             </div>
+            <a
+              v-if="song.normal.video"
+              :href="song.normal.video"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><span uk-icon="youtube"></span> 譜面紹介動画</a
+            >
           </div>
           <div v-if="!song.coming">
             <span>{{ song.hard.level }}</span>
             <div>
-              <p>{{ song.hard.notes }} <span>Notes</span></p>
+              <p>{{ song.hard.notes }} Notes</p>
               <p><span>NOTES DESIGNER:</span> {{ song.hard.author }}</p>
             </div>
+            <a
+              v-if="song.hard.video"
+              :href="song.hard.video"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><span uk-icon="youtube"></span> 譜面紹介動画</a
+            >
           </div>
           <div v-if="song.coming">
             <span>Coming soon...</span>
@@ -92,8 +113,17 @@
         </div>
         <div class="otofuda-song--chart--comment" v-if="song.comment">
           {{ song.comment }}
+          <a
+            v-if="song.video"
+            :href="song.video"
+            class="otofuda-song--video"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><span uk-icon="youtube"></span> 攻略動画</a
+          >
         </div>
       </div>
+      <p class="otofuda-song--copyright">{{ song.copyright }}</p>
     </div>
   </div>
 </template>
@@ -208,8 +238,8 @@ export default {
             author: ""
           },
           coming: true,
-          author: "",
           comment: "t+pazolite「without Permission」より",
+          copyright: "© 2020 C.H.S",
           jacket_url: "./jacket/bpmrt.png",
           illustrator: "Shinichiro Miyazaki",
           updated_at: new Date("2020-05-05")
@@ -237,8 +267,8 @@ export default {
             author: ""
           },
           coming: true,
-          author: "",
           comment: "t+pazolite「without Permission」より",
+          copyright: "© 2020 C.H.S",
           jacket_url: "./jacket/dogbite.png",
           illustrator: "Shinichiro Miyazaki",
           updated_at: new Date("2020-05-05")
@@ -266,8 +296,8 @@ export default {
             author: ""
           },
           coming: true,
-          author: "",
           comment: "t+pazolite「without Permission」より",
+          copyright: "© 2020 C.H.S",
           jacket_url: "./jacket/chartreuse.png",
           illustrator: "Shinichiro Miyazaki",
           updated_at: new Date("2020-05-05")
@@ -351,6 +381,8 @@ export default {
 
 <style lang="scss" scoped>
 .otofuda-search-form {
+  width: 100%;
+  margin-bottom: 20px;
   span {
     position: absolute;
     top: 5px;
@@ -364,7 +396,7 @@ export default {
   position: relative;
   background: #f0f0f0;
   color: #303030;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   &::before {
     transition: 0.6s;
     content: "";
@@ -400,6 +432,7 @@ export default {
     height: 116px;
     & > div {
       flex-grow: 1;
+      margin-right: 12px;
     }
     .otofuda-song--jacket {
       height: 120px;
@@ -410,14 +443,15 @@ export default {
     }
     h3 {
       font-family: inherit;
+      font-size: 26px;
       margin: 0;
       padding-top: 12px;
+      font-weight: bold;
     }
     .otofuda-song--detail {
       color: #909090;
       margin-top: 2px;
       padding-top: 2px;
-      border-top: 1px solid #c0c0c0;
     }
   }
   &--chart {
@@ -434,6 +468,21 @@ export default {
       background: rgba(255, 255, 255, 0.5);
       border-radius: 4px;
       margin: 4px 8px;
+      display: flex;
+      justify-content: space-between;
+      .otofuda-song--video {
+        font-size: 14px;
+        padding: 4px;
+        margin: -4px;
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+        border-radius: 6px 4px;
+        color: #ffffff;
+        background: #306060;
+        > span {
+          position: relative;
+          top: -2px;
+        }
+      }
     }
     &--difficulty {
       padding-top: 20px;
@@ -441,7 +490,7 @@ export default {
       > div {
         padding: 4px 12px;
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         > span {
           display: inline-block;
           padding: 4px;
@@ -470,15 +519,36 @@ export default {
           font-size: 16px;
           line-height: 2;
         }
-        > div p {
-          color: #505050;
-          margin: 0;
+        > div {
+          flex-grow: 1;
+          p {
+            color: #505050;
+            margin: 0;
+            > span {
+              color: #a0a0a0;
+            }
+          }
+        }
+        > a {
+          padding: 4px;
+          box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+          border-radius: 6px 4px;
+          color: #ffffff;
+          background: #dc143c;
           > span {
-            color: #a0a0a0;
+            position: relative;
+            top: -2px;
           }
         }
       }
     }
+  }
+  &--copyright {
+    text-align: right;
+    position: absolute;
+    color: #f0f0f0;
+    width: 100%;
+    margin-top: 4px;
   }
 }
 
