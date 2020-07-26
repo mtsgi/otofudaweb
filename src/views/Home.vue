@@ -21,7 +21,7 @@
     </div>
 
     <section class="otofuda-home">
-      <img src="@/assets/home/home_visual.png" alt="" />
+      <img src="@/assets/home/home_visual.png" alt="キャラクター" />
     </section>
 
     <div class="uk-padding">
@@ -40,6 +40,32 @@
           class="otofuda-links--jacket"
         />
       </router-link>
+    </div>
+
+    <div class="uk-text-center">
+      <h3 class="uk-heading-line uk-text-center otofuda-special--title">
+        <span>おうちで「エア音札」が楽しめるpdfファイルを配布中！</span>
+      </h3>
+      <p>
+        <img data-src="https://i.imgur.com/xwG7LVl.png" alt="エア音札" uk-img />
+      </p>
+      <div class="uk-button-group">
+        <a
+          href="/air_otofuda.pdf"
+          class="uk-button uk-button-secondary"
+          target="_blank"
+          rel="noopener noreferer"
+          >開く</a
+        >
+        <a
+          download="air_otofuda.pdf"
+          href="/air_otofuda.pdf"
+          class="uk-button uk-button-primary"
+          >ダウンロードする</a
+        >
+      </div>
+      <p></p>
+      <p>A4サイズの用紙に余白を少なめにして印刷するとほぼ実物大になります！</p>
     </div>
 
     <h1>トピックス</h1>
@@ -204,6 +230,10 @@ export default {
     max-height: calc(100% - 100px);
     object-fit: contain;
   }
+}
+.otofuda-special--title span {
+  color: #ffffff;
+  font-size: 20px;
 }
 .otofuda-share {
   display: flex;

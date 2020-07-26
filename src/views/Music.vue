@@ -169,12 +169,12 @@ export default {
           dispbpm: "120",
           color: [155, 255, 205],
           easy: {
-            level: 4,
+            level: 3,
             notes: 139,
             author: 'OTOFUDA Sound Team "謎の勢力M"'
           },
           normal: {
-            level: 8,
+            level: 7,
             notes: 312,
             author: 'OTOFUDA Sound Team "謎の勢力M"'
           },
