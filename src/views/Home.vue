@@ -51,7 +51,7 @@
       </p>
       <div class="uk-button-group">
         <a
-          href="/air_otofuda.pdf"
+          href="./air_otofuda.pdf"
           class="uk-button uk-button-secondary"
           target="_blank"
           rel="noopener noreferer"
@@ -59,7 +59,7 @@
         >
         <a
           download="air_otofuda.pdf"
-          href="/air_otofuda.pdf"
+          href="./air_otofuda.pdf"
           class="uk-button uk-button-primary"
           >ダウンロードする</a
         >
