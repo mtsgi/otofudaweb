@@ -9,10 +9,10 @@
           <option value="artist">アーティスト名順</option>
           <option value="illustrator">イラストレーター名順</option>
           <option value="bpm">BPM順</option>
-          <option value="updated_at">新着順(↑)</option>
-          <option value="easy.level">難易度順(緑)</option>
-          <option value="normal.level">難易度順(橙)</option>
-          <option value="hard.level">難易度順(赤)</option>
+          <option value="updated_at">新着順(▼)</option>
+          <option value="easy.level">楽曲レベル順(緑)</option>
+          <option value="normal.level">楽曲レベル順(橙)</option>
+          <option value="hard.level">楽曲レベル順(赤)</option>
           <option value="easy.notes">ノーツ数順(緑)</option>
           <option value="normal.notes">ノーツ数順(橙)</option>
           <option value="hard.notes">ノーツ数順(赤)</option>
@@ -26,8 +26,8 @@
         type="button"
         @click="switchReverse()"
       >
-        <span uk-icon="arrow-up" v-if="reverse"></span>
-        <span uk-icon="arrow-down" v-else></span>
+        <span uk-icon="triangle-down" v-if="reverse"></span>
+        <span uk-icon="triangle-up" v-else></span>
       </button>
     </div>
     <legend>
@@ -169,12 +169,12 @@ export default {
           dispbpm: "120",
           color: [155, 255, 205],
           easy: {
-            level: 4,
+            level: 3,
             notes: 139,
             author: 'OTOFUDA Sound Team "謎の勢力M"'
           },
           normal: {
-            level: 8,
+            level: 7,
             notes: 312,
             author: 'OTOFUDA Sound Team "謎の勢力M"'
           },
@@ -223,21 +223,23 @@ export default {
           dispbpm: "1962",
           color: [140, 140, 235],
           easy: {
-            level: 0,
-            notes: 0,
-            author: ""
+            level: 4,
+            notes: 313,
+            author: "マテ茶",
+            video: "https://youtu.be/_TA15dPKyHo"
           },
           normal: {
-            level: 0,
-            notes: 0,
-            author: ""
+            level: 8,
+            notes: 703,
+            author: "マテ茶",
+            video: "https://youtu.be/Be3_agbhCVU"
           },
           hard: {
-            level: 0,
-            notes: 0,
-            author: ""
+            level: 10,
+            notes: 1011,
+            author: "マテ茶",
+            video: "https://youtu.be/fuxjvedDWRo"
           },
-          coming: true,
           comment: "t+pazolite「without Permission」より",
           copyright: "© 2020 C.H.S",
           jacket_url: "./jacket/bpmrt.png",
