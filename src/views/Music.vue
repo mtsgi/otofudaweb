@@ -254,21 +254,23 @@ export default {
           dispbpm: "195",
           color: [190, 80, 105],
           easy: {
-            level: 0,
-            notes: 0,
-            author: ""
+            level: 2,
+            notes: 156,
+            author: 'OTOFUDA Sound Team "謎の勢力M"',
+            video: "https://youtu.be/RTPOM2Ltj2c"
           },
           normal: {
-            level: 0,
-            notes: 0,
-            author: ""
+            level: 8,
+            notes: 534,
+            author: 'OTOFUDA Sound Team "謎の勢力M"',
+            video: "https://youtu.be/sAx3Ve-8xwc"
           },
           hard: {
-            level: 0,
-            notes: 0,
-            author: ""
+            level: 9,
+            notes: 769,
+            author: 'OTOFUDA Sound Team "謎の勢力M"',
+            video: "https://youtu.be/At1He5GOHHc"
           },
-          coming: true,
           comment: "t+pazolite「without Permission」より",
           copyright: "© 2020 C.H.S",
           jacket_url: "./jacket/dogbite.png",
