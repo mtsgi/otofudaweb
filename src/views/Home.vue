@@ -126,6 +126,7 @@ export default {
   data() {
     return {
       topics: [
+        "https://pbs.twimg.com/media/EfMuLWzU4AAkAEr",
         "https://pbs.twimg.com/media/EXF2XEHUwAA6A7A",
         "https://pbs.twimg.com/media/EXPEyrNUEAA1s7K",
         "https://pbs.twimg.com/media/EYrkUlYUMAAHVlg"

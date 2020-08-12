@@ -186,7 +186,7 @@ export default {
           comment: "「音札」 初代ボス",
           jacket_url: "./jacket/puzzle.png",
           illustrator: "OTOFUDA Designers",
-          updated_at: new Date("2019-11-05")
+          updated_at: new Date("2019-11-06")
         },
         {
           id: "sublimation",
@@ -275,7 +275,7 @@ export default {
           copyright: "© 2020 C.H.S",
           jacket_url: "./jacket/dogbite.png",
           illustrator: "Shinichiro Miyazaki",
-          updated_at: new Date("2020-05-05")
+          updated_at: new Date("2020-05-06")
         },
         {
           id: "chartreuse",
@@ -304,7 +304,7 @@ export default {
           copyright: "© 2020 C.H.S",
           jacket_url: "./jacket/chartreuse.png",
           illustrator: "Shinichiro Miyazaki",
-          updated_at: new Date("2020-05-05")
+          updated_at: new Date("2020-05-07")
         }
       ],
       sortedSongs: [],
