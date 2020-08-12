@@ -4,6 +4,7 @@
     <img src="images/character/kanon.png" alt="華音" />
     <img src="images/character/kadone.png" alt="門音" />
     <img src="images/character/kunon.png" alt="空音" />
+    <img src="images/character/hirono.png" alt="大音" />
   </div>
 </template>
 
