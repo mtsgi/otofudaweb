@@ -10,12 +10,12 @@
           <option value="illustrator">イラストレーター名順</option>
           <option value="bpm">BPM順</option>
           <option value="updated_at">新着順</option>
-          <option value="easy.level">楽曲レベル順(緑)</option>
-          <option value="normal.level">楽曲レベル順(橙)</option>
-          <option value="hard.level">楽曲レベル順(赤)</option>
-          <option value="easy.notes">ノーツ数順(緑)</option>
-          <option value="normal.notes">ノーツ数順(橙)</option>
-          <option value="hard.notes">ノーツ数順(赤)</option>
+          <option value="easy">楽曲レベル順(緑)</option>
+          <option value="normal">楽曲レベル順(橙)</option>
+          <option value="hard">楽曲レベル順(赤)</option>
+          <option value="easy_notes">ノーツ数順(緑)</option>
+          <option value="normal_notes">ノーツ数順(橙)</option>
+          <option value="hard_notes">ノーツ数順(赤)</option>
         </select>
         <button class="uk-button uk-button-secondary" type="button">
           <span></span>
@@ -42,15 +42,26 @@
         v-model="search"
       />
     </form>
-    <div class="otofuda-song" v-for="song in filteredSongs" :key="song.id">
+
+    <div class="uk-text-center" v-if="!loaded">
+      <div uk-spinner="ratio: 3"></div>
+    </div>
+    <div
+      v-else
+      class="otofuda-song"
+      v-for="song in filteredSongs"
+      :key="song.id"
+    >
       <!-- 楽曲データ -->
       <div class="otofuda-song--info">
         <img
-          :src="song.jacket_url"
+          :src="song.jacket.url"
           :alt="song.name"
           class="otofuda-song--jacket"
           :style="{
-            borderColor: `rgb(${song.color[0]}, ${song.color[1]}, ${song.color[2]})`
+            borderColor: `rgb(${song.color.split(', ')[0]}, ${
+              song.color.split(', ')[1]
+            }, ${song.color.split(', ')[2]})`
           }"
         />
         <div>
@@ -63,42 +74,42 @@
       <div class="otofuda-song--chart">
         <div class="otofuda-song--chart--difficulty">
           <div v-if="!song.coming">
-            <span>{{ song.easy.level }}</span>
+            <span>{{ song.easy }}</span>
             <div>
-              <p>{{ song.easy.notes }} Notes</p>
-              <p><span>NOTES DESIGNER:</span> {{ song.easy.author }}</p>
+              <p>{{ song.easy_notes }} Notes</p>
+              <p><span>NOTES DESIGNER:</span> {{ song.easy_nd }}</p>
             </div>
             <a
-              v-if="song.easy.video"
-              :href="song.easy.video"
+              v-if="song.easy_video"
+              :href="song.easy_video"
               target="_blank"
               rel="noopener noreferrer"
               ><span uk-icon="youtube"></span> 譜面紹介動画</a
             >
           </div>
           <div v-if="!song.coming">
-            <span>{{ song.normal.level }}</span>
+            <span>{{ song.normal }}</span>
             <div>
-              <p>{{ song.normal.notes }} Notes</p>
-              <p><span>NOTES DESIGNER:</span> {{ song.normal.author }}</p>
+              <p>{{ song.normal_notes }} Notes</p>
+              <p><span>NOTES DESIGNER:</span> {{ song.normal_nd }}</p>
             </div>
             <a
-              v-if="song.normal.video"
-              :href="song.normal.video"
+              v-if="song.normal_video"
+              :href="song.normal_video"
               target="_blank"
               rel="noopener noreferrer"
               ><span uk-icon="youtube"></span> 譜面紹介動画</a
             >
           </div>
           <div v-if="!song.coming">
-            <span>{{ song.hard.level }}</span>
+            <span>{{ song.hard }}</span>
             <div>
-              <p>{{ song.hard.notes }} Notes</p>
-              <p><span>NOTES DESIGNER:</span> {{ song.hard.author }}</p>
+              <p>{{ song.hard_notes }} Notes</p>
+              <p><span>NOTES DESIGNER:</span> {{ song.hard_nd }}</p>
             </div>
             <a
-              v-if="song.hard.video"
-              :href="song.hard.video"
+              v-if="song.hard_video"
+              :href="song.hard_video"
               target="_blank"
               rel="noopener noreferrer"
               ><span uk-icon="youtube"></span> 譜面紹介動画</a
@@ -129,194 +140,30 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "Music",
   data() {
     return {
-      songs: [
-        {
-          id: "otofuda",
-          name: "オトフダビヨリ",
-          artist: "idady",
-          bpm: 180.0,
-          dispbpm: "180",
-          color: [255, 255, 205],
-          easy: {
-            level: 1,
-            notes: 87,
-            author: "マテ茶"
-          },
-          normal: {
-            level: 4,
-            notes: 238,
-            author: "マテ茶"
-          },
-          hard: {
-            level: 8,
-            notes: 380,
-            author: "マテ茶"
-          },
-          comment: "音札のテーマ曲です",
-          jacket_url: "./jacket/otofuda.png",
-          illustrator: "高槻",
-          updated_at: new Date("2019-11-05")
-        },
-        {
-          id: "puzzle",
-          name: "Puzzle",
-          artist: "idady",
-          bpm: 120.0,
-          dispbpm: "120",
-          color: [155, 255, 205],
-          easy: {
-            level: 3,
-            notes: 139,
-            author: 'OTOFUDA Sound Team "謎の勢力M"'
-          },
-          normal: {
-            level: 7,
-            notes: 312,
-            author: 'OTOFUDA Sound Team "謎の勢力M"'
-          },
-          hard: {
-            level: 10,
-            notes: 500,
-            author: 'OTOFUDA Sound Team "謎の勢力M"'
-          },
-          comment: "「音札」 初代ボス",
-          jacket_url: "./jacket/puzzle.png",
-          illustrator: "OTOFUDA Designers",
-          updated_at: new Date("2019-11-06")
-        },
-        {
-          id: "sublimation",
-          name: "Sublimation",
-          artist: "idady",
-          bpm: 165.0,
-          dispbpm: "165",
-          color: [255, 255, 205],
-          easy: {
-            level: 5,
-            notes: 450,
-            author: "マテ茶"
-          },
-          normal: {
-            level: 8,
-            notes: 625,
-            author: 'OTOFUDA Sound Team "謎の勢力M"'
-          },
-          hard: {
-            level: 10,
-            notes: 1070,
-            author: 'マテ茶 vs.OTOFUDA Sound Team "謎の勢力M"'
-          },
-          comment: "突如登場した最難関楽曲",
-          jacket_url: "./jacket/sublimation.png",
-          illustrator: "高槻",
-          updated_at: new Date("2019-12-01")
-        },
-        {
-          id: "bpmrt",
-          name: "BPM=RT",
-          artist: "t+pazolite",
-          bpm: 1962.0,
-          dispbpm: "1962",
-          color: [140, 140, 235],
-          easy: {
-            level: 4,
-            notes: 313,
-            author: "マテ茶",
-            video: "https://youtu.be/_TA15dPKyHo"
-          },
-          normal: {
-            level: 8,
-            notes: 703,
-            author: "マテ茶",
-            video: "https://youtu.be/Be3_agbhCVU"
-          },
-          hard: {
-            level: 10,
-            notes: 1011,
-            author: "マテ茶",
-            video: "https://youtu.be/fuxjvedDWRo"
-          },
-          comment: "t+pazolite「without Permission」より",
-          copyright: "© 2020 C.H.S",
-          jacket_url: "./jacket/bpmrt.png",
-          illustrator: "Shinichiro Miyazaki",
-          updated_at: new Date("2020-05-05")
-        },
-        {
-          id: "dogbite",
-          name: "Dogbite",
-          artist: "t+pazolite",
-          bpm: 195.0,
-          dispbpm: "195",
-          color: [190, 80, 105],
-          easy: {
-            level: 2,
-            notes: 156,
-            author: 'OTOFUDA Sound Team "謎の勢力M"',
-            video: "https://youtu.be/RTPOM2Ltj2c"
-          },
-          normal: {
-            level: 8,
-            notes: 534,
-            author: 'OTOFUDA Sound Team "謎の勢力M"',
-            video: "https://youtu.be/sAx3Ve-8xwc"
-          },
-          hard: {
-            level: 9,
-            notes: 769,
-            author: 'OTOFUDA Sound Team "謎の勢力M"',
-            video: "https://youtu.be/At1He5GOHHc"
-          },
-          comment: "t+pazolite「without Permission」より",
-          copyright: "© 2020 C.H.S",
-          jacket_url: "./jacket/dogbite.png",
-          illustrator: "Shinichiro Miyazaki",
-          updated_at: new Date("2020-05-06")
-        },
-        {
-          id: "chartreuse",
-          name: "Chartreuse Green",
-          artist: "t+pazolite",
-          bpm: 180.0,
-          dispbpm: "180",
-          color: [180, 240, 5],
-          easy: {
-            level: 2,
-            notes: 191,
-            author: "めがね",
-            video: "https://youtu.be/rDFPaKFZYN0"
-          },
-          normal: {
-            level: 6,
-            notes: 429,
-            author: "めがね",
-            video: "https://youtu.be/hb-aGeJEJQg"
-          },
-          hard: {
-            level: 9,
-            notes: 675,
-            author: "めがね",
-            video: "https://youtu.be/HdOGbVOX6gI"
-          },
-          comment: "t+pazolite「without Permission」より",
-          copyright: "© 2020 C.H.S",
-          jacket_url: "./jacket/chartreuse.png",
-          illustrator: "Shinichiro Miyazaki",
-          updated_at: new Date("2020-05-07")
-        }
-      ],
+      loaded: false,
+      songs: [],
       sortedSongs: [],
       order: "default",
       reverse: false,
-      search: ""
+      search: "",
+      apiKey: "91c69bf8-3df5-445f-81e7-30b54ab4a7d4",
+      apiUrl: "https://otofuda.microcms.io/api/v1/songs"
     };
   },
   mounted() {
-    this.sortedSongs = this.songs;
+    axios
+      .get(this.apiUrl, { headers: { "X-API-KEY": this.apiKey } })
+      .then(response => {
+        this.songs = response.data.contents;
+        this.sortedSongs = response.data.contents;
+        this.loaded = true;
+      });
   },
   methods: {
     switchReverse() {
@@ -332,34 +179,6 @@ export default {
         this.sortedSongs.sort((a, b) => {
           let A = a[val],
             B = b[val];
-          switch (val) {
-            case "easy.level":
-              A = a.easy.level || 0;
-              B = b.easy.level || 0;
-              break;
-            case "normal.level":
-              A = a.normal.level || 0;
-              B = b.normal.level || 0;
-              break;
-            case "hard.level":
-              A = a.hard.level || 0;
-              B = b.hard.level || 0;
-              break;
-            case "easy.notes":
-              A = a.easy.notes || 0;
-              B = b.easy.notes || 0;
-              break;
-            case "normal.notes":
-              A = a.normal.notes || 0;
-              B = b.normal.notes || 0;
-              break;
-            case "hard.notes":
-              A = a.hard.notes || 0;
-              B = b.hard.notes || 0;
-              break;
-            default:
-              break;
-          }
           if (A < B) return -1;
           else if (B < A) return 1;
           else return 0;
@@ -369,17 +188,28 @@ export default {
   },
   computed: {
     filteredSongs() {
-      return this.sortedSongs.filter(
-        song =>
-          song.name.toLowerCase().includes(this.search.toLowerCase()) ||
-          song.artist.toLowerCase().includes(this.search.toLowerCase()) ||
-          song.easy.author.toLowerCase().includes(this.search.toLowerCase()) ||
-          song.normal.author
-            .toLowerCase()
-            .includes(this.search.toLowerCase()) ||
-          song.hard.author.toLowerCase().includes(this.search.toLowerCase()) ||
-          song.illustrator.toLowerCase().includes(this.search.toLowerCase())
-      );
+      return this.sortedSongs.filter(song => {
+        const searchWord = this.search.toLowerCase();
+        let returnValue = false;
+        if (song.name)
+          returnValue = song.name.toLowerCase().includes(searchWord);
+        if (song.artist)
+          returnValue =
+            song.artist.toLowerCase().includes(searchWord) || returnValue;
+        if (song.easy_nd)
+          returnValue =
+            song.easy_nd.toLowerCase().includes(searchWord) || returnValue;
+        if (song.normal_nd)
+          returnValue =
+            song.normal_nd.toLowerCase().includes(searchWord) || returnValue;
+        if (song.hard_nd)
+          returnValue =
+            song.hard_nd.toLowerCase().includes(searchWord) || returnValue;
+        if (song.illustrator)
+          returnValue =
+            song.illustrator.toLowerCase().includes(searchWord) || returnValue;
+        return returnValue;
+      });
     }
   }
 };
