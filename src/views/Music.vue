@@ -9,7 +9,7 @@
           <option value="artist">アーティスト名順</option>
           <option value="illustrator">イラストレーター名順</option>
           <option value="bpm">BPM順</option>
-          <option value="updated_at">新着順(▼)</option>
+          <option value="updated_at">新着順</option>
           <option value="easy.level">楽曲レベル順(緑)</option>
           <option value="normal.level">楽曲レベル順(橙)</option>
           <option value="hard.level">楽曲レベル順(赤)</option>
@@ -285,21 +285,23 @@ export default {
           dispbpm: "180",
           color: [180, 240, 5],
           easy: {
-            level: 0,
-            notes: 0,
-            author: ""
+            level: 2,
+            notes: 191,
+            author: "めがね",
+            video: "https://youtu.be/rDFPaKFZYN0"
           },
           normal: {
-            level: 0,
-            notes: 0,
-            author: ""
+            level: 6,
+            notes: 429,
+            author: "めがね",
+            video: "https://youtu.be/hb-aGeJEJQg"
           },
           hard: {
-            level: 0,
-            notes: 0,
-            author: ""
+            level: 9,
+            notes: 675,
+            author: "めがね",
+            video: "https://youtu.be/HdOGbVOX6gI"
           },
-          coming: true,
           comment: "t+pazolite「without Permission」より",
           copyright: "© 2020 C.H.S",
           jacket_url: "./jacket/chartreuse.png",
