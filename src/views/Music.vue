@@ -158,7 +158,10 @@ export default {
   },
   mounted() {
     axios
-      .get(this.apiUrl, { headers: { "X-API-KEY": this.apiKey } })
+      .get(this.apiUrl, {
+        headers: { "X-API-KEY": this.apiKey },
+        params: { limit: 1000 }
+      })
       .then(response => {
         this.songs = response.data.contents;
         this.sortedSongs = response.data.contents;
