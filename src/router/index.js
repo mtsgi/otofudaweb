@@ -46,6 +46,15 @@ const routes = [
     },
     component: () =>
       import(/* webpackChunkName: "character" */ "../views/Character.vue")
+  },
+  {
+    path: "/fuda",
+    name: "Fuda",
+    meta: {
+      title: "札紹介"
+    },
+    component: () =>
+      import(/* webpackChunkName: "character" */ "../views/Fuda.vue")
   }
 ];
 
