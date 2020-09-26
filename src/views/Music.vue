@@ -2,14 +2,23 @@
   <div class="Music">
     <h1>収録楽曲リスト</h1>
     <div class="uk-margin uk-text-right">
+      <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+        <label
+          ><input
+            class="uk-checkbox"
+            type="checkbox"
+            v-model="displayDetails"
+          />
+          楽曲の詳細情報を表示
+        </label>
+      </div>
       <div uk-form-custom="target: button span">
         <select v-model="order">
-          <option value="default">並び替え</option>
+          <option value="default">新着順</option>
           <option value="name">曲名順</option>
           <option value="artist">アーティスト名順</option>
           <option value="illustrator">イラストレーター名順</option>
           <option value="bpm">BPM順</option>
-          <option value="updated_at">新着順</option>
           <option value="easy">楽曲レベル順(緑)</option>
           <option value="normal">楽曲レベル順(橙)</option>
           <option value="hard">楽曲レベル順(赤)</option>
@@ -38,7 +47,7 @@
       <input
         class="uk-search-input"
         type="search"
-        placeholder="Search"
+        placeholder="ここに検索ワードを入力"
         v-model="search"
       />
     </form>
@@ -66,61 +75,68 @@
         />
         <div>
           <h3>{{ song.name }}</h3>
-          <div class="otofuda-song--detail">{{ song.artist }}</div>
-          <div class="otofuda-song--detail">BPM: {{ song.dispbpm }}</div>
+          <div class="otofuda-song--detail">
+            <strong class="otofuda-song--badge">ARTIST</strong>
+            {{ song.artist }}
+          </div>
+          <div class="otofuda-song--detail">
+            <strong class="otofuda-song--badge">BPM</strong>
+            {{ song.dispbpm }}
+          </div>
         </div>
       </div>
       <!-- 譜面データ -->
-      <div class="otofuda-song--chart">
+      <div v-if="displayDetails" class="otofuda-song--chart">
         <div class="otofuda-song--chart--difficulty">
           <div v-if="!song.coming">
             <span>{{ song.easy }}</span>
             <div>
               <p>{{ song.easy_notes }} Notes</p>
-              <p><span>NOTES DESIGNER:</span> {{ song.easy_nd }}</p>
+              <p><span>NOTES DESIGNER</span> {{ song.easy_nd }}</p>
             </div>
             <a
               v-if="song.easy_video"
               :href="song.easy_video"
               target="_blank"
               rel="noopener noreferrer"
-              ><span uk-icon="youtube"></span> 譜面紹介動画</a
-            >
+              ><span uk-icon="youtube"></span
+            ></a>
           </div>
           <div v-if="!song.coming">
             <span>{{ song.normal }}</span>
             <div>
               <p>{{ song.normal_notes }} Notes</p>
-              <p><span>NOTES DESIGNER:</span> {{ song.normal_nd }}</p>
+              <p><span>NOTES DESIGNER</span> {{ song.normal_nd }}</p>
             </div>
             <a
               v-if="song.normal_video"
               :href="song.normal_video"
               target="_blank"
               rel="noopener noreferrer"
-              ><span uk-icon="youtube"></span> 譜面紹介動画</a
-            >
+              ><span uk-icon="youtube"></span
+            ></a>
           </div>
           <div v-if="!song.coming">
             <span>{{ song.hard }}</span>
             <div>
               <p>{{ song.hard_notes }} Notes</p>
-              <p><span>NOTES DESIGNER:</span> {{ song.hard_nd }}</p>
+              <p><span>NOTES DESIGNER</span> {{ song.hard_nd }}</p>
             </div>
             <a
               v-if="song.hard_video"
               :href="song.hard_video"
               target="_blank"
               rel="noopener noreferrer"
-              ><span uk-icon="youtube"></span> 譜面紹介動画</a
-            >
+              ><span uk-icon="youtube"></span
+            ></a>
           </div>
           <div v-if="song.coming">
             <span>Coming soon...</span>
           </div>
         </div>
         <div class="otofuda-song--chart--info">
-          ILLUSTRATOR: {{ song.illustrator }}
+          <span class="otofuda-song--badge">ILLUSTRATOR</span>
+          {{ song.illustrator }}
         </div>
         <div class="otofuda-song--chart--comment" v-if="song.comment">
           {{ song.comment }}
@@ -132,6 +148,28 @@
             rel="noopener noreferrer"
             ><span uk-icon="youtube"></span> 攻略動画</a
           >
+        </div>
+      </div>
+      <!-- 譜面データ(simplified) -->
+      <div v-else class="otofuda-song--chart -simplified">
+        <div class="otofuda-song--chart--difficulty">
+          <div v-if="!song.coming">
+            <span>{{ song.easy }}</span>
+          </div>
+          <div v-if="!song.coming">
+            <span>{{ song.normal }}</span>
+          </div>
+          <div v-if="!song.coming">
+            <span>{{ song.hard }}</span>
+          </div>
+          <div v-if="song.coming">
+            <span>Coming soon...</span>
+          </div>
+          <p>
+            {{ song.comment }}
+            <br />
+            ILLUSTRATOR: {{ song.illustrator }}
+          </p>
         </div>
       </div>
       <p class="otofuda-song--copyright">{{ song.copyright }}</p>
@@ -153,7 +191,8 @@ export default {
       reverse: false,
       search: "",
       apiKey: "91c69bf8-3df5-445f-81e7-30b54ab4a7d4",
-      apiUrl: "https://otofuda.microcms.io/api/v1/songs"
+      apiUrl: "https://otofuda.microcms.io/api/v1/songs",
+      displayDetails: true
     };
   },
   mounted() {
@@ -163,8 +202,9 @@ export default {
         params: { limit: 1000 }
       })
       .then(response => {
-        this.songs = response.data.contents;
-        this.sortedSongs = response.data.contents;
+        this.songs = [...response.data.contents];
+        this.songs.reverse();
+        this.sortedSongs = [...this.songs];
         this.loaded = true;
       });
   },
@@ -177,7 +217,7 @@ export default {
   watch: {
     order(val) {
       if (val === "default") {
-        this.sortedSongs = this.songs;
+        this.sortedSongs = [...this.songs];
       } else
         this.sortedSongs.sort((a, b) => {
           let A = a[val],
@@ -219,6 +259,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:wght@400;600&display=swap");
+
+.Music {
+  font-family: "Poppins", "Noto Sans JP", sans-serif;
+}
 .otofuda-search-form {
   width: 100%;
   margin-bottom: 20px;
@@ -268,7 +313,7 @@ export default {
   }
   &--info {
     display: flex;
-    height: 116px;
+    min-height: 116px;
     & > div {
       flex-grow: 1;
       margin-right: 12px;
@@ -276,13 +321,13 @@ export default {
     .otofuda-song--jacket {
       height: 120px;
       width: 120px;
-      margin: 10px;
+      margin: 10px 10px -20px 10px;
       border: 4px solid #f0f0f0;
       border-radius: 4px;
     }
     h3 {
       font-family: inherit;
-      font-size: 26px;
+      font-size: 28px;
       margin: 0;
       padding-top: 12px;
       font-weight: bold;
@@ -292,6 +337,14 @@ export default {
       margin-top: 2px;
       padding-top: 2px;
     }
+  }
+  &--badge {
+    font-size: 14px;
+    display: inline-block;
+    padding: 0 4px;
+    border-radius: 4px;
+    background: #909090;
+    color: #ffffff;
   }
   &--chart {
     background: #e0e0e0;
@@ -336,21 +389,25 @@ export default {
           width: 32px;
           text-align: center;
           margin-right: 12px;
-          border-radius: 4px;
+          border-radius: 6px;
           box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
           color: #ffffff;
-          font-size: 20px;
+          text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+          font-size: 22px;
           font-weight: 700;
           flex-shrink: 0;
         }
         &:first-child > span {
           background: #25ca25;
+          box-shadow: 0 1px 4px 0 rgba(37, 202, 37, 0.5);
         }
         &:nth-child(2) > span {
           background: #ffb223;
+          box-shadow: 0 1px 4px 0 rgba(255, 178, 35, 0.5);
         }
         &:nth-child(3) > span {
           background: #ff0984;
+          box-shadow: 0 1px 4px 0 rgba(255, 9, 132, 0.5);
         }
         &:only-child > span {
           background: #909090;
@@ -369,15 +426,37 @@ export default {
           }
         }
         > a {
-          padding: 4px;
-          box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
-          border-radius: 6px 4px;
+          padding: 8px;
+          box-shadow: 0 1px 4px 0 rgba(220, 20, 60, 0.4);
+          border-radius: 120px;
           color: #ffffff;
           background: #dc143c;
           > span {
             position: relative;
             top: -2px;
           }
+        }
+      }
+    }
+    &.-simplified {
+      .otofuda-song--chart--difficulty {
+        display: flex;
+        padding-top: 14px;
+        margin-bottom: 0;
+        > div {
+          padding: 0 0 0 12px;
+          > span {
+            margin: 0;
+          }
+        }
+        > p {
+          flex-grow: 1;
+          padding: 2px 6px;
+          color: #505050;
+          background: rgba(255, 255, 255, 0.5);
+          border-radius: 4px;
+          margin: 4px 12px;
+          font-size: 14px;
         }
       }
     }
@@ -388,6 +467,13 @@ export default {
     color: #f0f0f0;
     width: 100%;
     margin-top: 4px;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  main {
+    margin-left: 300px;
+    margin-top: 0;
   }
 }
 
