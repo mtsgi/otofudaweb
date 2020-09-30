@@ -411,6 +411,7 @@ export default {
         }
         &:only-child > span {
           background: #909090;
+          box-shadow: 0 1px 4px 0 rgba(144, 144, 144, 0.5);
           width: 132px;
           font-size: 16px;
           line-height: 2;
