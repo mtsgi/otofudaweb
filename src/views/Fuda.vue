@@ -38,8 +38,8 @@
         <h2 class="uk-modal-title" v-text="selected.name"></h2>
         <p>{{ selected.month }}月</p>
         <p>{{ selected.point }}点札</p>
-        <p>Effect：{{ selected.effect }}</p>
-        <p>効果：{{ selected.effect }}</p>
+        <p>Effect：{{ effectName[selected.effect] }}</p>
+        <p>効果：{{ effectText[selected.effect] }}</p>
       </div>
     </div>
   </div>
@@ -55,9 +55,9 @@ export default {
       fudaData,
       selected: {},
       effectName: {
-        disturb: "妨害効果",
-        damage: "打撃",
-        draw: "追引",
+        disturb: "妨害",
+        damage: "痛撃",
+        draw: "招札",
         loot: "略奪",
         nullify_and_draw: "無効＋探索",
         search: "探索",
@@ -65,8 +65,28 @@ export default {
         heal: "回復",
         nullify: "無効化",
         damage_and_heal: "吸収",
-        light: "特殊",
+        light: "光札",
         hand_destruction: "破札"
+      },
+      effectText: {
+        disturb: "札を捨てた時、相手の譜面上に妨害効果が現れる。",
+        damage: "札を捨てた時、相手のライフにダメージを与える。",
+        draw:
+          "札を捨てた時、追加でデッキから札を1枚引く。(ただし手札の上限は5枚まで)",
+        loot:
+          "札を捨てた時、相手の札効果を略奪する。(相手の札効果を奪い自身が札を捨てた扱いにする)",
+        nullify_and_draw:
+          "札を捨てた時、相手の札効果を無効化し、役を持つタネ札をデッキからランダムに1枚引いてくる。この札効果は他のどの札効果にも影響されない。(無効化または略奪されない)",
+        search: "札を捨てた時、デッキから赤短又は青短をランダムで1枚引く。",
+        difficulty_up: "札を捨てた時、相手の譜面難易度が上がる。",
+        heal: "この札のを捨てた時、自身のライフが回復する。",
+        nullify: "札を捨てた時、相手の札の効果を無効化する。",
+        damage_and_heal:
+          "札を捨てた時、相手のライフにダメージを与え、自身のライフを回復する。",
+        light:
+          "札を捨てた時、手札の五光札以外の札を全て捨てる。(この時捨てられた札の効果は発動しない)",
+        hand_destruction:
+          "札を捨てた時、相手の手札を1枚ランダムで捨てさせる。(この時捨てられた札の効果は発動しない)"
       },
       effectDesc: {}
     };
