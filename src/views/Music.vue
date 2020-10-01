@@ -163,7 +163,7 @@
             <span>{{ song.hard }}</span>
           </div>
           <div v-if="song.coming">
-            <span>Coming soon...</span>
+            <span class="-coming">Coming soon...</span>
           </div>
           <p>
             {{ song.comment }}
@@ -448,6 +448,13 @@ export default {
           padding: 0 0 0 12px;
           > span {
             margin: 0;
+            &.-coming {
+              line-height: 18px;
+              font-size: 18px;
+              background: #909090;
+              box-shadow: 0 1px 4px 0 rgba(144, 144, 144, 0.5);
+              min-width: 110px;
+            }
           }
         }
         > p {
