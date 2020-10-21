@@ -7,9 +7,54 @@
     <p>
       入っている「月」と札の「効果」の種類で絞り込みできます。それぞれの札をクリックすると詳細を見ることができます。
     </p>
+
+    <p><strong>絞り込み（月）</strong></p>
+    <div class="check-button-group">
+      <button
+        class="uk-button"
+        :class="{
+          [`uk-button-secondary`]: !checkedMonth[month],
+          [`uk-button-primary`]: checkedMonth[month]
+        }"
+        v-for="month in 12"
+        :key="month"
+      >
+        <label>
+          <input
+            class="uk-checkbox"
+            type="checkbox"
+            v-model="checkedMonth[month]"
+          />
+          {{ month }}月
+        </label>
+      </button>
+    </div>
+
+    <p><strong>絞り込み（効果）</strong></p>
+    <div class="check-button-group">
+      <button
+        class="uk-button"
+        :class="{
+          [`uk-button-secondary`]: !checkedEffect[effect],
+          [`uk-button-primary`]: checkedEffect[effect]
+        }"
+        v-for="effect in Object.keys(effectName)"
+        :key="effect"
+      >
+        <label>
+          <input
+            class="uk-checkbox"
+            type="checkbox"
+            v-model="checkedEffect[effect]"
+          />
+          {{ effectName[effect] }}
+        </label>
+      </button>
+    </div>
+
     <section class="fuda-list uk-grid uk-child-width-1-4" uk-grid>
       <div
-        v-for="fuda in fudaData"
+        v-for="fuda in displayCards"
         :key="fuda.file"
         class="fuda"
         @click="selected = fuda"
@@ -54,6 +99,34 @@ export default {
     return {
       fudaData,
       selected: {},
+      checkedMonth: {
+        1: true,
+        2: true,
+        3: true,
+        4: true,
+        5: true,
+        6: true,
+        7: true,
+        8: true,
+        9: true,
+        10: true,
+        11: true,
+        12: true
+      },
+      checkedEffect: {
+        disturb: true,
+        damage: true,
+        draw: true,
+        loot: true,
+        nullify_and_draw: true,
+        search: true,
+        difficulty_up: true,
+        heal: true,
+        nullify: true,
+        damage_and_heal: true,
+        light: true,
+        hand_destruction: true
+      },
       effectName: {
         disturb: "妨害",
         damage: "痛撃",
@@ -90,14 +163,27 @@ export default {
       },
       effectDesc: {}
     };
+  },
+  computed: {
+    displayCards() {
+      return this.fudaData.filter(
+        fuda => this.checkedMonth[fuda.month] && this.checkedEffect[fuda.effect]
+      );
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
+.check-button-group {
+  .uk-button {
+    padding: 0 12px;
+  }
+}
 .fuda-list {
   min-width: 720px;
   margin: 0;
+  margin-top: 20px;
 }
 .fuda {
   padding: 12px 20px;

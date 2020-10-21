@@ -257,6 +257,11 @@ export default {
           description: "収録楽曲一覧"
         },
         {
+          label: "CARDS",
+          path: "/fuda",
+          description: "札と効果の一覧"
+        },
+        {
           label: "STORY",
           path: "/story",
           description: "オリジナルストーリー"
