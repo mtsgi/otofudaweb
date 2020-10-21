@@ -62,7 +62,10 @@ export default {
   components: { Unity },
   mounted() {
     axios
-      .get(this.apiUrl, { headers: { "X-API-KEY": this.apiKey } })
+      .get(this.apiUrl, {
+        headers: { "X-API-KEY": this.apiKey },
+        params: { limit: 1000 }
+      })
       .then(response => {
         this.comics = response.data.contents;
       });

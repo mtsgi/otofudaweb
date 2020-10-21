@@ -188,6 +188,23 @@
             uk-icon="youtube"
           ></span
         ></a>
+        <a
+          class="otofuda-navbar--link"
+          href="https://twitter.com/otofuda"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Twitterアカウント<span
+            class="uk-float-right"
+            uk-icon="twitter"
+          ></span
+        ></a>
+        <a
+          class="otofuda-navbar--link"
+          href="https://note.com/otofuda"
+          target="_blank"
+          rel="noopener noreferrer"
+          >noteアカウント<span class="uk-float-right" uk-icon="file-text"></span
+        ></a>
       </ul>
     </div>
 
