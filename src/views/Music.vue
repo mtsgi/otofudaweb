@@ -2,6 +2,11 @@
   <div class="Music">
     <h1>収録楽曲リスト</h1>
     <div class="uk-margin uk-text-right">
+      <div class="check-button-group">
+        <button class="uk-button">通常</button>
+        <button class="uk-button">コンパクト</button>
+        <button class="uk-button">ジャケット</button>
+      </div>
       <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
         <label
           ><input

@@ -8,7 +8,11 @@
       入っている「月」と札の「効果」の種類で絞り込みできます。それぞれの札をクリックすると詳細を見ることができます。
     </p>
 
-    <p><strong>絞り込み（月）</strong></p>
+    <p>
+      <strong>絞り込み（月）</strong>
+      <a>すべて選択</a>
+      <a>すべて解除</a>
+    </p>
     <div class="check-button-group">
       <button
         class="uk-button"
@@ -30,7 +34,11 @@
       </button>
     </div>
 
-    <p><strong>絞り込み（効果）</strong></p>
+    <p>
+      <strong>絞り込み（効果）</strong>
+      <a>すべて選択</a>
+      <a>すべて解除</a>
+    </p>
     <div class="check-button-group">
       <button
         class="uk-button"
@@ -38,7 +46,7 @@
           [`uk-button-secondary`]: !checkedEffect[effect],
           [`uk-button-primary`]: checkedEffect[effect]
         }"
-        v-for="effect in Object.keys(effectName)"
+        v-for="effect in Object.keys(effectsName)"
         :key="effect"
       >
         <label>
@@ -47,59 +55,73 @@
             type="checkbox"
             v-model="checkedEffect[effect]"
           />
-          {{ effectName[effect] }}
+          {{ effectsName[effect] }}
         </label>
       </button>
     </div>
 
-    <section class="fuda-list uk-grid uk-child-width-1-4" uk-grid>
+    <div class="uk-text-center" v-if="!isLoaded">
+      <div uk-spinner="ratio: 3"></div>
+    </div>
+
+    <!-- 札の一覧 -->
+    <section class="fuda-list" v-else>
       <div
         v-for="fuda in displayCards"
-        :key="fuda.file"
+        :key="fuda.id"
         class="fuda"
-        @click="selected = fuda"
-        uk-toggle="target: #detail-modal"
+        @click="selectCard(fuda)"
       >
-        <div class="fuda__header">
-          <span class="fuda__month">{{ fuda.month }}月</span>
-          <span class="fuda__eftype" :class="`p${fuda.point}`">{{
-            effectName[fuda.effect]
-          }}</span>
-        </div>
         <img
-          :src="`./images/fuda/${fuda.file}`"
+          :src="fuda.image.url"
           :alt="fuda.name"
           class="fuda__image"
+          :class="{
+            'one-pt': fuda.pt === 1
+          }"
         />
-        <div class="fuda__footer">
-          {{ fuda.name }}
-        </div>
       </div>
     </section>
 
     <p>※「破棄」… 手札から札を効果を発動せずに除外する効果。</p>
 
-    <div id="detail-modal" uk-modal>
-      <div class="uk-modal-dialog uk-modal-body">
-        <button class="uk-modal-close-outside" type="button" uk-close></button>
+    <div
+      id="detail-modal"
+      v-if="selected"
+      :class="{ 'uk-open': isOpenModal, 'uk-modal': true }"
+      :style="{
+        display: isOpenModal ? 'block' : 'none'
+      }"
+      @click="isOpenModal = false"
+    >
+      <div class="uk-modal-dialog uk-modal-body card-modal" @click.stop>
+        <button
+          class="uk-modal-close-outside"
+          type="button"
+          uk-close
+          @click="isOpenModal = false"
+        ></button>
         <h2 class="uk-modal-title" v-text="selected.name"></h2>
         <p>{{ selected.month }}月</p>
-        <p>{{ selected.point }}点</p>
-        <p>効果：{{ effectText[selected.effect] }}</p>
+        <p>{{ selected.pt }}点</p>
+        <p>効果：{{ selected.effect.text }}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import fudaData from "../assets/fuda/index.json";
+import axios from "axios";
 
 export default {
   name: "Fuda",
   data() {
     return {
-      fudaData,
-      selected: {},
+      isLoaded: false,
+      isOpenModal: false,
+      cardsData: [],
+      effectsData: [],
+      selected: null,
       checkedMonth: {
         1: true,
         2: true,
@@ -114,59 +136,53 @@ export default {
         11: true,
         12: true
       },
-      checkedEffect: {
-        disturb: true,
-        damage: true,
-        draw: true,
-        loot: true,
-        nullify_and_draw: true,
-        search: true,
-        difficulty_up: true,
-        heal: true,
-        nullify: true,
-        damage_and_heal: true,
-        light: true,
-        hand_destruction: true
-      },
-      effectName: {
-        disturb: "妨害",
-        damage: "痛撃",
-        draw: "招札",
-        loot: "略奪",
-        nullify_and_draw: "無効＋探索",
-        search: "探索",
-        difficulty_up: "譜面難化",
-        heal: "回復",
-        nullify: "無効化",
-        damage_and_heal: "吸収",
-        light: "光札",
-        hand_destruction: "破札"
-      },
-      effectText: {
-        disturb: "札を捨てた時、相手の譜面上に妨害効果が現れる。",
-        damage: "札を捨てた時、相手のライフにダメージを与える。",
-        draw:
-          "札を捨てた時、追加で山札から札を1枚引く。ただし、手札の上限は5枚まで。",
-        loot:
-          "札を捨てた時、相手の札効果を略奪する(相手の札効果を奪い、自身が札を捨てた扱いにする)。",
-        nullify_and_draw:
-          "札を捨てた時、相手の札効果を無効化し、役を持つタネ札を山札からランダムに1枚引く。この札効果は無効化または略奪されない。",
-        search: "札を捨てた時、山札から赤短または青短をランダムで1枚引く。",
-        difficulty_up: "札を捨てた時、相手の譜面難易度が上昇する。",
-        heal: "札を捨てた時、自身のライフが回復する。",
-        nullify: "札を捨てた時、相手の札の効果を無効化する。",
-        damage_and_heal:
-          "札を捨てた時、相手のライフにダメージを与え、自身のライフを回復する。",
-        light: "札を捨てた時、手札の五光札以外の札を全て破棄する。",
-        hand_destruction: "札を捨てた時、相手の手札を1枚ランダムで破棄させる。"
-      },
-      effectDesc: {}
+      apiKey: "91c69bf8-3df5-445f-81e7-30b54ab4a7d4",
+      cardsApiUrl: "https://otofuda.microcms.io/api/v1/cards",
+      effectsApiUrl: "https://otofuda.microcms.io/api/v1/effects",
+      checkedEffect: {}
     };
+  },
+  methods: {
+    selectCard(cardData) {
+      this.isOpenModal = true;
+      this.selected = cardData;
+    }
+  },
+  mounted() {
+    // 効果データを取得
+    axios
+      .get(this.effectsApiUrl, {
+        headers: { "X-API-KEY": this.apiKey },
+        params: { limit: 50 }
+      })
+      .then(response => {
+        this.effectsData = [...response.data.contents];
+        this.checkedEffect = Object.fromEntries(
+          this.effectsData.map(ef => [ef.name, true])
+        );
+      });
+    // 札データを取得
+    axios
+      .get(this.cardsApiUrl, {
+        headers: { "X-API-KEY": this.apiKey },
+        params: { limit: 50 }
+      })
+      .then(response => {
+        this.cardsData = [...response.data.contents];
+        this.isLoaded = true;
+      });
   },
   computed: {
     displayCards() {
-      return this.fudaData.filter(
-        fuda => this.checkedMonth[fuda.month] && this.checkedEffect[fuda.effect]
+      return this.cardsData.filter(
+        fuda =>
+          this.checkedMonth[fuda.month] && this.checkedEffect[fuda.effect.name]
+      );
+    },
+    // 識別子:ラベル のKVを持つObject
+    effectsName() {
+      return Object.fromEntries(
+        this.effectsData.map(ef => [ef.name, ef.label])
       );
     }
   }
@@ -180,26 +196,20 @@ export default {
   }
 }
 .fuda-list {
-  min-width: 720px;
   margin: 0;
   margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
 }
 .fuda {
-  padding: 12px 20px;
   cursor: pointer;
+  width: 140px;
+  max-width: 50%;
+  margin-right: 12px;
+  transition: transform 0.1s ease;
   &:hover {
-    transform: scale(1.025);
-  }
-  &__header {
-    display: flex;
-    border-radius: 6px;
-    overflow: hidden;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
-  }
-  &__month {
-    color: #303030;
-    background: #c9c9c9;
-    padding: 4px 8px;
+    transform: scale(1.05);
   }
   &__eftype {
     flex-grow: 1;
@@ -237,8 +247,10 @@ export default {
   }
   &__image {
     margin-top: 12px;
-    border-radius: 6px;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+    &.one-pt {
+      max-width: 110%;
+      margin: 10% -5% 0 -5%;
+    }
   }
   &__footer {
     font-size: 20px;
