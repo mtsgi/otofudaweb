@@ -8,10 +8,10 @@
       入っている「月」と札の「効果」の種類で絞り込みできます。それぞれの札をクリックすると詳細を見ることができます。
     </p>
 
-    <p>
+    <p class="filter-label">
       <strong>絞り込み（月）</strong>
-      <a>すべて選択</a>
-      <a>すべて解除</a>
+      <a @click="setAllMonth(true)">すべて選択</a>
+      <a @click="setAllMonth(false)">すべて解除</a>
     </p>
     <div class="check-button-group">
       <button
@@ -34,10 +34,10 @@
       </button>
     </div>
 
-    <p>
+    <p class="filter-label">
       <strong>絞り込み（効果）</strong>
-      <a>すべて選択</a>
-      <a>すべて解除</a>
+      <a @click="setAllEffect(true)">すべて選択</a>
+      <a @click="setAllEffect(false)">すべて解除</a>
     </p>
     <div class="check-button-group">
       <button
@@ -101,10 +101,22 @@
           uk-close
           @click="isOpenModal = false"
         ></button>
-        <h2 class="uk-modal-title" v-text="selected.name"></h2>
-        <p>{{ selected.month }}月</p>
-        <p>{{ selected.pt }}点</p>
-        <p>効果：{{ selected.effect.text }}</p>
+        <img
+          :src="selected.image.url"
+          :alt="selected.name"
+          class="card-modal__image"
+          :class="{
+            'one-pt': selected.pt === 1
+          }"
+        />
+        <div>
+          <span class="card-modal__pt">{{ selected.pt }}点札</span>
+        </div>
+        <div class="card-modal__name">
+          <span class="card-modal__month">{{ selected.month }}月</span>
+          {{ selected.name }}
+        </div>
+        <p class="card-modal__effect">{{ selected.effect.text }}</p>
       </div>
     </div>
   </div>
@@ -143,9 +155,20 @@ export default {
     };
   },
   methods: {
+    // 札を選択
     selectCard(cardData) {
       this.isOpenModal = true;
       this.selected = cardData;
+    },
+    setAllMonth(value) {
+      this.checkedMonth = Object.fromEntries(
+        Object.entries(this.checkedMonth).map(m => [m[0], value])
+      );
+    },
+    setAllEffect(value) {
+      this.checkedEffect = Object.fromEntries(
+        Object.entries(this.checkedEffect).map(m => [m[0], value])
+      );
     }
   },
   mounted() {
@@ -190,9 +213,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.filter-label {
+  padding: 4px 0;
+  border-left: 3px solid #ffffff;
+  padding-left: 12px;
+  a {
+    text-decoration: underline;
+    margin-left: 12px;
+  }
+}
 .check-button-group {
   .uk-button {
-    padding: 0 12px;
+    line-height: inherit;
+    padding: 0;
+    label {
+      cursor: pointer;
+      display: inline-block;
+      padding: 8px 12px;
+    }
   }
 }
 .fuda-list {
@@ -211,40 +249,6 @@ export default {
   &:hover {
     transform: scale(1.05);
   }
-  &__eftype {
-    flex-grow: 1;
-    text-align: center;
-    color: #2e2e2e;
-    padding: 4px 8px;
-    &.p20 {
-      color: #ffffff;
-      background-image: linear-gradient(
-        68.7deg,
-        rgba(29, 173, 235, 1) 13.2%,
-        rgba(137, 149, 250, 1) 29.8%,
-        rgba(229, 109, 212, 1) 48.9%,
-        rgba(255, 68, 128, 1) 68.2%,
-        rgba(255, 94, 0, 1) 86.4%
-      );
-    }
-    &.p10 {
-      background-image: linear-gradient(135deg, #ffa8a8 10%, #fcff00 100%);
-    }
-    &.p5 {
-      background-image: linear-gradient(
-        89.2deg,
-        rgba(191, 241, 236, 1) 22.3%,
-        rgba(109, 192, 236, 1) 84.1%
-      );
-    }
-    &.p1 {
-      background-image: radial-gradient(
-        circle 343px at 46.3% 47.5%,
-        rgba(242, 242, 242, 1) 0%,
-        rgba(241, 241, 241, 1) 72.9%
-      );
-    }
-  }
   &__image {
     margin-top: 12px;
     &.one-pt {
@@ -262,6 +266,42 @@ export default {
     border-bottom: 4px solid #67bc67;
     margin-top: 12px;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+  }
+}
+.card-modal {
+  margin-top: 180px;
+  text-align: center;
+  color: #303030;
+  box-shadow: 0 4px 40px 0 rgba(0, 0, 0, 0.5);
+  &__image {
+    margin-top: -180px;
+    height: 300px;
+    margin-bottom: 8px;
+  }
+  &__pt {
+    background: #303030;
+    color: #ffffff;
+    border-radius: 4px;
+    padding: 2px 8px;
+  }
+  &__name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 16px;
+  }
+  &__month {
+    font-size: 16px;
+    border: 1px solid #303030;
+    border-radius: 4px;
+    padding: 2px 8px;
+    position: relative;
+    top: -2px;
+    font-weight: no class= "filter-label" rmal;
+  }
+  &__effect {
+    background: #eeeeee;
+    border-radius: 4px;
+    padding: 12px;
   }
 }
 </style>
