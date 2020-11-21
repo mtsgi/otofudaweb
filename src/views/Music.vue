@@ -1,22 +1,42 @@
 <template>
   <div class="Music">
     <h1>収録楽曲リスト</h1>
+    <div class="uk-margin uk-text-left">
+      表示：
+      <span class="check-button-group">
+        <button
+          class="uk-button"
+          :class="{
+            'uk-button-primary': displayType === 1,
+            'uk-button-secondary': displayType !== 1
+          }"
+          @click="displayType = 1"
+        >
+          通常
+        </button>
+        <button
+          class="uk-button"
+          :class="{
+            'uk-button-primary': displayType === 2,
+            'uk-button-secondary': displayType !== 2
+          }"
+          @click="displayType = 2"
+        >
+          コンパクト
+        </button>
+        <button
+          class="uk-button"
+          :class="{
+            'uk-button-primary': displayType === 3,
+            'uk-button-secondary': displayType !== 3
+          }"
+          @click="displayType = 3"
+        >
+          ジャケット
+        </button>
+      </span>
+    </div>
     <div class="uk-margin uk-text-right">
-      <div class="check-button-group">
-        <button class="uk-button">通常</button>
-        <button class="uk-button">コンパクト</button>
-        <button class="uk-button">ジャケット</button>
-      </div>
-      <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-        <label
-          ><input
-            class="uk-checkbox"
-            type="checkbox"
-            v-model="displayDetails"
-          />
-          楽曲の詳細情報を表示
-        </label>
-      </div>
       <div uk-form-custom="target: button span">
         <select v-model="order">
           <option value="default">新着順</option>
@@ -52,7 +72,7 @@
       <input
         class="uk-search-input"
         type="search"
-        placeholder="ここに検索ワードを入力"
+        placeholder="検索ワードを入力"
         v-model="search"
       />
     </form>
@@ -63,6 +83,7 @@
     <div
       v-else
       class="otofuda-song"
+      :class="{ '-jacket': displayType === 3 }"
       v-for="song in filteredSongs"
       :key="song.id"
     >
@@ -91,7 +112,7 @@
         </div>
       </div>
       <!-- 譜面データ -->
-      <div v-if="displayDetails" class="otofuda-song--chart">
+      <div v-if="displayType === 1" class="otofuda-song--chart">
         <div class="otofuda-song--chart--difficulty">
           <div v-if="!song.coming">
             <span>{{ song.easy }}</span>
@@ -197,7 +218,7 @@ export default {
       search: "",
       apiKey: "91c69bf8-3df5-445f-81e7-30b54ab4a7d4",
       apiUrl: "https://otofuda.microcms.io/api/v1/songs",
-      displayDetails: true
+      displayType: 1 // 1, 2, 3
     };
   },
   mounted() {
@@ -480,6 +501,63 @@ export default {
     color: #f0f0f0;
     width: 100%;
     margin-top: 4px;
+  }
+  // ジャケットモード
+  &.-jacket {
+    display: inline-block;
+    width: 220px;
+    margin-right: 20px;
+    vertical-align: top;
+    border-radius: 12px;
+    .otofuda-song--info {
+      flex-direction: column;
+      align-items: center;
+      > div {
+        text-align: center;
+        padding-bottom: 8px;
+        h3 {
+          padding: 0;
+          font-size: 22px;
+        }
+        .otofuda-song--detail {
+          line-height: 16px;
+        }
+        .otofuda-song--badge {
+          font-size: 12px;
+          color: #909090;
+          background: transparent;
+        }
+      }
+    }
+    .otofuda-song--jacket {
+      width: 200px;
+      height: 200px;
+      margin-bottom: 8px;
+      border-radius: 10px;
+    }
+    .otofuda-song--chart {
+      border-radius: 0 0 6px 6px;
+      &--difficulty {
+        padding: 8px 8px 0 8px;
+        justify-content: center;
+        > div {
+          flex-grow: 1;
+          padding: 0;
+          > span {
+            box-sizing: border-box;
+            width: calc(100% - 16px);
+            margin: 2px 8px;
+            line-height: 24px;
+          }
+        }
+        > p {
+          display: none;
+        }
+      }
+    }
+    .otofuda-song--copyright {
+      font-size: 12px;
+    }
   }
 }
 
