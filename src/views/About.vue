@@ -12,9 +12,21 @@
       class="uk-hidden@s"
     />
     <div class="uk-margin" uk-lightbox>
-      <a class="uk-button uk-button-secondary" href="./images/about/handout.png"
-        >遊び方説明を見る(イベント出展時に配布した資料です)</a
+      <a
+        class="uk-button uk-button-secondary uk-button-large"
+        href="./images/about/handout.png"
       >
+        <span uk-icon="file-text"></span>
+        遊び方説明を見る(イベント出展時配布資料)
+      </a>
+    </div>
+    <div class="uk-margin" uk-lightbox>
+      <router-link to="/fuda">
+        <a class="uk-button uk-button-secondary uk-button-large">
+          <span uk-icon="database"></span>
+          札と効果の一覧を見る
+        </a>
+      </router-link>
     </div>
     <div
       class="uk-position-relative uk-visible-toggle uk-light"
