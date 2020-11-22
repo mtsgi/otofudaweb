@@ -306,7 +306,7 @@ export default {
   position: relative;
   background: #f0f0f0;
   color: #303030;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
   &::before {
     transition: 0.6s;
     content: "";
@@ -501,6 +501,7 @@ export default {
     color: #f0f0f0;
     width: 100%;
     margin-top: 4px;
+    font-size: 12px;
   }
   // ジャケットモード
   &.-jacket {
@@ -536,7 +537,7 @@ export default {
       border-radius: 10px;
     }
     .otofuda-song--chart {
-      border-radius: 0 0 6px 6px;
+      border-radius: 0 0 12px 12px;
       &--difficulty {
         padding: 8px 8px 0 8px;
         justify-content: center;
