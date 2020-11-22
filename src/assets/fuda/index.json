@@ -1,0 +1,338 @@
+[
+  {
+    "file": "01a.png",
+    "name": "松に鶴",
+    "month": 1,
+    "point": 20,
+    "effect": "disturb"
+  },
+  {
+    "file": "01b.png",
+    "name": "松に赤短",
+    "month": 1,
+    "point": 5,
+    "effect": "damage"
+  },
+  {
+    "file": "01c.png",
+    "name": "松のカス",
+    "month": 1,
+    "point": 1,
+    "effect": "draw"
+  },
+  {
+    "file": "01d.png",
+    "name": "松のカス",
+    "month": 1,
+    "point": 1,
+    "effect": "draw"
+  },
+  {
+    "file": "02a.png",
+    "name": "梅に鶯",
+    "month": 2,
+    "point": 10,
+    "effect": "loot"
+  },
+  {
+    "file": "02b.png",
+    "name": "梅に赤短",
+    "month": 2,
+    "point": 5,
+    "effect": "damage"
+  },
+  {
+    "file": "02c.png",
+    "name": "梅のカス",
+    "month": 2,
+    "point": 1,
+    "effect": "draw"
+  },
+  {
+    "file": "02d.png",
+    "name": "梅のカス",
+    "month": 2,
+    "point": 1,
+    "effect": "draw"
+  },
+  {
+    "file": "03a.png",
+    "name": "桜に幕",
+    "month": 3,
+    "point": 20,
+    "effect": "disturb"
+  },
+  {
+    "file": "03b.png",
+    "name": "桜に赤短",
+    "month": 3,
+    "point": 5,
+    "effect": "damage"
+  },
+  {
+    "file": "03c.png",
+    "name": "桜のカス",
+    "month": 3,
+    "point": 1,
+    "effect": "draw"
+  },
+  {
+    "file": "03d.png",
+    "name": "桜のカス",
+    "month": 3,
+    "point": 1,
+    "effect": "draw"
+  },
+  {
+    "file": "04a.png",
+    "name": "藤に不如帰",
+    "month": 4,
+    "point": 10,
+    "effect": "nullify_and_draw"
+  },
+  {
+    "file": "04b.png",
+    "name": "藤に短冊",
+    "month": 4,
+    "point": 5,
+    "effect": "search"
+  },
+  {
+    "file": "04c.png",
+    "name": "藤のカス",
+    "month": 4,
+    "point": 1,
+    "effect": "draw"
+  },
+  {
+    "file": "04d.png",
+    "name": "藤のカス",
+    "month": 4,
+    "point": 1,
+    "effect": "draw"
+  },
+  {
+    "file": "05a.png",
+    "name": "菖蒲に八橋",
+    "month": 5,
+    "point": 10,
+    "effect": "nullify_and_draw"
+  },
+  {
+    "file": "05b.png",
+    "name": "菖蒲に短冊",
+    "month": 5,
+    "point": 5,
+    "effect": "search"
+  },
+  {
+    "file": "05c.png",
+    "name": "菖蒲のカス",
+    "month": 5,
+    "point": 1,
+    "effect": "draw"
+  },
+  {
+    "file": "05d.png",
+    "name": "菖蒲のカス",
+    "month": 5,
+    "point": 1,
+    "effect": "draw"
+  },
+  {
+    "file": "06a.png",
+    "name": "牡丹に蝶",
+    "month": 6,
+    "point": 10,
+    "effect": "difficulty_up"
+  },
+  {
+    "file": "06b.png",
+    "name": "牡丹に青短",
+    "month": 6,
+    "point": 5,
+    "effect": "heal"
+  },
+  {
+    "file": "06c.png",
+    "name": "牡丹のカス",
+    "month": 6,
+    "point": 1,
+    "effect": "draw"
+  },
+  {
+    "file": "06d.png",
+    "name": "牡丹のカス",
+    "month": 6,
+    "point": 1,
+    "effect": "draw"
+  },
+  {
+    "file": "07a.png",
+    "name": "萩に猪",
+    "month": 7,
+    "point": 10,
+    "effect": "difficulty_up"
+  },
+  {
+    "file": "07b.png",
+    "name": "萩に短冊",
+    "month": 7,
+    "point": 5,
+    "effect": "search"
+  },
+  {
+    "file": "07c.png",
+    "name": "萩のカス",
+    "month": 7,
+    "point": 1,
+    "effect": "draw"
+  },
+  {
+    "file": "07d.png",
+    "name": "萩のカス",
+    "month": 7,
+    "point": 1,
+    "effect": "draw"
+  },
+  {
+    "file": "08a.png",
+    "name": "芒に月",
+    "month": 8,
+    "point": 20,
+    "effect": "disturb"
+  },
+  {
+    "file": "08b.png",
+    "name": "芒に雁",
+    "month": 8,
+    "point": 10,
+    "effect": "nullify"
+  },
+  {
+    "file": "08c.png",
+    "name": "芒のカス",
+    "month": 8,
+    "point": 1,
+    "effect": "draw"
+  },
+  {
+    "file": "08d.png",
+    "name": "芒のカス",
+    "month": 8,
+    "point": 1,
+    "effect": "draw"
+  },
+  {
+    "file": "09a.png",
+    "name": "菊に盃",
+    "month": 9,
+    "point": 10,
+    "effect": "difficulty_up"
+  },
+  {
+    "file": "09b.png",
+    "name": "菊に青短",
+    "month": 9,
+    "point": 5,
+    "effect": "heal"
+  },
+  {
+    "file": "09c.png",
+    "name": "菊のカス",
+    "month": 9,
+    "point": 1,
+    "effect": "draw"
+  },
+  {
+    "file": "09d.png",
+    "name": "菊のカス",
+    "month": 9,
+    "point": 1,
+    "effect": "draw"
+  },
+  {
+    "file": "10a.png",
+    "name": "紅葉に鹿",
+    "month": 10,
+    "point": 10,
+    "effect": "difficulty_up"
+  },
+  {
+    "file": "10b.png",
+    "name": "紅葉に青短",
+    "month": 10,
+    "point": 5,
+    "effect": "heal"
+  },
+  {
+    "file": "10c.png",
+    "name": "紅葉のカス",
+    "month": 10,
+    "point": 1,
+    "effect": "draw"
+  },
+  {
+    "file": "10d.png",
+    "name": "紅葉のカス",
+    "month": 10,
+    "point": 1,
+    "effect": "draw"
+  },
+  {
+    "file": "11a.png",
+    "name": "柳に小野道風",
+    "month": 11,
+    "point": 20,
+    "effect": "damage_and_heal"
+  },
+  {
+    "file": "11b.png",
+    "name": "柳に燕",
+    "month": 11,
+    "point": 10,
+    "effect": "nullify"
+  },
+  {
+    "file": "11c.png",
+    "name": "柳に短冊",
+    "month": 11,
+    "point": 5,
+    "effect": "search"
+  },
+  {
+    "file": "11d.png",
+    "name": "柳のカス",
+    "month": 11,
+    "point": 1,
+    "effect": "light"
+  },
+  {
+    "file": "12a.png",
+    "name": "桐に鳳凰",
+    "month": 12,
+    "point": 20,
+    "effect": "hand_destruction"
+  },
+  {
+    "file": "12b.png",
+    "name": "桐のカス",
+    "month": 12,
+    "point": 1,
+    "effect": "draw"
+  },
+  {
+    "file": "12c.png",
+    "name": "桐のカス",
+    "month": 12,
+    "point": 1,
+    "effect": "draw"
+  },
+  {
+    "file": "12d.png",
+    "name": "桐のカス",
+    "month": 12,
+    "point": 1,
+    "effect": "draw"
+  }
+]
