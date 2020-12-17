@@ -72,10 +72,10 @@
 
     <div class="uk-position-relative" uk-slideshow="animation: fade">
       <ul class="uk-slideshow-items">
-        <li v-for="t in topics" :key="t">
+        <li v-for="topic in topics" :key="topic.id">
           <img
-            :src="`${t}?format=jpg&name=large`"
-            alt="音札トピックス"
+            :src="`${topic.image}?format=jpg&name=large`"
+            :alt="topic.alt"
             uk-cover
           />
         </li>
@@ -94,9 +94,16 @@
 
       <div class="uk-margin-top">
         <ul class="uk-thumbnav uk-flex-center">
-          <li v-for="(t, i) in topics" :key="i" :uk-slideshow-item="i">
-            <a href="#"
-              ><img :src="`${t}?format=jpg&name=thumb`" width="40" alt=""
+          <li
+            v-for="(topic, idx) in topics"
+            :key="idx"
+            :uk-slideshow-item="idx"
+          >
+            <a href="#">
+              <img
+                :src="`${topic.image}?format=jpg&name=thumb`"
+                width="40"
+                :alt="topic.alt"
             /></a>
           </li>
         </ul>
@@ -136,10 +143,87 @@
         dnt: true
       }"
     />
+
+    <div class="otofuda-member">
+      <h1>Member</h1>
+      <h4>Otodfuda Project</h4>
+      <ul class="uk-list">
+        <li>やますぎ(mtsgi)</li>
+        <li>イダディ</li>
+        <li>味噌卍</li>
+        <li>メルヴィル</li>
+        <li>Minure</li>
+        <li>SIMO</li>
+        <li>たかちゃん</li>
+        <li>しげの</li>
+        <li>高槻</li>
+        <li>めがね</li>
+        <li>フケ</li>
+        <li>こてつ</li>
+      </ul>
+      <h4>Unity Engineer</h4>
+      <ul class="uk-list">
+        <li>しげの</li>
+      </ul>
+      <h4>Composer / Sound Creator</h4>
+      <ul class="uk-list">
+        <li>idady</li>
+        <li>simo</li>
+        <li>こてつ</li>
+      </ul>
+      <h4>Illustrator</h4>
+      <ul class="uk-list">
+        <li>高槻</li>
+        <li>めがね</li>
+      </ul>
+      <h4>Web Engineer</h4>
+      <ul class="uk-list">
+        <li>mtsgi</li>
+        <li>イダディ</li>
+        <li>めがね</li>
+      </ul>
+      <h4>Graphic Designer</h4>
+      <ul class="uk-list">
+        <li>フケ</li>
+      </ul>
+      <h4>UI Designer</h4>
+      <ul class="uk-list">
+        <li>フケ</li>
+      </ul>
+      <h4>Hardware Engineer</h4>
+      <ul class="uk-list">
+        <li>Minure</li>
+        <li>味噌卍</li>
+        <li>SIMO</li>
+      </ul>
+      <h4>Notes Designer</h4>
+      <ul class="uk-list">
+        <li>mtsgi a.k.a. マテ茶</li>
+        <li>OTOFUDA Sound Team "minure"</li>
+        <li>SIMO</li>
+        <li>めがね</li>
+        <li>メルヴィル</li>
+        <li>たかちゃん</li>
+      </ul>
+      <h4>Scenario Writer</h4>
+      <ul class="uk-list">
+        <li>高槻</li>
+      </ul>
+      <h4>Tools Engineer</h4>
+      <ul class="uk-list">
+        <li>しげの</li>
+        <li>mtsgi</li>
+      </ul>
+      <h4>Video Creator</h4>
+      <ul class="uk-list">
+        <li>mtsgi</li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 import { Timeline } from "vue-tweet-embed";
 import { ShareNetwork } from "vue-social-sharing";
 
@@ -151,15 +235,9 @@ export default {
   name: "Home",
   data() {
     return {
-      topics: [
-        "https://pbs.twimg.com/media/EnFaAfuW4AAaalm",
-        "https://pbs.twimg.com/media/EjJDXhoU0AINr_O",
-        "https://pbs.twimg.com/media/EhoU0QsVkAUAzxX",
-        "https://pbs.twimg.com/media/EfMuLWzU4AAkAEr",
-        "https://pbs.twimg.com/media/EXF2XEHUwAA6A7A",
-        "https://pbs.twimg.com/media/EXPEyrNUEAA1s7K",
-        "https://pbs.twimg.com/media/EYrkUlYUMAAHVlg"
-      ],
+      topics: [],
+      apiKey: "91c69bf8-3df5-445f-81e7-30b54ab4a7d4",
+      apiUrl: "https://otofuda.microcms.io/api/v1/topics",
       sharing: {
         url: "https://j.mp/otofuda",
         title:
@@ -202,6 +280,16 @@ export default {
         }
       ]
     };
+  },
+  mounted() {
+    axios
+      .get(this.apiUrl, {
+        headers: { "X-API-KEY": this.apiKey },
+        params: { limit: 1000 }
+      })
+      .then(response => {
+        this.topics = [...response.data.contents];
+      });
   }
 };
 </script>
@@ -271,6 +359,14 @@ export default {
     transform: rotate(-4deg);
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
     animation: otofuda-jacket 2s linear infinite;
+  }
+}
+.otofuda-member {
+  text-align: center;
+  h4 {
+    font-family: inherit;
+    font-weight: bold;
+    color: #ffffff;
   }
 }
 @keyframes otofuda-jacket {

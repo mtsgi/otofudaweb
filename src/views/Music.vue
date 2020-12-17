@@ -506,7 +506,7 @@ export default {
   // ジャケットモード
   &.-jacket {
     display: inline-block;
-    width: 220px;
+    width: 260px;
     margin-right: 20px;
     vertical-align: top;
     border-radius: 12px;
@@ -531,8 +531,8 @@ export default {
       }
     }
     .otofuda-song--jacket {
-      width: 200px;
-      height: 200px;
+      width: 240px;
+      height: 240px;
       margin-bottom: 8px;
       border-radius: 10px;
     }
