@@ -146,7 +146,7 @@
 
     <div class="otofuda-member">
       <h1>Member</h1>
-      <h4>Otodfuda Project</h4>
+      <h4>Otofuda Project</h4>
       <ul class="uk-list">
         <li>やますぎ(mtsgi)</li>
         <li>イダディ</li>
