@@ -313,7 +313,6 @@ export default {
     backdrop-filter: blur(3px);
     border-radius: 8px;
     z-index: 1;
-    backdrop-filter: blur(2px);
     li {
       list-style: none;
       padding-top: 8px;
