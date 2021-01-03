@@ -40,6 +40,12 @@
           class="otofuda-links--jacket"
         />
       </router-link>
+      <router-link to="/story">
+        <img src="@/assets/home/link_story.png" alt="ストーリー＆4コマ漫画" />
+      </router-link>
+      <router-link to="/special">
+        <img src="@/assets/home/link_special.png" alt="コラボ特設ページ" />
+      </router-link>
     </div>
 
     <div class="uk-text-center">

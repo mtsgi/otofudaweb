@@ -55,6 +55,15 @@ const routes = [
     },
     component: () =>
       import(/* webpackChunkName: "character" */ "../views/Fuda.vue")
+  },
+  {
+    path: "/special",
+    name: "Special",
+    meta: {
+      title: "天ノ葉神社日本支部 コラボ特設ページ"
+    },
+    component: () =>
+      import(/* webpackChunkName: "special" */ "../views/Special.vue")
   }
 ];
 
