@@ -17,15 +17,33 @@
         class="uk-right otofuda-about-amanoha__video"
         src="https://www.youtube.com/embed/videoseries?list=PLBR98kmPGF9Az__V0vCjRMglP5URaxvk-"
         frameborder="0"
-        uk-video="automute: true"
       ></iframe>
     </div>
 
     <div class="otofuda-collabs uk-grid uk-child-width-1-2@m" uk-grid>
       <div class="otofuda-collabs__item">
         <h3>コラボ企画①</h3>
-        <h2>？？？？？</h2>
-        <p>Coming soon...</p>
+        <h2>「おとふだNET」アイコン追加</h2>
+        <img
+          data-src="https://pbs.twimg.com/media/ErBu2R5VQAAY5rM?format=jpg&name=large"
+          alt="「おとふだNET」アイコン追加"
+          uk-img
+        />
+        <p>
+          「音札」のプレイヤー向けWebサイト「おとふだNET」のプロフィール設定の「アイコン変更」機能に、「つむぎ」と「武者丸」の2種類の新アイコンが追加！
+        </p>
+        <p>
+          おとふだNETに登録しているユーザーなら、ログインして「プロフィール設定」→「アイコン変更」から、どなたでも新アイコンを設定することができます！
+        </p>
+        <a
+          href="https://j.mp/otfdnet"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="uk-button uk-button-secondary uk-width-1-1 uk-button-small"
+          uk-icon="link"
+        >
+          「おとふだNET」はこちら
+        </a>
       </div>
       <div class="otofuda-collabs__item">
         <h3>コラボ企画②</h3>
@@ -105,6 +123,12 @@ export default {
       color: #ffffff;
       margin: 0;
       font-weight: bold;
+    }
+    img {
+      margin-top: 20px;
+      border: 4px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.5);
+      border-radius: 12px;
     }
   }
 }
