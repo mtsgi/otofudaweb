@@ -1,5 +1,5 @@
 .DS_Store
-node_modules
+/node_modules
 /dist
 
 # local env files
@@ -22,3 +22,4 @@ yarn-error.log*
 
 public/jacket
 public/story_teller
+public/story_teller_tmp
