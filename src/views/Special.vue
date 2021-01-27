@@ -23,7 +23,7 @@
     <div class="otofuda-collabs uk-grid uk-child-width-1-2@m" uk-grid>
       <div class="otofuda-collabs__item">
         <h3>コラボ企画①</h3>
-        <h2>「おとふだNET」アイコン追加</h2>
+        <h2>「おとふだNET」アイコン追加！</h2>
         <img
           data-src="https://pbs.twimg.com/media/ErBu2R5VQAAY5rM?format=jpg&name=large"
           alt="「おとふだNET」アイコン追加"
@@ -47,18 +47,72 @@
       </div>
       <div class="otofuda-collabs__item">
         <h3>コラボ企画②</h3>
-        <h2>？？？？？</h2>
-        <p>Coming soon...</p>
+        <h2>「コラボチャプター」追加！</h2>
+        <img
+          data-src="https://pbs.twimg.com/media/Er2hFinUcAMY0MR?format=jpg&name=large"
+          alt="「コラボチャプター」追加"
+          uk-img
+        />
+        <p>
+          天ノ葉神社日本支部との「コラボチャプター」を追加！「つむぎ」や「武者丸」が登場するオリジナルストーリーをお楽しみください！
+        </p>
+        <p>
+          STORYにて「サイド」を選択するとコラボチャプターを見ることができます！STORYページは以下のリンクから！
+        </p>
+        <router-link to="/story">
+          <span
+            class="uk-button uk-button-secondary uk-width-1-1 uk-button-small"
+            uk-icon="arrow-right"
+          >
+            「STORY」ページはこちら
+          </span>
+        </router-link>
       </div>
       <div class="otofuda-collabs__item">
         <h3>コラボ企画③</h3>
-        <h2>？？？？？</h2>
-        <p>Coming soon...</p>
+        <h2>コラボ4コマ公開！</h2>
+        <img
+          data-src="https://pbs.twimg.com/media/Esa0CEjU4AAvpMM.jpg"
+          alt="コラボ4コマ公開"
+          uk-img
+        />
+        <p>
+          天ノ葉神社日本支部と音札のキャラクターが登場する、特別なコラボ「おとふだびより♪」をTwitterおよび公式ホームページで公開！
+        </p>
+        <p>
+          「おとふだびより♪」の全アーカイブは以下のリンクから！
+        </p>
+        <router-link to="/story">
+          <span
+            class="uk-button uk-button-secondary uk-width-1-1 uk-button-small"
+            uk-icon="arrow-right"
+          >
+            「STORY」ページはこちら
+          </span>
+        </router-link>
       </div>
       <div class="otofuda-collabs__item">
         <h3>コラボ企画④</h3>
-        <h2>？？？？？</h2>
-        <p>Coming soon...</p>
+        <h2>コラボ楽曲追加！</h2>
+        <img
+          data-src="https://pbs.twimg.com/media/EsJ1KUoVkAALNfX?format=jpg&name=large"
+          alt="コラボ楽曲追加"
+          uk-img
+        />
+        <p>
+          つむぎと武者丸が歌う、音札初となるボーカル曲である「いつも一緒に」と、いつものお部屋のBGM「私たちのお部屋」が音札にプレイアブル楽曲として収録されます！
+        </p>
+        <p>
+          音札の収録楽曲リスト、および譜面の紹介動画などは以下のリンクから！
+        </p>
+        <router-link to="/music">
+          <span
+            class="uk-button uk-button-secondary uk-width-1-1 uk-button-small"
+            uk-icon="arrow-right"
+          >
+            「楽曲リスト」ページはこちら
+          </span>
+        </router-link>
       </div>
     </div>
   </div>
