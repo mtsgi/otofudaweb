@@ -88,7 +88,7 @@
       :key="song.id"
     >
       <!-- 楽曲データ -->
-      <router-link :to="`/music/${song.song_id}`">
+      <router-link :to="{ name: 'MusicDetail', params: { id: song.song_id } }">
         <div class="otofuda-song--info">
           <img
             :src="song.jacket.url"
@@ -428,6 +428,7 @@ export default {
     border-radius: 4px;
     background: #909090;
     color: #ffffff;
+    transition: all 0.25s ease;
   }
   &--chart {
     background: #e0e0e0;
@@ -572,6 +573,9 @@ export default {
       align-items: center;
       &:hover:after {
         display: none;
+      }
+      &:hover .otofuda-song--badge {
+        color: #ffffff;
       }
       > div {
         text-align: center;

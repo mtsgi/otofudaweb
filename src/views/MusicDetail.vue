@@ -23,6 +23,29 @@
 
       <div class="music-detail--artist">{{ song.artist }}</div>
 
+      <div v-if="song.character" class="music-detail--character">
+        担当キャラクター：{{ song.character }}
+      </div>
+
+      <div v-if="song.youtube_music">
+        <a
+          :href="song.youtube_music"
+          class="music-detail--link-button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span uk-icon="play-circle"></span>
+          楽曲を試聴する
+          <div>外部サイトに遷移します</div>
+        </a>
+      </div>
+
+      <div v-if="song.copyright" class="music-detail--copyright">
+        {{ song.copyright }}
+      </div>
+
+      <div class="divider"></div>
+
       <div class="music-detail--bpm">BPM: {{ song.dispbpm }}</div>
 
       <div class="music-detail--illustrator">
@@ -33,17 +56,127 @@
         {{ song.comment }}
       </div>
 
+      <div v-if="song.coming" class="music-detail--coming">
+        <h3>Coming Soon...</h3>
+        <p>この楽曲は準備中です。譜面詳細は実装までお待ちください。</p>
+      </div>
+
+      <div v-else class="music-detail--table">
+        <div class="music-detail--level -easy">
+          <h5>LEVEL</h5>
+          <strong>{{ song.easy }}</strong>
+          <div class="music-detail--level--info">
+            <h4>Notes Count</h4>
+            <p>{{ song.easy_notes }}</p>
+            <h4>Notes Designer</h4>
+            <p>{{ song.easy_nd }}</p>
+            <a
+              v-if="song.easy_video"
+              :href="song.easy_video"
+              class="music-detail--level--video"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span uk-icon="youtube"></span>
+              譜面紹介動画を見る
+            </a>
+          </div>
+        </div>
+
+        <div class="music-detail--level -normal">
+          <h5>LEVEL</h5>
+          <strong>{{ song.normal }}</strong>
+          <div class="music-detail--level--info">
+            <h4>Notes Count</h4>
+            <p>{{ song.normal_notes }}</p>
+            <h4>Notes Designer</h4>
+            <p>{{ song.normal_nd }}</p>
+            <a
+              v-if="song.normal_video"
+              :href="song.normal_video"
+              class="music-detail--level--video"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span uk-icon="youtube"></span>
+              譜面紹介動画を見る
+            </a>
+          </div>
+        </div>
+
+        <div class="music-detail--level -hard">
+          <h5>LEVEL</h5>
+          <strong>{{ song.hard }}</strong>
+          <div class="music-detail--level--info">
+            <h4>Notes Count</h4>
+            <p>{{ song.hard_notes }}</p>
+            <h4>Notes Designer</h4>
+            <p>{{ song.hard_nd }}</p>
+            <a
+              v-if="song.hard_video"
+              :href="song.hard_video"
+              class="music-detail--level--video"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span uk-icon="youtube"></span>
+              譜面紹介動画を見る
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div v-if="song.youtube_chart">
+        <a
+          :href="song.youtube_chart"
+          class="music-detail--link-button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span uk-icon="youtube"></span>
+          譜面攻略動画を見る
+          <div>全難易度の譜面を比較できます</div>
+        </a>
+      </div>
+
+      <div>
+        <a
+          :href="tweetLink"
+          class="music-detail--link-button -tweet"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span uk-icon="twitter"></span>
+          Twitterで共有
+          <div>{{ song.name }}をつぶやく</div>
+        </a>
+      </div>
+
       <h3>関連楽曲</h3>
 
-      <div
+      <router-link
         class="music-detail--related"
         v-for="relsong in relatedSongs"
         :key="relsong.id"
+        :to="{ name: 'MusicDetail', params: { id: relsong.song_id } }"
       >
-        <p>{{ relsong.name }}</p>
-      </div>
+        <img
+          :src="relsong.jacket.url"
+          :alt="relsong.name"
+          class="music-detail--related--jacket"
+          :style="{
+            borderColor: `rgba(${relsong.color.split(', ')[0]}, ${
+              relsong.color.split(', ')[1]
+            }, ${relsong.color.split(', ')[2]}, 0.75)`
+          }"
+        />
+        <div class="music-detail--related--info">
+          <h5>{{ relsong.name }}</h5>
+          {{ relsong.artist }}
+        </div>
+      </router-link>
 
-      <h3>SNSで共有</h3>
+      <p v-if="relatedSongs.length === 0">関連楽曲が見つかりません</p>
     </div>
     <div v-else-if="error">
       <h1>エラー</h1>
@@ -84,10 +217,21 @@ export default {
         this.song = this.allSongs.find(
           song => song.song_id === this.$route.params.id
         );
-        if (!this.song) {
-          this.error = "楽曲が見つかりません。";
-        } else this.isLoaded = true;
+        if (!this.song) this.error = "楽曲が見つかりません。";
+        else this.isLoaded = true;
       });
+  },
+  beforeRouteUpdate(to, from, next) {
+    this.song = this.allSongs.find(song => song.song_id === to.params.id);
+    if (!this.song) this.error = "楽曲が見つかりません。";
+    next();
+  },
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { x: 0, y: 0 };
+    }
   },
   computed: {
     relatedSongs() {
@@ -96,10 +240,34 @@ export default {
             return (
               song.id !== this.song.id &&
               (song.artist === this.song.artist ||
-                song.illustrator === this.song.illustrator)
+                song.illustrator === this.song.illustrator ||
+                (song.character && song.character === this.song.character))
             );
           })
         : [];
+    },
+    pageTitle() {
+      return this.error
+        ? "エラー｜音札 おとふだ"
+        : this.song
+        ? `${this.song.name} - 楽曲情報｜音札 おとふだ`
+        : "楽曲詳細情報｜音札 おとふだ";
+    },
+    tweetLink() {
+      return [
+        "https://twitter.com/intent/tweet?text=",
+        encodeURI(document.title),
+        "%20",
+        location.origin,
+        this.$route.fullPath,
+        "&related=otofuda&hashtags=音札"
+      ].join("");
+    }
+  },
+  watch: {
+    pageTitle(title) {
+      console.warn("PageTitle", title);
+      document.title = title;
     }
   }
 };
@@ -109,9 +277,9 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:wght@400;600&display=swap");
 
 .MusicDetail {
+  text-align: center;
   .music-detail {
     font-family: "Poppins", "Noto Sans JP", sans-serif;
-    text-align: center;
     font-size: 24px;
 
     &--header {
@@ -123,7 +291,7 @@ export default {
     &--jacket {
       width: 400px;
       max-height: 400px;
-      margin: 10px 10px;
+      margin: 10px 0;
       border: 8px solid #f0f0f0;
       border-radius: 16px;
       box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
@@ -134,13 +302,40 @@ export default {
       font-size: 44px;
       border: none;
       font-weight: bold;
-      margin-bottom: 8px;
     }
 
     &--artist {
-      font-size: 32px;
-      padding-bottom: 12px;
-      border-bottom: 4px solid #a0a0a0;
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    &--character {
+      display: inline-block;
+      font-size: 16px;
+      border: 2px solid #f0f0f0;
+      border-radius: 999px;
+      padding: 2px 20px;
+      margin-bottom: 20px;
+    }
+
+    &--link-button {
+      display: inline-block;
+      padding: 12px;
+      background: #1461dc;
+      font-size: 18px;
+      color: #ffffff;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      &.-tweet {
+        background: #1da1f2;
+      }
+      > div {
+        font-size: 12px;
+      }
+    }
+
+    &--copyright {
+      font-size: 16px;
       margin-bottom: 16px;
     }
 
@@ -160,6 +355,124 @@ export default {
       background: rgba(255, 255, 255, 0.8);
       margin-bottom: 16px;
     }
+
+    &--coming {
+      background: #505050;
+      padding: 12px;
+      border-radius: 6px;
+      margin-bottom: 16px;
+      p {
+        margin: 0;
+        font-size: 16px;
+      }
+    }
+
+    &--table {
+      display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    &--level {
+      width: 31%;
+      min-width: 200px;
+      background: gray;
+      margin: 20px 1%;
+      border-radius: 12px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+
+      &.-easy {
+        background: #25ca25;
+      }
+      &.-normal {
+        background: #ffb223;
+      }
+      &.-hard {
+        background: #ff0984;
+      }
+
+      > h5 {
+        margin: 0;
+        color: #ffffff;
+        font-family: "Poppins", "Noto Sans JP", sans-serif;
+        font-weight: bold;
+        padding-top: 8px;
+        font-size: 14px;
+      }
+      > strong {
+        display: block;
+        margin: 0 0 8px 0;
+        font-size: 32px;
+      }
+
+      &--info {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 0 12px;
+        border-radius: 0 0 12px 12px;
+        h4 {
+          margin: 0;
+          color: #ffffff;
+          font-family: "Poppins", "Noto Sans JP", sans-serif;
+          font-weight: bold;
+          padding-top: 12px;
+          font-size: 16px;
+        }
+        p {
+          margin: 0;
+          font-size: 20px;
+          padding-bottom: 8px;
+        }
+      }
+
+      &--video {
+        display: inline-block;
+        padding: 8px;
+        background: #dc143c;
+        font-size: 18px;
+        color: #ffffff;
+        border-radius: 6px;
+        margin-top: 8px;
+        margin-bottom: 12px;
+      }
+    }
+
+    &--related {
+      display: flex;
+      &--jacket {
+        width: 82px;
+        height: 72px;
+        margin-right: 12px;
+        border-left: 10px solid silver;
+      }
+      &--info {
+        color: #ffffff;
+        font-size: 18px;
+        text-align: left;
+        h5 {
+          margin: 2px 0;
+          font-family: "Poppins", "Noto Sans JP", sans-serif;
+          font-size: 24px;
+          color: #ffffff;
+          font-weight: bold;
+        }
+      }
+      &:hover {
+        background: rgba(255, 255, 255, 0.2);
+        text-decoration: underline #ffffff;
+      }
+    }
+  }
+
+  .divider {
+    height: 2px;
+    background: #a0a0a0;
+    margin-bottom: 16px;
+  }
+  h3 {
+    color: #ffffff;
+    font-family: "Poppins", "Noto Sans JP", sans-serif;
+    font-weight: bold;
   }
 }
 </style>
