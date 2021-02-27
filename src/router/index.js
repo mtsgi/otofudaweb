@@ -29,6 +29,15 @@ const routes = [
       import(/* webpackChunkName: "music" */ "../views/Music.vue")
   },
   {
+    path: "/music/:id",
+    name: "MusicDetail",
+    meta: {
+      title: "楽曲詳細情報"
+    },
+    component: () =>
+      import(/* webpackChunkName: "musicdetail" */ "../views/MusicDetail.vue")
+  },
+  {
     path: "/story",
     name: "Story",
     meta: {

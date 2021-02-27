@@ -22,7 +22,7 @@
           }"
           @click="displayType = 2"
         >
-          コンパクト
+          詳細表示
         </button>
         <button
           class="uk-button"
@@ -88,31 +88,33 @@
       :key="song.id"
     >
       <!-- 楽曲データ -->
-      <div class="otofuda-song--info">
-        <img
-          :src="song.jacket.url"
-          :alt="song.name"
-          class="otofuda-song--jacket"
-          :style="{
-            borderColor: `rgb(${song.color.split(', ')[0]}, ${
-              song.color.split(', ')[1]
-            }, ${song.color.split(', ')[2]})`
-          }"
-        />
-        <div>
-          <h3>{{ song.name }}</h3>
-          <div class="otofuda-song--detail">
-            <strong class="otofuda-song--badge">ARTIST</strong>
-            {{ song.artist }}
-          </div>
-          <div class="otofuda-song--detail">
-            <strong class="otofuda-song--badge">BPM</strong>
-            {{ song.dispbpm }}
+      <router-link :to="{ name: 'MusicDetail', params: { id: song.song_id } }">
+        <div class="otofuda-song--info">
+          <img
+            :src="song.jacket.url"
+            :alt="song.name"
+            class="otofuda-song--jacket"
+            :style="{
+              borderColor: `rgb(${song.color.split(', ')[0]}, ${
+                song.color.split(', ')[1]
+              }, ${song.color.split(', ')[2]})`
+            }"
+          />
+          <div>
+            <h3>{{ song.name }}</h3>
+            <div class="otofuda-song--detail">
+              <strong class="otofuda-song--badge">ARTIST</strong>
+              {{ song.artist }}
+            </div>
+            <div class="otofuda-song--detail">
+              <strong class="otofuda-song--badge">BPM</strong>
+              {{ song.dispbpm }}
+            </div>
           </div>
         </div>
-      </div>
+      </router-link>
       <!-- 譜面データ -->
-      <div v-if="displayType === 1" class="otofuda-song--chart">
+      <div v-if="displayType === 2" class="otofuda-song--chart">
         <div class="otofuda-song--chart--difficulty">
           <div v-if="!song.coming">
             <span>{{ song.easy }}</span>
@@ -307,42 +309,94 @@ export default {
   background: #f0f0f0;
   color: #303030;
   margin-bottom: 32px;
-  &::before {
-    transition: 0.6s;
-    content: "";
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    background: linear-gradient(
-      45deg,
-      #e60012,
-      #f39800,
-      #fff100,
-      #009944,
-      #0068b7,
-      #1d2088,
-      #920783,
-      #e60012,
-      #f39800,
-      #fff100,
-      #009944,
-      #0068b7,
-      #1d2088,
-      #920783,
-      #e60012
-    );
-    background-size: 200%;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    filter: blur(6px);
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.75);
+  overflow: hidden;
+  // &::before {
+  //   transition: 0.6s;
+  //   content: "";
+  //   position: absolute;
+  //   top: -2px;
+  //   left: -2px;
+  //   background: linear-gradient(
+  //     45deg,
+  //     #e60012,
+  //     #f39800,
+  //     #fff100,
+  //     #009944,
+  //     #0068b7,
+  //     #1d2088,
+  //     #920783,
+  //     #e60012,
+  //     #f39800,
+  //     #fff100,
+  //     #009944,
+  //     #0068b7,
+  //     #1d2088,
+  //     #920783,
+  //     #e60012
+  //   );
+  //   background-size: 200%;
+  //   width: 100%;
+  //   height: 100%;
+  //   z-index: -1;
+  //   filter: blur(6px);
+  // }
+  > a:hover {
+    text-decoration: none;
   }
   &--info {
     display: flex;
     min-height: 116px;
+    background: rgba(43, 134, 197, 0);
+    position: relative;
+    transition: all 0.5s ease;
+    &:before {
+      transition: all 0.25s ease;
+      content: "";
+      z-index: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 60, 172, 1) 0%,
+        rgba(255, 60, 172, 0) 100%
+      );
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+    }
+    &:hover {
+      text-decoration: none;
+      background: rgba(43, 134, 197, 1);
+      &:before {
+        background: linear-gradient(
+          90deg,
+          rgba(255, 60, 172, 1) 0%,
+          rgba(255, 60, 172, 0) 100%
+        );
+        width: 100%;
+      }
+      &:after {
+        content: "楽曲詳細へ";
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        background: rgba(0, 0, 0, 0.5);
+        color: #ffffff;
+        padding: 6px;
+        border-radius: 4px;
+      }
+      h3 {
+        color: #ffffff;
+      }
+      .otofuda-song--detail {
+        color: #ffffff;
+      }
+    }
     & > div {
       flex-grow: 1;
       margin-right: 12px;
+      z-index: 2;
     }
     .otofuda-song--jacket {
       height: 120px;
@@ -350,8 +404,10 @@ export default {
       margin: 10px 10px -20px 10px;
       border: 4px solid #f0f0f0;
       border-radius: 4px;
+      z-index: 2;
     }
     h3 {
+      transition: all 0.25s ease;
       font-family: inherit;
       font-size: 28px;
       margin: 0;
@@ -359,6 +415,7 @@ export default {
       font-weight: bold;
     }
     .otofuda-song--detail {
+      transition: all 0.25s ease;
       color: #909090;
       margin-top: 2px;
       padding-top: 2px;
@@ -371,6 +428,7 @@ export default {
     border-radius: 4px;
     background: #909090;
     color: #ffffff;
+    transition: all 0.25s ease;
   }
   &--chart {
     background: #e0e0e0;
@@ -513,6 +571,12 @@ export default {
     .otofuda-song--info {
       flex-direction: column;
       align-items: center;
+      &:hover:after {
+        display: none;
+      }
+      &:hover .otofuda-song--badge {
+        color: #ffffff;
+      }
       > div {
         text-align: center;
         padding-bottom: 8px;
