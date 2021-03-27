@@ -224,6 +224,12 @@ export default {
   beforeRouteUpdate(to, from, next) {
     this.song = this.allSongs.find(song => song.song_id === to.params.id);
     if (!this.song) this.error = "楽曲が見つかりません。";
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }, 20);
     next();
   },
   scrollBehavior(to, from, savedPosition) {
@@ -439,18 +445,20 @@ export default {
 
     &--related {
       display: flex;
+      transition: 0.1s all ease;
       &--jacket {
         width: 82px;
         height: 72px;
         margin-right: 12px;
         border-left: 10px solid silver;
+        transition: 0.1s all ease;
       }
       &--info {
-        color: #ffffff;
+        color: #a0a0a0;
         font-size: 18px;
         text-align: left;
         h5 {
-          margin: 2px 0;
+          margin: 4px 0;
           font-family: "Poppins", "Noto Sans JP", sans-serif;
           font-size: 24px;
           color: #ffffff;
@@ -458,8 +466,12 @@ export default {
         }
       }
       &:hover {
-        background: rgba(255, 255, 255, 0.2);
         text-decoration: underline #ffffff;
+        margin-left: 10px;
+        .music-detail--related--jacket {
+          transform: scale(1.125);
+          margin-right: 20px;
+        }
       }
     }
   }
