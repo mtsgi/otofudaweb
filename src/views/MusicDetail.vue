@@ -161,7 +161,7 @@
         :to="{ name: 'MusicDetail', params: { id: relsong.song_id } }"
       >
         <img
-          :src="relsong.jacket.url"
+          :src="`${relsong.jacket.url}?h=150&w=150`"
           :alt="relsong.name"
           class="music-detail--related--jacket"
           :style="{
@@ -451,7 +451,6 @@ export default {
         height: 72px;
         margin-right: 12px;
         border-left: 10px solid silver;
-        transition: 0.1s all ease;
       }
       &--info {
         color: #a0a0a0;
@@ -466,12 +465,7 @@ export default {
         }
       }
       &:hover {
-        text-decoration: underline #ffffff;
-        margin-left: 10px;
-        .music-detail--related--jacket {
-          transform: scale(1.125);
-          margin-right: 20px;
-        }
+        background: rgba(255, 255, 255, 0.25);
       }
     }
   }

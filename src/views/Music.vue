@@ -91,7 +91,7 @@
       <router-link :to="{ name: 'MusicDetail', params: { id: song.song_id } }">
         <div class="otofuda-song--info">
           <img
-            :src="song.jacket.url"
+            :src="`${song.jacket.url}?h=150&w=150`"
             :alt="song.name"
             class="otofuda-song--jacket"
             :style="{
@@ -349,33 +349,9 @@ export default {
     min-height: 116px;
     background: rgba(43, 134, 197, 0);
     position: relative;
-    transition: all 0.5s ease;
-    &:before {
-      transition: all 0.25s ease;
-      content: "";
-      z-index: 0;
-      background: linear-gradient(
-        90deg,
-        rgba(255, 60, 172, 1) 0%,
-        rgba(255, 60, 172, 0) 100%
-      );
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 100%;
-    }
     &:hover {
       text-decoration: none;
-      background: rgba(43, 134, 197, 1);
-      &:before {
-        background: linear-gradient(
-          90deg,
-          rgba(255, 60, 172, 1) 0%,
-          rgba(255, 60, 172, 0) 100%
-        );
-        width: 100%;
-      }
+      background: #909090;
       &:after {
         content: "楽曲詳細へ";
         position: absolute;
@@ -407,7 +383,6 @@ export default {
       z-index: 2;
     }
     h3 {
-      transition: all 0.25s ease;
       font-family: inherit;
       font-size: 28px;
       margin: 0;
@@ -415,7 +390,6 @@ export default {
       font-weight: bold;
     }
     .otofuda-song--detail {
-      transition: all 0.25s ease;
       color: #909090;
       margin-top: 2px;
       padding-top: 2px;
