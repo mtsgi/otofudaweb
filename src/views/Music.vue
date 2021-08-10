@@ -91,7 +91,7 @@
       <router-link :to="{ name: 'MusicDetail', params: { id: song.song_id } }">
         <div class="otofuda-song--info">
           <img
-            :src="`${song.jacket.url}?h=150&w=150`"
+            :src="`${song.jacket.url}?h=320&w=320`"
             :alt="song.name"
             class="otofuda-song--jacket"
             :style="{

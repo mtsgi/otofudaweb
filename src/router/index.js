@@ -23,7 +23,9 @@ const routes = [
     path: "/music",
     name: "Music",
     meta: {
-      title: "収録楽曲リスト"
+      title: "収録楽曲リスト",
+      desc:
+        "音札の収録楽曲一覧はこちら！アーティスト情報や譜面情報による並び替えもできます"
     },
     component: () =>
       import(/* webpackChunkName: "music" */ "../views/Music.vue")
@@ -41,7 +43,9 @@ const routes = [
     path: "/story",
     name: "Story",
     meta: {
-      title: "オリジナルストーリー"
+      title: "オリジナルストーリー",
+      desc:
+        "「音札」オリジナルストーリー「メインチャプター」「コラボチャプター」と4コマ「おとふだびより♪」を公開中！"
     },
     component: () =>
       import(/* webpackChunkName: "story" */ "../views/Story.vue")
@@ -51,7 +55,8 @@ const routes = [
     name: "Character",
     alias: "/char",
     meta: {
-      title: "キャラクター紹介"
+      title: "キャラクター紹介",
+      desc: "音札のオリジナルキャラクターのプロフィールをご紹介"
     },
     component: () =>
       import(/* webpackChunkName: "character" */ "../views/Character.vue")
@@ -60,7 +65,9 @@ const routes = [
     path: "/fuda",
     name: "Fuda",
     meta: {
-      title: "札紹介"
+      title: "札紹介",
+      desc:
+        "「音札」では、12の「月」の中から5つの「月」を選んで自分の山札とします。それぞれの月には特徴的な効果を持つ札があります。 "
     },
     component: () =>
       import(/* webpackChunkName: "character" */ "../views/Fuda.vue")
@@ -83,10 +90,16 @@ const router = new VueRouter({
 });
 
 router.afterEach(to => {
-  if (to.meta)
-    document.title = to.meta.title
-      ? `${to.meta.title} | 音札 おとふだ`
-      : "音札 -おとふだ-";
+  if (to.meta) {
+    if (to.meta.title)
+      document.title = to.meta.title
+        ? `${to.meta.title} | 音札 おとふだ`
+        : "音札 -おとふだ-";
+    if (to.meta.desc)
+      document
+        .querySelector("meta[name='description']")
+        .setAttribute("content", to.meta.desc);
+  }
 });
 
 export default router;
