@@ -9,7 +9,7 @@
         「音札」収録楽曲情報
       </p>
       <img
-        :src="song.jacket.url"
+        :src="`${song.jacket.url}?h=1080&w=1080`"
         :alt="song.name"
         class="music-detail--jacket"
         :style="{
@@ -446,6 +446,7 @@ export default {
     &--related {
       display: flex;
       transition: 0.1s all ease;
+      color: transparent;
       &--jacket {
         width: 82px;
         height: 72px;

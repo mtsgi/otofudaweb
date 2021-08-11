@@ -48,35 +48,12 @@
       </router-link>
     </div>
 
-    <div class="uk-text-center">
-      <h3 class="uk-heading-line uk-text-center otofuda-special--title">
-        <span>おうちで「エア音札」が楽しめるpdfファイルを配布中！</span>
-      </h3>
-      <p>
-        <img data-src="https://i.imgur.com/xwG7LVl.png" alt="エア音札" uk-img />
-      </p>
-      <div class="uk-button-group">
-        <a
-          href="./air_otofuda.pdf"
-          class="uk-button uk-button-secondary"
-          target="_blank"
-          rel="noopener noreferer"
-          >開く</a
-        >
-        <a
-          download="air_otofuda.pdf"
-          href="./air_otofuda.pdf"
-          class="uk-button uk-button-primary"
-          >ダウンロードする</a
-        >
-      </div>
-      <p></p>
-      <p>A4サイズの用紙に余白を少なめにして印刷するとほぼ実物大になります！</p>
-    </div>
-
     <h1>トピックス</h1>
 
-    <div class="uk-position-relative" uk-slideshow="animation: fade">
+    <div
+      class="uk-position-relative"
+      uk-slideshow="animation: push;autoplay: true;index: 0"
+    >
       <ul class="uk-slideshow-items">
         <li v-for="topic in topics" :key="topic.id">
           <img
@@ -115,6 +92,8 @@
         </ul>
       </div>
     </div>
+
+    <News />
 
     <p class="uk-text-center">このページを共有する</p>
     <div class="uk-margin otofuda-share">
@@ -230,13 +209,15 @@
 
 <script>
 import axios from "axios";
+import News from "@/components/News";
 import { Timeline } from "vue-tweet-embed";
 import { ShareNetwork } from "vue-social-sharing";
 
 export default {
   components: {
     Timeline,
-    ShareNetwork
+    ShareNetwork,
+    News
   },
   name: "Home",
   data() {
