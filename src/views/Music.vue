@@ -309,8 +309,6 @@ export default {
   background: #f0f0f0;
   color: #303030;
   margin-bottom: 32px;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.75);
-  overflow: hidden;
   // &::before {
   //   transition: 0.6s;
   //   content: "";
@@ -351,7 +349,6 @@ export default {
     position: relative;
     &:hover {
       text-decoration: none;
-      background: #909090;
       &:after {
         content: "楽曲詳細へ";
         position: absolute;
@@ -362,25 +359,27 @@ export default {
         padding: 6px;
         border-radius: 4px;
       }
-      h3 {
-        color: #ffffff;
-      }
+      h3,
       .otofuda-song--detail {
-        color: #ffffff;
+        text-decoration: underline;
+      }
+      .otofuda-song--jacket {
+        opacity: 0.75;
       }
     }
     & > div {
       flex-grow: 1;
       margin-right: 12px;
-      z-index: 2;
+      z-index: 1;
+      overflow: hidden;
     }
     .otofuda-song--jacket {
       height: 120px;
       width: 120px;
       margin: 10px 10px -20px 10px;
       border: 4px solid #f0f0f0;
-      border-radius: 4px;
-      z-index: 2;
+      border-radius: 8px;
+      z-index: 1;
     }
     h3 {
       font-family: inherit;
@@ -547,9 +546,6 @@ export default {
       align-items: center;
       &:hover:after {
         display: none;
-      }
-      &:hover .otofuda-song--badge {
-        color: #ffffff;
       }
       > div {
         text-align: center;

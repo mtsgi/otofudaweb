@@ -446,6 +446,7 @@ export default {
     &--related {
       display: flex;
       transition: 0.1s all ease;
+      color: transparent;
       &--jacket {
         width: 82px;
         height: 72px;
