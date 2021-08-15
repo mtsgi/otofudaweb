@@ -9,6 +9,17 @@
     >
       <h3 v-text="article.title"></h3>
       <div v-html="article.content"></div>
+      <div v-if="article.popup" class="news--modal uk-flex-top" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+          <button
+            class="uk-modal-close-default"
+            type="button"
+            uk-close
+          ></button>
+          <h2 class="uk-modal-title" v-text="article.title"></h2>
+          <div v-html="article.content"></div>
+        </div>
+      </div>
     </div>
     <!-- 切り替えボタン -->
     <a
@@ -23,6 +34,8 @@
 
 <script>
 import axios from "axios";
+import UIkit from "uikit";
+
 export default {
   name: "News",
   data() {
@@ -43,6 +56,11 @@ export default {
       .then(response => {
         this.news = [...response.data.contents];
         this.limit = this.news[0].limit || 2;
+        // ポップアップを開く(最大1つまで)
+        setTimeout(() => {
+          const modalElem = document.querySelector(".news--modal");
+          if (modalElem) UIkit.modal(modalElem).show();
+        }, 500);
       });
   }
 };
@@ -54,6 +72,13 @@ export default {
   &--item {
     h3 {
       color: #ffffff;
+      font-weight: bold;
+    }
+  }
+  &--modal {
+    line-height: 2;
+    .uk-modal-title {
+      font-size: 24px;
       font-weight: bold;
     }
   }
