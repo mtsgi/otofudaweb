@@ -1,5 +1,9 @@
 # otofudaweb
 
+Otofuda Project official website
+
+https://www.ne.senshu-u.ac.jp/~proj2019-13/ 
+
 ## Project setup
 ```
 yarn install

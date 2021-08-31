@@ -50,13 +50,23 @@
 
     <h1>トピックス</h1>
 
-    <div
-      class="uk-position-relative"
-      uk-slideshow="animation: push;autoplay: true;index: 0"
-    >
+    <div class="uk-position-relative" uk-slideshow="animation: push;index: 0">
       <ul class="uk-slideshow-items">
         <li v-for="topic in topics" :key="topic.id">
+          <a
+            v-if="topic.link"
+            :href="topic.link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              :src="`${topic.image}?format=jpg&name=large`"
+              :alt="topic.alt"
+              uk-cover
+            />
+          </a>
           <img
+            v-else
             :src="`${topic.image}?format=jpg&name=large`"
             :alt="topic.alt"
             uk-cover
