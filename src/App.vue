@@ -173,10 +173,7 @@
           href="https://otofuda.booth.pm/"
           target="_blank"
           rel="noopener noreferrer"
-          >オリジナルグッズ販売<span
-            class="uk-float-right"
-            uk-icon="link"
-          ></span
+          >BOOTH<span class="uk-float-right" uk-icon="link"></span
         ></a>
         <a
           class="otofuda-navbar--link"
@@ -238,7 +235,7 @@
             >
               <div class="otofuda-navbar-mobile--label">BOOTH</div>
               <div class="otofuda-navbar-mobile--description">
-                オリジナルグッズを販売中です
+                「音札」オリジナルグッズ
               </div>
             </a>
           </li>
