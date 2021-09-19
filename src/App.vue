@@ -368,6 +368,7 @@ export default {
     z-index: 2;
     img {
       height: 80px;
+      object-fit: contain;
     }
     .otofuda-nav-mobile--links {
       margin-right: 12px;
