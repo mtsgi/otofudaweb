@@ -296,10 +296,13 @@ export default {
 
     &--jacket {
       width: 400px;
-      max-height: 400px;
+      height: 400px;
+      max-height: calc(100vw - 24px);
+      object-fit: contain;
       margin: 10px 0;
       border: 8px solid #f0f0f0;
       border-radius: 16px;
+      box-sizing: border-box;
       box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
       margin-bottom: 24px;
     }
