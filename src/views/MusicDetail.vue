@@ -333,7 +333,7 @@ export default {
       background: #1461dc;
       font-size: 18px;
       color: #ffffff;
-      border-radius: 6px;
+      border-radius: 8px;
       margin-bottom: 20px;
       &.-tweet {
         background: #1da1f2;
@@ -368,7 +368,7 @@ export default {
     &--coming {
       background: #505050;
       padding: 12px;
-      border-radius: 6px;
+      border-radius: 8px;
       margin-bottom: 16px;
       p {
         margin: 0;
@@ -377,15 +377,12 @@ export default {
     }
 
     &--table {
-      display: flex;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      column-gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 
     &--level {
-      width: 31%;
-      min-width: 200px;
       background: gray;
       margin: 20px 1%;
       border-radius: 12px;
@@ -440,7 +437,7 @@ export default {
         background: #dc143c;
         font-size: 18px;
         color: #ffffff;
-        border-radius: 6px;
+        border-radius: 8px;
         margin-top: 8px;
         margin-bottom: 12px;
       }
@@ -469,6 +466,7 @@ export default {
         }
       }
       &:hover {
+        transition: none;
         background: rgba(255, 255, 255, 0.25);
       }
     }
