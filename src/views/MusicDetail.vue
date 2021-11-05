@@ -80,6 +80,14 @@
               <span uk-icon="youtube"></span>
               譜面紹介動画を見る
             </a>
+            <a
+              v-if="song.easy_chart"
+              class="music-detail--level--image"
+              @click="selectedDifficulty = 'easy'"
+            >
+              <span uk-icon="album"></span>
+              譜面画像を見る
+            </a>
           </div>
         </div>
 
@@ -101,6 +109,14 @@
               <span uk-icon="youtube"></span>
               譜面紹介動画を見る
             </a>
+            <a
+              v-if="song.normal_chart"
+              class="music-detail--level--image"
+              @click="selectedDifficulty = 'normal'"
+            >
+              <span uk-icon="album"></span>
+              譜面画像を見る
+            </a>
           </div>
         </div>
 
@@ -121,6 +137,14 @@
             >
               <span uk-icon="youtube"></span>
               譜面紹介動画を見る
+            </a>
+            <a
+              v-if="song.hard_chart"
+              class="music-detail--level--image"
+              @click="selectedDifficulty = 'hard'"
+            >
+              <span uk-icon="album"></span>
+              譜面画像を見る
             </a>
           </div>
         </div>
@@ -188,14 +212,22 @@
     <div v-else>
       <div uk-spinner="ratio: 6"></div>
     </div>
+
+    <ChartImage
+      :song="song"
+      :difficulty="selectedDifficulty"
+      @close-image="closeImage"
+    />
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import ChartImage from "@/components/ChartImage";
 
 export default {
   name: "MusicDetail",
+  components: { ChartImage },
   data() {
     return {
       isLoaded: false,
@@ -203,7 +235,8 @@ export default {
       apiKey: "91c69bf8-3df5-445f-81e7-30b54ab4a7d4",
       apiUrl: "https://otofuda.microcms.io/api/v1/songs",
       allSongs: [],
-      song: null
+      song: null,
+      selectedDifficulty: null
     };
   },
   mounted() {
@@ -269,6 +302,12 @@ export default {
         this.$route.fullPath,
         "&related=otofuda&hashtags=音札"
       ].join("");
+    }
+  },
+  methods: {
+    // 譜面画像モーダルを閉じる
+    closeImage() {
+      this.selectedDifficulty = null;
     }
   },
   watch: {
@@ -387,6 +426,8 @@ export default {
       margin: 20px 1%;
       border-radius: 12px;
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
 
       &.-easy {
         background: #25ca25;
@@ -414,8 +455,9 @@ export default {
 
       &--info {
         background: rgba(0, 0, 0, 0.5);
-        padding: 0 12px;
+        padding: 0 12px 16px;
         border-radius: 0 0 12px 12px;
+        flex-grow: 1;
         h4 {
           margin: 0;
           color: #ffffff;
@@ -438,8 +480,17 @@ export default {
         font-size: 18px;
         color: #ffffff;
         border-radius: 8px;
-        margin-top: 8px;
-        margin-bottom: 12px;
+        margin: 8px;
+      }
+
+      &--image {
+        display: inline-block;
+        padding: 8px;
+        background: #17b659;
+        font-size: 18px;
+        color: #ffffff;
+        border-radius: 8px;
+        margin: 8px;
       }
     }
 

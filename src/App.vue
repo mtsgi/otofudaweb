@@ -249,7 +249,7 @@
     </main>
 
     <footer>
-      © 2020 音札プロジェクト
+      © 2021 音札プロジェクト
     </footer>
   </div>
 </template>
