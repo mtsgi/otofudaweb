@@ -78,8 +78,11 @@ export default {
     },
     scrollToBottom() {
       if (!this.imageUrl) return;
+      const top =
+        this.song[`${this.difficulty}_chart`].height -
+        this.$refs.container.offsetHeight;
       this.$refs.container.scrollTo({
-        top: this.song[`${this.difficulty}_chart`].height,
+        top,
         behavior: "smooth"
       });
     }
