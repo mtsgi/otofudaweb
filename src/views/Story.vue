@@ -63,7 +63,7 @@ export default {
   mounted() {
     axios
       .get(this.apiUrl, {
-        headers: { "X-API-KEY": this.apiKey },
+        headers: { "X-MICROCMS-API-KEY": this.apiKey },
         params: { limit: 1000 }
       })
       .then(response => {

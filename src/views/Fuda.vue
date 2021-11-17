@@ -175,7 +175,7 @@ export default {
     // 効果データを取得
     axios
       .get(this.effectsApiUrl, {
-        headers: { "X-API-KEY": this.apiKey },
+        headers: { "X-MICROCMS-API-KEY": this.apiKey },
         params: { limit: 50 }
       })
       .then(response => {
@@ -187,7 +187,7 @@ export default {
     // 札データを取得
     axios
       .get(this.cardsApiUrl, {
-        headers: { "X-API-KEY": this.apiKey },
+        headers: { "X-MICROCMS-API-KEY": this.apiKey },
         params: { limit: 50 }
       })
       .then(response => {
