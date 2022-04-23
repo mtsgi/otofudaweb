@@ -246,7 +246,7 @@ export default {
         params: { limit: 1000 }
       })
       .then(response => {
-        this.allSongs = [...response.data.contents];
+        this.allSongs = [...response.data.contents].filter(song => song.for_ac);
         this.song = this.allSongs.find(
           song => song.song_id === this.$route.params.id
         );
