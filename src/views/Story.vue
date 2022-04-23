@@ -81,7 +81,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/deep/ #unity-container {
+::v-deep #unity-container {
   position: absolute;
   top: 0;
   left: 0;
@@ -89,7 +89,7 @@ export default {
   right: 0;
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.5);
 }
-/deep/ .webgl-content {
+::v-deep .webgl-content {
   position: relative;
   width: 100%;
   &::before {
@@ -98,7 +98,7 @@ export default {
     padding-top: 56.25%;
   }
 }
-/deep/ .footer .fullscreen {
+::v-deep .footer .fullscreen {
   display: none;
 }
 .otofuda-story-tab {

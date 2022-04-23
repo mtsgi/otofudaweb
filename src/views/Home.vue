@@ -293,7 +293,7 @@ export default {
 
 <style lang="scss" scoped>
 .otofuda-cover-container {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   position: absolute;
   left: 0;
@@ -307,7 +307,7 @@ export default {
     height: 100vh;
     z-index: 1;
     position: absolute;
-    width: 100vw;
+    width: 100%;
     opacity: 0.5;
   }
 }

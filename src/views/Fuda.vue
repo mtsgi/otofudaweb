@@ -296,7 +296,6 @@ export default {
     padding: 2px 8px;
     position: relative;
     top: -2px;
-    font-weight: no class= "filter-label" rmal;
   }
   &__effect {
     background: #eeeeee;
