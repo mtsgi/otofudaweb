@@ -398,7 +398,7 @@ export default {
     text-align: right;
   }
 
-  /deep/ h1 {
+  ::v-deep h1 {
     font-family: inherit;
     margin-top: 24px;
     color: #f0f0f0;

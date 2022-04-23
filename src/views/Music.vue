@@ -230,7 +230,7 @@ export default {
         params: { limit: 1000 }
       })
       .then(response => {
-        this.songs = [...response.data.contents];
+        this.songs = [...response.data.contents].filter(song => song.for_ac);
         this.songs.reverse();
         this.sortedSongs = [...this.songs];
         this.loaded = true;
