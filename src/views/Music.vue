@@ -182,13 +182,19 @@
       <div v-else class="otofuda-song--chart -simplified">
         <div class="otofuda-song--chart--difficulty">
           <div v-if="!song.coming">
-            <span>{{ song.easy }}</span>
+            <span :class="song.easy === -1 ? '-disabled' : null">
+              {{ song.easy === -1 ? "" : song.easy }}
+            </span>
           </div>
           <div v-if="!song.coming">
-            <span>{{ song.normal }}</span>
+            <span :class="song.normal === -1 ? '-disabled' : null">
+              {{ song.normal === -1 ? "" : song.normal }}
+            </span>
           </div>
           <div v-if="!song.coming">
-            <span>{{ song.hard }}</span>
+            <span :class="song.hard === -1 ? '-disabled' : null">
+              {{ song.hard === -1 ? "" : song.hard }}
+            </span>
           </div>
           <div v-if="song.coming">
             <span class="-coming">Coming soon...</span>
@@ -439,7 +445,8 @@ export default {
       > div {
         padding: 4px 12px;
         display: flex;
-        align-items: center;
+        align-items: stretch;
+        min-height: 40px;
         > span {
           display: inline-block;
           padding: 4px;
@@ -453,6 +460,10 @@ export default {
           font-size: 22px;
           font-weight: 700;
           flex-shrink: 0;
+
+          &.-disabled {
+            opacity: 0.3;
+          }
         }
         &:first-child > span {
           background: #25ca25;
@@ -501,6 +512,7 @@ export default {
         display: flex;
         padding-top: 14px;
         margin-bottom: 0;
+        align-items: center;
         > div {
           padding: 0 0 0 12px;
           > span {
