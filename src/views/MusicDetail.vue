@@ -62,10 +62,13 @@
       </div>
 
       <div v-else class="music-detail--table">
-        <div class="music-detail--level -easy">
+        <div
+          class="music-detail--level -easy"
+          :class="song.easy === -1 ? '-disabled' : null"
+        >
           <h5>LEVEL</h5>
-          <strong>{{ song.easy }}</strong>
-          <div class="music-detail--level--info">
+          <strong>{{ song.easy === -1 ? "-" : song.easy }}</strong>
+          <div class="music-detail--level--info" v-show="song.easy !== -1">
             <h4>Notes Count</h4>
             <p>{{ song.easy_notes }}</p>
             <h4>Notes Designer</h4>
@@ -91,10 +94,13 @@
           </div>
         </div>
 
-        <div class="music-detail--level -normal">
+        <div
+          class="music-detail--level -normal"
+          :class="song.normal === -1 ? '-disabled' : null"
+        >
           <h5>LEVEL</h5>
-          <strong>{{ song.normal }}</strong>
-          <div class="music-detail--level--info">
+          <strong>{{ song.normal === -1 ? "-" : song.normal }}</strong>
+          <div class="music-detail--level--info" v-show="song.normal !== -1">
             <h4>Notes Count</h4>
             <p>{{ song.normal_notes }}</p>
             <h4>Notes Designer</h4>
@@ -120,10 +126,13 @@
           </div>
         </div>
 
-        <div class="music-detail--level -hard">
+        <div
+          class="music-detail--level -hard"
+          :class="song.hard === -1 ? '-disabled' : null"
+        >
           <h5>LEVEL</h5>
-          <strong>{{ song.hard }}</strong>
-          <div class="music-detail--level--info">
+          <strong>{{ song.hard === -1 ? "-" : song.hard }}</strong>
+          <div class="music-detail--level--info" v-show="song.hard !== -1">
             <h4>Notes Count</h4>
             <p>{{ song.hard_notes }}</p>
             <h4>Notes Designer</h4>
@@ -437,6 +446,9 @@ export default {
       }
       &.-hard {
         background: #ff0984;
+      }
+      &.-disabled {
+        opacity: 0.3;
       }
 
       > h5 {
