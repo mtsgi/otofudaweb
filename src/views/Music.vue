@@ -117,10 +117,15 @@
       <div v-if="displayType === 2" class="otofuda-song--chart">
         <div class="otofuda-song--chart--difficulty">
           <div v-if="!song.coming">
-            <span>{{ song.easy }}</span>
+            <span :class="song.easy === -1 ? '-disabled' : null">
+              {{ song.easy === -1 ? "" : song.easy }}
+            </span>
             <div>
-              <p>{{ song.easy_notes }} Notes</p>
-              <p><span>NOTES DESIGNER</span> {{ song.easy_nd }}</p>
+              <p>{{ song.easy === -1 ? "-" : song.easy_notes }} Notes</p>
+              <p>
+                <span>NOTES DESIGNER</span>
+                {{ song.easy === -1 ? "-" : song.easy_nd }}
+              </p>
             </div>
             <a
               v-if="song.easy_video"
@@ -131,10 +136,15 @@
             ></a>
           </div>
           <div v-if="!song.coming">
-            <span>{{ song.normal }}</span>
+            <span :class="song.normal === -1 ? '-disabled' : null">
+              {{ song.normal === -1 ? "" : song.normal }}
+            </span>
             <div>
-              <p>{{ song.normal_notes }} Notes</p>
-              <p><span>NOTES DESIGNER</span> {{ song.normal_nd }}</p>
+              <p>{{ song.normal === -1 ? "-" : song.normal_notes }} Notes</p>
+              <p>
+                <span>NOTES DESIGNER</span>
+                {{ song.normal === -1 ? "-" : song.normal_nd }}
+              </p>
             </div>
             <a
               v-if="song.normal_video"
@@ -145,10 +155,15 @@
             ></a>
           </div>
           <div v-if="!song.coming">
-            <span>{{ song.hard }}</span>
+            <span :class="song.hard === -1 ? '-disabled' : null">
+              {{ song.hard === -1 ? "" : song.hard }}
+            </span>
             <div>
-              <p>{{ song.hard_notes }} Notes</p>
-              <p><span>NOTES DESIGNER</span> {{ song.hard_nd }}</p>
+              <p>{{ song.hard === -1 ? "-" : song.hard_notes }} Notes</p>
+              <p>
+                <span>NOTES DESIGNER</span>
+                {{ song.hard === -1 ? "-" : song.hard_nd }}
+              </p>
             </div>
             <a
               v-if="song.hard_video"
