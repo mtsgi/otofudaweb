@@ -71,7 +71,7 @@
     <div class="uk-margin">
       <a
         class="uk-button uk-button-secondary"
-        href="https://j.mp/otfdnet"
+        href="https://net.otofuda.com/"
         ref="noreferer noopener"
         >プレイヤー向けWebサービス 「おとふだNET」はこちら</a
       >
