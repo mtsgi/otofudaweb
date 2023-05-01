@@ -252,10 +252,13 @@ export default {
     axios
       .get(this.apiUrl, {
         headers: { "X-MICROCMS-API-KEY": this.apiKey },
-        params: { limit: 1000 }
+        params: {
+          limit: 1000,
+          filters: "for_ac[equals]true"
+        }
       })
       .then(response => {
-        this.allSongs = [...response.data.contents].filter(song => song.for_ac);
+        this.allSongs = [...response.data.contents];
         this.song = this.allSongs.find(
           song => song.song_id === this.$route.params.id
         );

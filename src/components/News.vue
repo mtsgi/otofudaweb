@@ -51,7 +51,10 @@ export default {
     axios
       .get(this.apiUrl, {
         headers: { "X-MICROCMS-API-KEY": this.apiKey },
-        params: { limit: 1000 }
+        params: {
+          limit: 1000,
+          filters: "for_web[equals]true"
+        }
       })
       .then(response => {
         this.news = [...response.data.contents];

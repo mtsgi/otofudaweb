@@ -248,10 +248,13 @@ export default {
     axios
       .get(this.apiUrl, {
         headers: { "X-MICROCMS-API-KEY": this.apiKey },
-        params: { limit: 1000 }
+        params: {
+          limit: 1000,
+          filters: "for_ac[equals]true"
+        }
       })
       .then(response => {
-        this.songs = [...response.data.contents].filter(song => song.for_ac);
+        this.songs = [...response.data.contents];
         this.songs.reverse();
         this.sortedSongs = [...this.songs];
         this.loaded = true;
