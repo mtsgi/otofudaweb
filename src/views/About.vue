@@ -14,10 +14,19 @@
     <div class="uk-margin" uk-lightbox>
       <a
         class="uk-button uk-button-secondary uk-button-large"
-        href="./images/about/handout.png"
+        href="./images/about/howto.png"
       >
         <span uk-icon="file-text"></span>
-        遊び方説明を見る(イベント出展時配布資料)
+        遊び方説明(ゲーム進行編)を見る
+      </a>
+    </div>
+    <div class="uk-margin" uk-lightbox>
+      <a
+        class="uk-button uk-button-secondary uk-button-large"
+        href="./images/about/notes.png"
+      >
+        <span uk-icon="file-text"></span>
+        ノーツ種類の説明を見る
       </a>
     </div>
     <div class="uk-margin" uk-lightbox>
