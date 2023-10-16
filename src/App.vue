@@ -322,6 +322,7 @@ export default {
         text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
         cursor: pointer;
         font-size: 24px;
+        display: block;
         .otofuda-navbar--description {
           font-size: 16px;
         }
@@ -347,6 +348,9 @@ export default {
     box-shadow: 0 0 32px 0 rgba(72, 200, 240, 0.5);
     li {
       margin-bottom: 8px;
+      a {
+        display: block;
+      }
       &.uk-acive {
         border-right: 2px solid #ffffff;
       }
