@@ -1,12 +1,12 @@
 <template>
   <div class="Story">
     <ul class="otofuda-story-tab" uk-tab>
-      <li><a>ストーリー本編</a></li>
+      <!-- <li><a>ストーリー本編</a></li> -->
       <li><a>4コマ「おとふだびより♪」</a></li>
     </ul>
 
     <div class="uk-switcher uk-margin">
-      <section>
+      <!-- <section>
         <unity
           src="./story_teller/Build/Build.json"
           unityLoader="story_teller/Build/UnityLoader.js"
@@ -14,7 +14,7 @@
         <p class="uk-text-center">
           操作説明 ... クリックでストーリー選択・会話進行
         </p>
-      </section>
+      </section> -->
       <section>
         <div>
           Twitterで公開している4コマ漫画「おとふだびより♪」のアーカイブを閲覧できます。
@@ -54,12 +54,12 @@
 </template>
 
 <script>
-import Unity from "vue-unity-webgl";
+// import Unity from "vue-unity-webgl";
 import axios from "axios";
 
 export default {
   name: "Story",
-  components: { Unity },
+  // components: { Unity },
   mounted() {
     axios
       .get(this.apiUrl, {
