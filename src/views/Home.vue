@@ -134,7 +134,7 @@
         theme: 'dark',
         chrome: 'noheader nofooter transparent',
         tweetLimit: '10',
-        height: 200,
+        height: 400,
         dnt: true
       }"
     />

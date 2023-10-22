@@ -310,7 +310,7 @@ export default {
         encodeURI(document.title),
         "%20",
         location.origin,
-        "/~proj2019-13",
+        "/",
         this.$route.fullPath,
         "&related=otofuda&hashtags=音札"
       ].join("");
