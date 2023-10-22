@@ -41,7 +41,7 @@
               :href="c.image.url"
               :data-caption="c.title"
             >
-              <img :src="c.image.url" alt="c.title" />
+              <img :src="c.image.url" :alt="c.title" />
               <div class="otofuda-biyori--title">
                 {{ c.title }}
               </div>
@@ -148,6 +148,7 @@ export default {
   }
   img {
     object-fit: cover;
+    object-position: top center;
     width: 100%;
     height: 200px;
     border-radius: 4px 4px 0 0;

@@ -236,7 +236,7 @@ export default {
       apiKey: "91c69bf8-3df5-445f-81e7-30b54ab4a7d4",
       apiUrl: "https://otofuda.microcms.io/api/v1/topics",
       sharing: {
-        url: "https://j.mp/otofuda",
+        url: "https://arcade.otofuda.com/",
         title:
           "音札 (おとふだ)「花札 × 対戦 × 音楽」これまでにない新感覚対戦型音楽カードゲーム",
         description:
