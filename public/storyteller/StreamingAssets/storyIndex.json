@@ -1,0 +1,192 @@
+{
+  "scenarioTypes": [
+    {
+      "ScenarioTypeName": "Main",
+      "scenarioViewTable": [
+        {
+          "chapterSelectInfo": {
+            "path": "Main/Chapter_01",
+            "mainText": "メインチャプター",
+            "subText": "Chapter_01",
+            "thumbnailCharacters": [
+              "華音",
+              "門音",
+              "空音"
+            ],
+            "thumbNailUrlInfo": ""
+          },
+          "episodeSelectInfos": [
+            {
+              "path": "Main/Chapter_01/Episode_1-01.grimm",
+              "mainText": "第1章",
+              "subText": "Episode_1-01",
+              "thumbnailCharacters": [
+                "華音",
+                "門音",
+                "空音"
+              ],
+              "thumbNailUrlInfo": ""
+            },
+            {
+              "path": "Main/Chapter_01/Episode_1-02.grimm",
+              "mainText": "第2章",
+              "subText": "Episode_1-02",
+              "thumbnailCharacters": [
+                "華音",
+                "門音",
+                "空音"
+              ],
+              "thumbNailUrlInfo": ""
+            },
+            {
+              "path": "Main/Chapter_01/Episode_1-03.grimm",
+              "mainText": "第3章",
+              "subText": "Episode_1-03",
+              "thumbnailCharacters": [
+                "華音",
+                "空音",
+                "おばけ"
+              ],
+              "thumbNailUrlInfo": ""
+            },
+            {
+              "path": "Main/Chapter_01/Episode_1-04.grimm",
+              "mainText": "第4章",
+              "subText": "Episode_1-04",
+              "thumbnailCharacters": [
+                "華音",
+                "空音",
+                "大音"
+              ],
+              "thumbNailUrlInfo": ""
+            },
+            {
+              "path": "Main/Chapter_01/Episode_1-05.grimm",
+              "mainText": "第5章",
+              "subText": "Episode_1-05",
+              "thumbnailCharacters": [
+                "華音",
+                "空音",
+                "大音"
+              ],
+              "thumbNailUrlInfo": ""
+            },
+            {
+              "path": "Main/Chapter_01/Episode_1-06.grimm",
+              "mainText": "終章",
+              "subText": "Episode_1-06",
+              "thumbnailCharacters": [
+                "大音",
+                "華音",
+                "空音",
+                "門音"
+              ],
+              "thumbNailUrlInfo": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$comment": "親愛度ストーリー",
+      "ScenarioTypeName": "Chara",
+      "scenarioViewTable": []
+    },
+    {
+      "$comment": "サイドストーリー",
+      "scenarioTypeName": "Sub",
+      "scenarioViewTable": [
+        {
+          "$comment": "Pathには StreamingAssets/Stories 以下の相対パス",
+          "chapterSelectInfo": {
+            "path": "Sub/Amanoha",
+            "mainText": "コラボチャプター",
+            "subText": "天ノ葉神社日本支部",
+            "thumbnailCharacters": [
+              "つむぎ",
+              "武者丸"
+            ],
+            "thumbNailUrlInfo": ""
+          },
+          "episodeSelectInfos": [
+            {
+              "path": "Sub/Amanoha/Episode_1.grimm",
+              "mainText": "第1話",
+              "subText": "Episode_1",
+              "thumbnailCharacters": [
+                "つむぎ",
+                "武者丸"
+              ],
+              "thumbNailUrlInfo": ""
+            },
+            {
+              "path": "Sub/Amanoha/Episode_2.grimm",
+              "mainText": "第2話",
+              "subText": "Episode_2",
+              "thumbnailCharacters": [
+                "つむぎ",
+                "門音",
+                "大音"
+              ],
+              "thumbNailUrlInfo": ""
+            },
+            {
+              "path": "Sub/Amanoha/Episode_3.grimm",
+              "mainText": "第3話",
+              "subText": "Episode_3",
+              "thumbnailCharacters": [
+                "華音",
+                "空音",
+                "武者丸"
+              ],
+              "thumbNailUrlInfo": ""
+            },
+            {
+              "path": "Sub/Amanoha/Episode_4.grimm",
+              "mainText": "第4話",
+              "subText": "Episode_4",
+              "thumbnailCharacters": [
+                "大音",
+                "武者丸",
+                "つむぎ"
+              ],
+              "thumbNailUrlInfo": ""
+            },
+            {
+              "path": "Sub/Amanoha/Episode_5.grimm",
+              "mainText": "第5話",
+              "subText": "Episode_5",
+              "thumbnailCharacters": [
+                "華音",
+                "大音",
+                "武者丸"
+              ],
+              "thumbNailUrlInfo": ""
+            },
+            {
+              "path": "Sub/Amanoha/Episode_6.grimm",
+              "mainText": "第6話",
+              "subText": "Episode_6",
+              "thumbnailCharacters": [
+                "華音",
+                "つむぎ",
+                "武者丸"
+              ],
+              "thumbNailUrlInfo": ""
+            },
+            {
+              "path": "Sub/Amanoha/Episode_7.grimm",
+              "mainText": "エピローグ",
+              "subText": "Epilogue",
+              "thumbnailCharacters": [
+                "つむぎ",
+                "武者丸"
+              ],
+              "thumbNailUrlInfo": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
