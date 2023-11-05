@@ -1,20 +1,20 @@
 <template>
   <div class="Story">
     <ul class="otofuda-story-tab" uk-tab>
-      <!-- <li><a>ストーリー本編</a></li> -->
+      <li><a>ストーリー本編</a></li>
       <li><a>4コマ「おとふだびより♪」</a></li>
     </ul>
 
     <div class="uk-switcher uk-margin">
-      <!-- <section>
+      <section>
         <unity
-          src="./story_teller/Build/Build.json"
-          unityLoader="story_teller/Build/UnityLoader.js"
+          src="./storyteller/Build/Build.json"
+          unityLoader="./storyteller/Build/UnityLoader.js"
         ></unity>
         <p class="uk-text-center">
           操作説明 ... クリックでストーリー選択・会話進行
         </p>
-      </section> -->
+      </section>
       <section>
         <div>
           Twitterで公開している4コマ漫画「おとふだびより♪」のアーカイブを閲覧できます。
@@ -41,7 +41,7 @@
               :href="c.image.url"
               :data-caption="c.title"
             >
-              <img :src="c.image.url" alt="c.title" />
+              <img :src="c.image.url" :alt="c.title" />
               <div class="otofuda-biyori--title">
                 {{ c.title }}
               </div>
@@ -54,12 +54,12 @@
 </template>
 
 <script>
-// import Unity from "vue-unity-webgl";
+import Unity from "vue-unity-webgl";
 import axios from "axios";
 
 export default {
   name: "Story",
-  // components: { Unity },
+  components: { Unity },
   mounted() {
     axios
       .get(this.apiUrl, {
@@ -148,6 +148,7 @@ export default {
   }
   img {
     object-fit: cover;
+    object-position: top center;
     width: 100%;
     height: 200px;
     border-radius: 4px 4px 0 0;

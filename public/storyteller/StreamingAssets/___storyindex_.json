@@ -1,0 +1,82 @@
+{
+  "scenarioTypes": [
+    {
+      "ScenarioTypeName": "Main",
+      "scenarioViewTable": [
+        {
+          "chapterSelectInfo": {
+            "path": "Main/Chapter_01",
+            "mainText": "メインチャプター",
+            "subText": "Chapter_01",
+            "thumbnailCharacters": [
+              "華音",
+              "門音",
+              "空音"
+            ],
+            "thumbNailUrlInfo": ""
+          },
+          "episodeSelectInfos": [
+            {
+              "path": "Main/Chapter_01/Episode_1-01.grimm",
+              "mainText": "第1章",
+              "subText": "Episode_1-01",
+              "thumbnailCharacters": [
+                "華音",
+                "門音",
+                "空音"
+              ],
+              "thumbNailUrlInfo": ""
+            },
+            {
+              "path": "Main/Chapter_01/Episode_1-02.grimm",
+              "mainText": "第2章",
+              "subText": "Episode_1-02",
+              "thumbnailCharacters": [
+                "華音",
+                "門音",
+                "空音"
+              ],
+              "thumbNailUrlInfo": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$comment": "親愛度ストーリー",
+      "ScenarioTypeName": "Chara",
+      "scenarioViewTable": []
+    },
+    {
+      "$comment": "サイドストーリー",
+      "ScenarioTypeName": "Sub",
+      "scenarioViewTable": [
+        {
+          "$comment": "Pathには StreamingAssets/Stories 以下の相対パス",
+          "chapterSelectInfo": {
+            "path": "Sub/Chapter_01",
+            "mainText": "コラボチャプタ",
+            "subText": "Chapter_01",
+            "thumbnailCharacters": [
+              "つむぎ",
+              "武者丸"
+            ],
+            "thumbNailUrlInfo": ""
+          },
+          "episodeSelectInfos": [
+            {
+              "path": "Sub/SubChapter_01/Episode_1-01.grimm",
+              "mainText": "第1章",
+              "subText": "Episode_1-01",
+              "thumbnailCharacters": [
+                "つむぎ",
+                "武者丸"
+              ],
+              "thumbNailUrlInfo": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
