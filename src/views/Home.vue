@@ -103,6 +103,19 @@
       </div>
     </div>
 
+    <div class="otofuda-banners">
+      <a href="https://otofuda.com/" target="_blank" rel="noopener noreferrer">
+        <img src="@/assets/home/banner_portal.png" alt="音札ポータル" />
+      </a>
+      <a
+        href="https://etude.otofuda.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src="@/assets/home/banner_etude.png" alt="音札Étude 今すぐ遊ぶ" />
+      </a>
+    </div>
+
     <News />
 
     <p class="uk-text-center">このページを共有する</p>
@@ -356,6 +369,23 @@ export default {
     transform: rotate(-4deg);
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
     animation: otofuda-jacket 2s linear infinite;
+  }
+}
+.otofuda-banners {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  a {
+    margin-bottom: 20px;
+    max-width: 90%;
+    img {
+      border-radius: 4px;
+      width: 500px;
+    }
+  }
+  a:hover {
+    opacity: 0.8;
   }
 }
 .otofuda-member {

@@ -73,8 +73,17 @@ export default {
 .news {
   line-height: 2;
   &--item {
-    h3 {
+    > h3 {
+      padding-left: 10px;
+      border-left: 10px solid #ffffff;
+    }
+
+    ::v-deep h2,
+    ::v-deep h3,
+    ::v-deep h4 {
       color: #ffffff;
+      font-family: inherit;
+      font-size: 24px;
       font-weight: bold;
     }
   }
