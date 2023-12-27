@@ -136,7 +136,7 @@
           uk-icon="twitter"
         ></a>
         <a
-          href="https://www.youtube.com/channel/UC9G3cMsWdkGC6QJz1EbczBg"
+          href="https://www.youtube.com/@otofuda"
           class="uk-icon-button  uk-margin-small-right"
           uk-icon="youtube"
         ></a>
@@ -170,6 +170,13 @@
         </li>
         <a
           class="otofuda-navbar--link"
+          href="https://otofuda.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >音札ポータル<span class="uk-float-right" uk-icon="link"></span
+        ></a>
+        <a
+          class="otofuda-navbar--link"
           href="https://otofuda.booth.pm/"
           target="_blank"
           rel="noopener noreferrer"
@@ -177,7 +184,7 @@
         ></a>
         <a
           class="otofuda-navbar--link"
-          href="https://www.youtube.com/channel/UC9G3cMsWdkGC6QJz1EbczBg"
+          href="https://www.youtube.com/@otofuda"
           target="_blank"
           rel="noopener noreferrer"
           >YouTubeチャンネル<span
@@ -229,13 +236,28 @@
           <li>
             <a
               class="otofuda-navbar--link"
+              href="https://otofuda.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="otofuda-navbar-mobile--label">PORTAL</div>
+              <div class="otofuda-navbar-mobile--description">
+                <span uk-icon="link"></span>
+                音札ポータル
+              </div>
+            </a>
+          </li>
+          <li>
+            <a
+              class="otofuda-navbar--link"
               href="https://otofuda.booth.pm/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <div class="otofuda-navbar-mobile--label">BOOTH</div>
               <div class="otofuda-navbar-mobile--description">
-                「音札」オリジナルグッズ
+                <span uk-icon="link"></span>
+                オリジナルグッズ
               </div>
             </a>
           </li>
