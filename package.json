@@ -20,13 +20,13 @@
     "vue-social-sharing": "^3.0.0-beta.10",
     "vue-tweet-embed": "^2.4.0",
     "vue-unity-webgl": "^1.2.0",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^5.1.4"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.3.0",
-    "@vue/cli-plugin-eslint": "^4.3.0",
-    "@vue/cli-plugin-router": "^4.3.0",
-    "@vue/cli-service": "^4.3.0",
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-plugin-eslint": "^5.0.8",
+    "@vue/cli-plugin-router": "^5.0.8",
+    "@vue/cli-service": "^5.0.8",
     "@vue/eslint-config-prettier": "^6.0.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
